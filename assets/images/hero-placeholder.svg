@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1100" role="img" aria-label="Callizto Dark Symphony hero placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#050609"/><stop offset=".55" stop-color="#15101d"/><stop offset="1" stop-color="#020307"/></linearGradient>
+    <radialGradient id="violet" cx=".32" cy=".42" r=".45"><stop stop-color="#9b5cff" stop-opacity=".72"/><stop offset="1" stop-color="#9b5cff" stop-opacity="0"/></radialGradient>
+    <radialGradient id="blue" cx=".72" cy=".34" r=".36"><stop stop-color="#8fe8ff" stop-opacity=".45"/><stop offset="1" stop-color="#8fe8ff" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1800" height="1100" fill="url(#bg)"/>
+  <rect width="1800" height="1100" fill="url(#violet)"/>
+  <rect width="1800" height="1100" fill="url(#blue)"/>
+  <path d="M0 820 C360 690 620 870 930 740 C1210 624 1500 660 1800 520 L1800 1100 L0 1100 Z" fill="#07080d" opacity=".82"/>
+  <g opacity=".44" stroke="#d6ddeb" stroke-width="1">
+    <path d="M520 150 L780 930"/>
+    <path d="M1040 110 L820 950"/>
+    <path d="M1260 220 L980 980"/>
+  </g>
+  <g fill="none" stroke="#8fe8ff" stroke-width="2" opacity=".28">
+    <path d="M600 760 C760 560 980 548 1170 730"/>
+    <path d="M690 805 C815 675 1010 655 1105 785"/>
+  </g>
+  <text x="90" y="960" fill="#d6ddeb" font-family="Georgia, serif" font-size="54" letter-spacing="10">PLACEHOLDER ART</text>
+</svg>

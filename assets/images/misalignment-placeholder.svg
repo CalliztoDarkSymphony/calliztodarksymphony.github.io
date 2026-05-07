@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="The Misalignment placeholder">
+  <rect width="1200" height="750" fill="#050609"/>
+  <g fill="none" stroke="#8fe8ff" opacity=".56">
+    <path d="M230 175 H970 V575 H230 Z"/>
+    <path d="M320 255 H880 V495 H320 Z"/>
+    <path d="M410 335 H790 V415 H410 Z"/>
+  </g>
+  <path d="M220 590 C420 430 575 690 720 505 S930 355 1030 515" fill="none" stroke="#b71f3a" stroke-width="8" opacity=".68"/>
+  <text x="90" y="665" fill="#d6ddeb" font-family="Georgia, serif" font-size="44">THE MISALIGNMENT</text>
+</svg>

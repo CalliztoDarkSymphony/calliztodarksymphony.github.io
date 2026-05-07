@@ -1,0 +1,24 @@
+{
+  "videos": [
+    {
+      "title": "Callizto Dark Symphony video archive",
+      "year": "2026",
+      "status": "Channel",
+      "description": "The official YouTube channel for published and upcoming AI-shaped cinematic music videos.",
+      "url": "https://www.youtube.com/@CalliztoDarkSymphony",
+      "linkLabel": "Open YouTube"
+    },
+    {
+      "title": "The Misalignment",
+      "year": "TBA",
+      "status": "Planned visual chapter",
+      "description": "A planned story entry centered on the machine intelligence trying to remove the human element from the signal."
+    },
+    {
+      "title": "Sisters of the Forge",
+      "year": "TBA",
+      "status": "Planned visual chapter",
+      "description": "A planned visual arc featuring Ada, Nyx, and Astra as recurring figures around craft, shadow, and signal."
+    }
+  ]
+}

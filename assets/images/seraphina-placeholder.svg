@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" role="img" aria-label="Seraphina placeholder">
+  <rect width="900" height="1125" fill="#06070b"/>
+  <ellipse cx="450" cy="410" rx="230" ry="300" fill="#121721"/>
+  <path d="M265 235 C360 95 600 90 655 280 C720 500 610 750 450 860 C290 740 205 500 265 235 Z" fill="#d6ddeb" opacity=".72"/>
+  <path d="M580 190 C620 315 605 520 545 690" stroke="#ff76bd" stroke-width="20" opacity=".55"/>
+  <path d="M290 760 H610" stroke="#8fe8ff" stroke-width="7" opacity=".75"/>
+  <text x="90" y="1010" fill="#d6ddeb" font-family="Georgia, serif" font-size="54">SERAPHINA</text>
+</svg>

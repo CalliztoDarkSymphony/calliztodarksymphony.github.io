@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Video placeholder">
+  <rect width="1200" height="750" fill="#050609"/>
+  <rect x="95" y="95" width="1010" height="560" fill="#11151f" stroke="#d6ddeb" stroke-opacity=".25"/>
+  <path d="M530 300 L530 450 L670 375 Z" fill="#8fe8ff" opacity=".85"/>
+  <path d="M95 170 H1105" stroke="#9b5cff" stroke-width="2" opacity=".42"/>
+  <path d="M95 580 H1105" stroke="#b71f3a" stroke-width="2" opacity=".35"/>
+  <text x="130" y="610" fill="#d6ddeb" font-family="Georgia, serif" font-size="42">VIDEO FRAME</text>
+</svg>

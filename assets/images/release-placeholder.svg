@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Release placeholder">
+  <rect width="1200" height="750" fill="#050609"/>
+  <rect x="250" y="125" width="700" height="500" fill="#10131a" stroke="#d6ddeb" stroke-opacity=".25"/>
+  <circle cx="600" cy="375" r="185" fill="none" stroke="#9b5cff" stroke-width="22" opacity=".68"/>
+  <circle cx="600" cy="375" r="58" fill="#8fe8ff" opacity=".52"/>
+  <text x="320" y="580" fill="#d6ddeb" font-family="Georgia, serif" font-size="44">RELEASE ART</text>
+</svg>

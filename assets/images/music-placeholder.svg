@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Music placeholder">
+  <rect width="1200" height="750" fill="#07080d"/>
+  <circle cx="380" cy="310" r="250" fill="#9b5cff" opacity=".22"/>
+  <circle cx="740" cy="260" r="210" fill="#8fe8ff" opacity=".14"/>
+  <path d="M230 520 H970" stroke="#d6ddeb" stroke-width="2" opacity=".35"/>
+  <path d="M300 455 C410 360 530 620 650 475 S860 380 930 520" fill="none" stroke="#8fe8ff" stroke-width="8" opacity=".75"/>
+  <text x="90" y="665" fill="#d6ddeb" font-family="Georgia, serif" font-size="44">MUSIC IMAGE</text>
+</svg>

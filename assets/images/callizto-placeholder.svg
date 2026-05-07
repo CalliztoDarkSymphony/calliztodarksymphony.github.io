@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" role="img" aria-label="Callizto placeholder">
+  <rect width="900" height="1125" fill="#06070b"/>
+  <ellipse cx="450" cy="410" rx="230" ry="300" fill="#11131a"/>
+  <path d="M280 225 C420 95 640 150 650 390 C658 610 590 760 450 860 C310 760 240 600 250 390 C255 315 260 265 280 225 Z" fill="#0b0b10" stroke="#9b5cff" stroke-opacity=".55"/>
+  <path d="M360 185 C455 120 565 155 610 260" stroke="#9b5cff" stroke-width="18" opacity=".48"/>
+  <circle cx="390" cy="405" r="18" fill="#8fe8ff"/>
+  <circle cx="510" cy="405" r="18" fill="#8fe8ff"/>
+  <text x="90" y="1010" fill="#d6ddeb" font-family="Georgia, serif" font-size="54">CALLIZTO</text>
+</svg>

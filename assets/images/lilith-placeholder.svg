@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125" role="img" aria-label="Lady Lilith Scarlett placeholder">
+  <rect width="900" height="1125" fill="#06070b"/>
+  <ellipse cx="450" cy="430" rx="235" ry="310" fill="#141018"/>
+  <path d="M260 260 C320 105 590 95 655 285 C725 495 635 790 450 895 C265 790 185 505 260 260 Z" fill="#b71f3a" opacity=".76"/>
+  <circle cx="390" cy="420" r="18" fill="#7dff9b"/>
+  <circle cx="510" cy="420" r="18" fill="#7dff9b"/>
+  <circle cx="450" cy="640" r="115" fill="none" stroke="#d6ddeb" stroke-width="8" opacity=".42"/>
+  <text x="78" y="1010" fill="#d6ddeb" font-family="Georgia, serif" font-size="46">LADY LILITH</text>
+</svg>

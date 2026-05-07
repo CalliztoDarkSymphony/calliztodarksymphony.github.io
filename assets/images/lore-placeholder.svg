@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Lore placeholder">
+  <rect width="1200" height="750" fill="#08070a"/>
+  <path d="M600 95 L990 610 H210 Z" fill="#10131a" stroke="#9b5cff" stroke-opacity=".42"/>
+  <circle cx="600" cy="420" r="120" fill="none" stroke="#8fe8ff" stroke-width="5" opacity=".62"/>
+  <path d="M600 245 V595 M425 420 H775" stroke="#d6ddeb" stroke-width="2" opacity=".36"/>
+  <text x="90" y="665" fill="#d6ddeb" font-family="Georgia, serif" font-size="44">LORE IMAGE</text>
+</svg>

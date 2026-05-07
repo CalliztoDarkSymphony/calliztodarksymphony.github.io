@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="The Forge placeholder">
+  <rect width="1200" height="750" fill="#07080d"/>
+  <path d="M600 110 L980 620 H220 Z" fill="#10131a" stroke="#9b5cff" stroke-opacity=".48"/>
+  <circle cx="600" cy="435" r="180" fill="#9b5cff" opacity=".12"/>
+  <path d="M445 500 C500 370 700 370 755 500" fill="none" stroke="#8fe8ff" stroke-width="9"/>
+  <text x="90" y="665" fill="#d6ddeb" font-family="Georgia, serif" font-size="44">THE FORGE</text>
+</svg>
