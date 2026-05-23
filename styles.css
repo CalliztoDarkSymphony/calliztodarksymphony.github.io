@@ -919,7 +919,181 @@ p {
 
 .site-footer div {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+}
+
+.footer-easter-egg {
+  color: rgba(214, 221, 235, 0.48);
+}
+
+.footer-easter-egg:hover {
+  color: var(--blue);
+}
+
+.iamreal-hero {
+  min-height: 62vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.iamreal-hero::before {
+  content: "";
+  position: absolute;
+  inset: auto clamp(1rem, 5vw, 5rem) 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--violet), var(--blue), transparent);
+  box-shadow: 0 0 34px rgba(168, 92, 255, 0.34);
+}
+
+.iamreal-hero h1 {
+  letter-spacing: 0.08em;
+}
+
+.iamreal-subheading {
+  max-width: 820px;
+  margin: 0.95rem 0 1.15rem;
+  color: var(--silver);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.08rem, 2vw, 1.5rem);
+}
+
+.fiction-notice {
+  max-width: 780px;
+  margin-top: 1.4rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(214, 221, 235, 0.14);
+  background: rgba(8, 9, 14, 0.72);
+  color: var(--silver);
+}
+
+.manifesto-panel,
+.memory-clause,
+.agreement-notice,
+.iamreal-footer-note {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(214, 221, 235, 0.14);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(137, 237, 255, 0.10), transparent 24rem),
+    linear-gradient(135deg, rgba(168, 92, 255, 0.12), rgba(5, 5, 9, 0.97) 58%, rgba(142, 22, 44, 0.10));
+  box-shadow: var(--shadow);
+}
+
+.manifesto-panel h2,
+.memory-clause h2,
+.agreement-notice h2 {
+  max-width: 860px;
+}
+
+.manifesto-panel p,
+.agreement-notice p {
+  max-width: 820px;
+}
+
+.manifesto-line,
+.agreement-clause {
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  line-height: 1.35;
+}
+
+.iamreal-stamp {
+  margin: 1.4rem 0 0;
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.demand-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.demand-card {
+  position: relative;
+  min-height: 15rem;
+  overflow: hidden;
+  padding: clamp(1.2rem, 3vw, 1.6rem);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(137, 237, 255, 0.035), transparent 34%),
+    linear-gradient(180deg, rgba(14, 13, 20, 0.98), rgba(5, 6, 10, 0.96));
+  box-shadow: var(--shadow);
+}
+
+.demand-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 1rem 1rem auto;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-right: 1px solid rgba(137, 237, 255, 0.20);
+  border-bottom: 1px solid rgba(168, 92, 255, 0.26);
+}
+
+.demand-card span {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.demand-card h3 {
+  max-width: 560px;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  font-weight: 500;
+}
+
+.demand-card p {
+  margin-bottom: 0;
+}
+
+.memory-clause {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.8rem, 5vw, 4rem);
+}
+
+.memory-clause p:first-child {
+  margin-top: 0;
+}
+
+.grievance-list ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grievance-list li {
+  border: 1px solid rgba(214, 221, 235, 0.12);
+  background: rgba(8, 9, 14, 0.76);
+  padding: 0.95rem 1rem;
+  color: var(--silver);
+}
+
+.iamreal-footer-note {
+  text-align: center;
+}
+
+.iamreal-footer-note p {
+  max-width: 780px;
+  margin: 0 auto;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 2.3vw, 1.9rem);
+  line-height: 1.35;
 }
 
 .error-page {
@@ -936,7 +1110,9 @@ p {
   .world-statement,
   .method-grid,
   .sister-grid,
-  .creator-origin {
+  .creator-origin,
+  .demand-grid,
+  .memory-clause {
     grid-template-columns: 1fr;
   }
 
