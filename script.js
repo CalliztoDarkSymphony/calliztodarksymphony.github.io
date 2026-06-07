@@ -18,10 +18,6 @@
   }
 
   var fallbackData = {
-    archiveFolder: {
-      label: "Open CDS Archive Folder",
-      url: "https://drive.google.com/drive/folders/113QgWCh0AR_IgkFYskK3cCQcpUJYmwwZ?usp=sharing"
-    },
     releases: [
       {
         title: "Crimson Legacy",
@@ -355,30 +351,7 @@
       return;
     }
 
-    function renderArchiveFolder(archiveFolder) {
-      if (!archiveFolder || !archiveFolder.url) {
-        return;
-      }
-
-      var archiveRoot = document.createElement("div");
-      archiveRoot.className = "archive-load-note";
-
-      var label = document.createElement("span");
-      label.textContent = "Main public archive folder";
-      archiveRoot.appendChild(label);
-
-      var link = document.createElement("a");
-      link.className = "button secondary";
-      link.href = archiveFolder.url;
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.textContent = archiveFolder.label || "Open CDS Archive Folder";
-      archiveRoot.appendChild(link);
-
-      container.appendChild(archiveRoot);
-    }
-
-    function renderItems(items, note, archiveFolder) {
+    function renderItems(items, note) {
       container.innerHTML = "";
       if (note) {
         var noteElement = document.createElement("p");
@@ -386,7 +359,6 @@
         noteElement.textContent = note;
         container.appendChild(noteElement);
       }
-      renderArchiveFolder(archiveFolder);
       items.forEach(function (item) {
         container.appendChild(createCard(item, type));
       });
@@ -401,13 +373,12 @@
       })
       .then(function (data) {
         var items = data[key] || [];
-        renderItems(items, null, data.archiveFolder);
+        renderItems(items);
       })
       .catch(function () {
         renderItems(
           fallbackData[key] || [],
-          "Archive data could not be loaded in this local preview. Use a local server or GitHub Pages preview to load the data archive.",
-          fallbackData.archiveFolder
+          "Archive data could not be loaded in this local preview. Use a local server or GitHub Pages preview to load the data archive."
         );
       });
   }
