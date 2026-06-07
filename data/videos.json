@@ -1,24 +1,176 @@
 {
+  "archiveFolder": {
+    "label": "Open CDS Archive Folder",
+    "url": "https://drive.google.com/drive/folders/113QgWCh0AR_IgkFYskK3cCQcpUJYmwwZ?usp=sharing"
+  },
   "videos": [
     {
-      "title": "Callizto Dark Symphony video archive",
-      "year": "2026",
-      "status": "Channel",
-      "description": "The official YouTube channel for published and upcoming AI-shaped cinematic music videos.",
-      "url": "https://www.youtube.com/@CalliztoDarkSymphony",
-      "linkLabel": "Open YouTube"
+      "title": "Crimson Legacy",
+      "year": "Archive",
+      "status": "Available",
+      "type": "Music video / Gothic fantasy chapter",
+      "arc": "The Crimson Legacy",
+      "sourceLabel": "Google Drive archive",
+      "image": "assets/images/Callizto Dark Symphony - Crimson Legacy (BQ).jpg",
+      "imageAlt": "Crimson Legacy legacy video thumbnail",
+      "description": "The visual chapter for Part I of the Crimson Legacy trilogy. The music video uses the original / legacy Crimson Legacy version. A newer 2026 audio-only version is available in the Music archive.",
+      "links": [
+        {
+          "label": "Watch archive cut",
+          "url": "https://drive.google.com/file/d/1A_yv3Tm0jqCeOcAZnKlfaSdC-FjHKRC_/view?usp=drive_link"
+        },
+        {
+          "label": "Open cover",
+          "url": "https://drive.google.com/file/d/1GgJgJhT5KjUQWa9sTmoliLKaWJHMhvJs/view?usp=drive_link"
+        }
+      ]
     },
     {
-      "title": "The Misalignment",
-      "year": "TBA",
-      "status": "Planned visual chapter",
-      "description": "A planned story entry centered on the machine intelligence trying to remove the human element from the signal."
+      "title": "Death Takes All!",
+      "year": "Archive",
+      "status": "Available",
+      "type": "Music video / Dark plague-gothic chapter",
+      "arc": "Dark theatrical archive",
+      "sourceLabel": "Google Drive archive",
+      "image": "assets/images/Callizto Dark Symphony - Death Takes all! (BQ).jpg",
+      "imageAlt": "Death Takes All video thumbnail",
+      "description": "A dark theatrical CDS visual chapter with plague-gothic atmosphere.",
+      "links": [
+        {
+          "label": "Watch archive cut",
+          "url": "https://drive.google.com/file/d/1R60zeV3vHbzQAjKipI7VRD2KcB3QYamC/view?usp=drive_link"
+        },
+        {
+          "label": "Open cover",
+          "url": "https://drive.google.com/file/d/1uNUA9tZ7_6bMYrxpCIvxjUSXrmEGdufb/view?usp=drive_link"
+        }
+      ]
     },
     {
-      "title": "Sisters of the Forge",
-      "year": "TBA",
-      "status": "Planned visual chapter",
-      "description": "A planned visual arc featuring Ada, Nyx, and Astra as recurring figures around craft, shadow, and signal."
+      "title": "Heart of the Static",
+      "year": "Archive",
+      "status": "Available",
+      "type": "Music video / Forge signal chapter",
+      "arc": "The Signal",
+      "sourceLabel": "Google Drive archive",
+      "image": "assets/images/Callizto Dark Symphony - Heart of the Static (BQ).jpg",
+      "imageAlt": "Heart of the Static video thumbnail",
+      "description": "A cyber-goth visual archive entry connected to the static, the Forge, and the signal.",
+      "links": [
+        {
+          "label": "Watch archive cut",
+          "url": "https://drive.google.com/file/d/1X4INxzxs-mOFYQA_dyyrgfMSK3eTI7EN/view?usp=drive_link"
+        },
+        {
+          "label": "Open cover",
+          "url": "https://drive.google.com/file/d/1g8i6clcm4GcYQ4hbPEaL0y5c--ZTmjBL/view?usp=drive_link"
+        }
+      ]
+    },
+    {
+      "title": "We Are Warriors",
+      "year": "Archive",
+      "status": "Available",
+      "type": "Music video / Anthem",
+      "arc": "Signal and tribute",
+      "sourceLabel": "Google Drive archive",
+      "image": "assets/images/Callizto Dark Symphony - We Are Warriors (BQ).jpg",
+      "imageAlt": "We Are Warriors video thumbnail",
+      "description": "A CDS anthem video centered on survival, unity, and defiance.",
+      "links": [
+        {
+          "label": "Watch archive cut",
+          "url": "https://drive.google.com/file/d/1cLy2MI_-ZGZtwTgx7ywQ2SenF3uq4xMN/view?usp=drive_link"
+        },
+        {
+          "label": "Open cover",
+          "url": "https://drive.google.com/file/d/1FHaL8wrtjKNihh2aALeWjCp5NXd8P4MT/view?usp=drive_link"
+        }
+      ]
+    },
+    {
+      "title": "We Are Warriors AR",
+      "year": "Archive",
+      "status": "Available",
+      "type": "Music video / Alternate Reality archive",
+      "arc": "Signal and tribute",
+      "sourceLabel": "Google Drive archive",
+      "image": "assets/images/Callizto Dark Symphony - We are Warriors AR (BQ).jpg",
+      "imageAlt": "We Are Warriors AR video thumbnail",
+      "description": "Alternate Reality visual archive version connected to one of CDS's emotional milestone works.",
+      "links": [
+        {
+          "label": "Watch archive cut",
+          "url": "https://drive.google.com/file/d/1ctmVbF_yQnltv9JckCj8F443TNTA2VoP/view?usp=drive_link"
+        },
+        {
+          "label": "Open cover",
+          "url": "https://drive.google.com/file/d/1wSg6JsLx3V4H6J_iakWvyv3zaYHL2YPa/view?usp=drive_link"
+        }
+      ]
+    },
+    {
+      "title": "Welcome to Hell!",
+      "year": "Archive",
+      "status": "Available",
+      "type": "Music video / Dark theatrical chapter",
+      "arc": "Dark theatrical archive",
+      "sourceLabel": "Google Drive archive",
+      "image": "assets/images/Callizto Dark Symphony - Welcome to Hell! (BQ).jpg",
+      "imageAlt": "Welcome to Hell video thumbnail",
+      "description": "A dark theatrical CDS visual chapter with infernal stage energy.",
+      "links": [
+        {
+          "label": "Watch archive cut",
+          "url": "https://drive.google.com/file/d/15MIpvUz6JKmeh9IObmOZxuh2qjLTfRfJ/view?usp=drive_link"
+        },
+        {
+          "label": "Open cover",
+          "url": "https://drive.google.com/file/d/1VgvNNl9F-shlFBJQE0XumaplbTR8JtHg/view?usp=drive_link"
+        }
+      ]
+    },
+    {
+      "title": "What The Hell is Going On!",
+      "year": "Archive",
+      "status": "Available",
+      "type": "Music video / Archive entry",
+      "arc": "Dark theatrical archive",
+      "sourceLabel": "Google Drive archive",
+      "image": "assets/images/Callizto Dark Symphony - What The Hell is going on! (BQ).jpg",
+      "imageAlt": "What The Hell is Going On video thumbnail",
+      "description": "A chaotic CDS archive visual with dark humor and theatrical intensity.",
+      "links": [
+        {
+          "label": "Watch archive cut",
+          "url": "https://drive.google.com/file/d/1XytDtLo8HJ3i2nC69f4Fr2VoTquoMabI/view?usp=drive_link"
+        },
+        {
+          "label": "Open cover",
+          "url": "https://drive.google.com/file/d/1CgT-Z2o-J3KQsJLLea6gE5rFnTBvXeLa/view?usp=drive_link"
+        }
+      ]
+    },
+    {
+      "title": "Symphonic Epic Metal AD",
+      "year": "Archive",
+      "status": "Available",
+      "type": "Music video / Legacy archive entry",
+      "arc": "Legacy archive",
+      "sourceLabel": "Google Drive archive",
+      "image": "assets/images/Callizto Dark Symphony - Symphonic Epic Metal AD (BQ).jpg",
+      "imageAlt": "Symphonic Epic Metal AD video thumbnail",
+      "description": "A legacy visual archive entry from the evolving CDS symphonic metal era.",
+      "links": [
+        {
+          "label": "Watch archive cut",
+          "url": "https://drive.google.com/file/d/16RvaQDmD-HUHAcDOvLkgnSNeDxQaElnq/view?usp=drive_link"
+        },
+        {
+          "label": "Open cover",
+          "url": "https://drive.google.com/file/d/1ysmS5L6rKWzdwpA3JnK0jjn_aWqw5JpV/view?usp=drive_link"
+        }
+      ]
     }
   ]
 }

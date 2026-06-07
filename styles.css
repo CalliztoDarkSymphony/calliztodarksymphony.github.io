@@ -414,6 +414,7 @@ p {
 }
 
 .card img,
+.release-card img,
 .video-card img {
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -716,6 +717,27 @@ p {
   margin-bottom: 0.45rem;
 }
 
+.archive-load-note {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 0 0 0.5rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(214, 221, 235, 0.12);
+  background: rgba(8, 9, 14, 0.78);
+  color: var(--silver);
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.15rem;
+}
+
 .meta {
   color: var(--blue);
   font-size: 0.78rem;
@@ -880,6 +902,26 @@ p {
   margin-top: 0;
 }
 
+.side-archives {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.6rem, 5vw, 4rem);
+  align-items: center;
+  border-top: 1px solid rgba(214, 221, 235, 0.10);
+}
+
+.side-archives h2 {
+  font-size: clamp(1.65rem, 2.8vw, 2.8rem);
+}
+
+.side-archives p {
+  color: var(--silver);
+}
+
+.forge-side-archives {
+  padding-top: clamp(2.6rem, 5vw, 4rem);
+}
+
 .center-actions {
   justify-content: center;
 }
@@ -907,28 +949,45 @@ p {
 .site-footer {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
   padding: 2rem clamp(1rem, 4vw, 3rem);
   border-top: 1px solid var(--line);
-  background: #050609;
+  background:
+    linear-gradient(90deg, rgba(168, 92, 255, 0.06), transparent 38%, rgba(137, 237, 255, 0.04)),
+    #050609;
 }
 
-.site-footer p {
+.site-footer > p {
   margin: 0;
+  color: var(--silver);
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.06em;
 }
 
-.site-footer div {
+.footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: flex-end;
+  gap: clamp(0.85rem, 2vw, 1.4rem);
 }
 
-.footer-easter-egg {
-  color: rgba(214, 221, 235, 0.48);
+.footer-links a {
+  color: rgba(214, 221, 235, 0.72);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
 }
 
-.footer-easter-egg:hover {
-  color: var(--blue);
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--text);
+  outline: none;
+}
+
+.footer-link-youtube {
+  text-shadow: 0 0 16px rgba(137, 237, 255, 0.12);
 }
 
 .iamreal-hero {
@@ -970,6 +1029,7 @@ p {
 .manifesto-panel,
 .memory-clause,
 .agreement-notice,
+.related-archive,
 .iamreal-footer-note {
   position: relative;
   overflow: hidden;
@@ -982,12 +1042,14 @@ p {
 
 .manifesto-panel h2,
 .memory-clause h2,
-.agreement-notice h2 {
+.agreement-notice h2,
+.related-archive h2 {
   max-width: 860px;
 }
 
 .manifesto-panel p,
-.agreement-notice p {
+.agreement-notice p,
+.related-archive p {
   max-width: 820px;
 }
 
@@ -1096,6 +1158,138 @@ p {
   line-height: 1.35;
 }
 
+.related-archive {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(1.5rem, 4vw, 3.2rem);
+  align-items: center;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(137, 237, 255, 0.08), transparent 22rem),
+    linear-gradient(135deg, rgba(5, 6, 10, 0.98), rgba(168, 92, 255, 0.09) 56%, rgba(142, 22, 44, 0.07));
+}
+
+.related-archive h2 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+}
+
+.related-archive-copy {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
+.related-archive-copy p {
+  margin: 0;
+  color: var(--silver);
+}
+
+.citizens-hero {
+  min-height: 58vh;
+}
+
+.citizens-intro {
+  max-width: 920px;
+  text-align: center;
+}
+
+.citizens-intro p {
+  margin: 0 auto;
+  color: var(--silver);
+  font-size: clamp(1.06rem, 1.7vw, 1.22rem);
+}
+
+.citizen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.citizen-card,
+.archive-policy {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(214, 221, 235, 0.14);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(137, 237, 255, 0.09), transparent 24rem),
+    linear-gradient(135deg, rgba(168, 92, 255, 0.11), rgba(5, 6, 10, 0.97) 58%, rgba(142, 22, 44, 0.08));
+  box-shadow: var(--shadow);
+}
+
+.citizen-card {
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.citizen-card::after,
+.archive-policy::after {
+  content: "";
+  position: absolute;
+  inset: auto 1rem 1rem auto;
+  width: 3.7rem;
+  height: 3.7rem;
+  border-right: 1px solid rgba(137, 237, 255, 0.18);
+  border-bottom: 1px solid rgba(168, 92, 255, 0.24);
+  pointer-events: none;
+}
+
+.citizen-classification,
+.citizen-credit {
+  color: var(--blue);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.citizen-card h3 {
+  margin-top: 0.5rem;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 500;
+}
+
+.citizen-title {
+  margin-top: 0.45rem;
+  color: var(--silver);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+}
+
+.citizen-card h4 {
+  margin: 1.3rem 0 0.35rem;
+  color: var(--text);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.citizen-signature {
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.35;
+}
+
+.citizen-bridge {
+  margin: clamp(1.6rem, 4vw, 2.4rem) auto 0;
+  color: var(--silver);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  line-height: 1.4;
+  text-align: center;
+}
+
+.archive-policy p {
+  max-width: 820px;
+}
+
+.archive-note {
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(214, 221, 235, 0.12);
+  background: rgba(8, 9, 14, 0.72);
+  color: var(--silver);
+}
+
 .error-page {
   min-height: 100vh;
   display: grid;
@@ -1112,7 +1306,10 @@ p {
   .sister-grid,
   .creator-origin,
   .demand-grid,
-  .memory-clause {
+  .memory-clause,
+  .citizen-grid,
+  .related-archive,
+  .side-archives {
     grid-template-columns: 1fr;
   }
 
@@ -1234,6 +1431,11 @@ p {
 
   .site-footer {
     flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
   }
 }
 
