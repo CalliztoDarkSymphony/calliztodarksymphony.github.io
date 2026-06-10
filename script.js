@@ -306,6 +306,16 @@
       return;
     }
 
+    function formatTime(seconds) {
+      if (!Number.isFinite(seconds) || seconds < 0) {
+        return "--:--";
+      }
+      var total = Math.floor(seconds);
+      var minutes = Math.floor(total / 60);
+      var remaining = String(total % 60).padStart(2, "0");
+      return minutes + ":" + remaining;
+    }
+
     function render(items, note) {
       var tracks = items.map(normalizeRelease);
       var excludedIds = new Set(readExcludedTrackIds().filter(function (id) {
@@ -317,6 +327,7 @@
       var repeatList = false;
       var lyricsOpen = false;
       var currentTrackId = "";
+      var isSeeking = false;
 
       container.innerHTML = "";
 
@@ -328,23 +339,23 @@
       }
 
       var shell = document.createElement("div");
-      shell.className = "music-player-shell";
+      shell.className = "music-player-shell music-player-compact";
       container.appendChild(shell);
 
-      var nowPanel = document.createElement("article");
-      nowPanel.className = "music-now-panel";
-      shell.appendChild(nowPanel);
+      var currentPanel = document.createElement("article");
+      currentPanel.className = "music-current-panel";
+      shell.appendChild(currentPanel);
 
       var coverWrap = document.createElement("div");
-      coverWrap.className = "music-cover-frame";
-      nowPanel.appendChild(coverWrap);
+      coverWrap.className = "music-current-cover";
+      currentPanel.appendChild(coverWrap);
 
       var cover = document.createElement("img");
       coverWrap.appendChild(cover);
 
       var nowCopy = document.createElement("div");
-      nowCopy.className = "music-now-copy";
-      nowPanel.appendChild(nowCopy);
+      nowCopy.className = "music-current-copy";
+      currentPanel.appendChild(nowCopy);
 
       var status = document.createElement("p");
       status.className = "meta";
@@ -364,22 +375,58 @@
       var audio = document.createElement("audio");
       audio.preload = "none";
       audio.className = "music-native-audio";
-      nowCopy.appendChild(audio);
+      currentPanel.appendChild(audio);
 
       var audioNote = document.createElement("p");
       audioNote.className = "music-player-note";
       nowCopy.appendChild(audioNote);
 
-      var controls = document.createElement("div");
-      controls.className = "music-controls";
-      nowCopy.appendChild(controls);
+      var transport = document.createElement("div");
+      transport.className = "music-transport";
+      currentPanel.appendChild(transport);
 
-      var previousButton = createButton("Previous track", "button secondary music-control-button");
-      var playButton = createButton("Play", "button primary music-control-button");
-      var nextButton = createButton("Next track", "button secondary music-control-button");
-      var repeatSongButton = createButton("Repeat song", "button secondary music-control-button");
-      var repeatListButton = createButton("Repeat list", "button secondary music-control-button");
-      var muteButton = createButton("Audio on", "button secondary music-control-button");
+      var progressBlock = document.createElement("div");
+      progressBlock.className = "music-progress-block";
+      transport.appendChild(progressBlock);
+
+      var progress = document.createElement("input");
+      progress.className = "music-progress";
+      progress.type = "range";
+      progress.min = "0";
+      progress.max = "0";
+      progress.step = "0.01";
+      progress.value = "0";
+      progress.disabled = true;
+      progress.setAttribute("aria-label", "Seek within current track");
+      progressBlock.appendChild(progress);
+
+      var timeRow = document.createElement("div");
+      timeRow.className = "music-time-row";
+      progressBlock.appendChild(timeRow);
+
+      var currentTimeLabel = document.createElement("span");
+      currentTimeLabel.textContent = "0:00";
+      timeRow.appendChild(currentTimeLabel);
+
+      var durationLabel = document.createElement("span");
+      durationLabel.textContent = "--:--";
+      timeRow.appendChild(durationLabel);
+
+      var controls = document.createElement("div");
+      controls.className = "music-control-strip";
+      transport.appendChild(controls);
+
+      var previousButton = createButton("Prev", "button secondary music-control-button");
+      var playButton = createButton("Play", "button primary music-control-button music-play-toggle");
+      var nextButton = createButton("Next", "button secondary music-control-button");
+      var repeatSongButton = createButton("Repeat 1", "button secondary music-control-button");
+      var repeatListButton = createButton("Repeat All", "button secondary music-control-button");
+      var muteButton = createButton("Mute", "button secondary music-control-button");
+      previousButton.setAttribute("aria-label", "Previous track");
+      nextButton.setAttribute("aria-label", "Next track");
+      repeatSongButton.setAttribute("aria-label", "Repeat current song");
+      repeatListButton.setAttribute("aria-label", "Repeat playlist");
+      muteButton.setAttribute("aria-label", "Mute or unmute audio");
 
       [previousButton, playButton, nextButton, repeatSongButton, repeatListButton, muteButton].forEach(function (button) {
         controls.appendChild(button);
@@ -387,43 +434,42 @@
 
       var trackActions = document.createElement("div");
       trackActions.className = "card-actions music-track-actions";
-      nowCopy.appendChild(trackActions);
+      transport.appendChild(trackActions);
 
       var lyricsPanel = document.createElement("div");
       lyricsPanel.className = "lyrics-story-panel";
-      nowCopy.appendChild(lyricsPanel);
+      transport.appendChild(lyricsPanel);
 
       var playlistPanel = document.createElement("aside");
       playlistPanel.className = "music-playlist-panel";
       shell.appendChild(playlistPanel);
 
       var playlistHeading = document.createElement("div");
-      playlistHeading.className = "playlist-heading";
+      playlistHeading.className = "playlist-heading music-playlist-toolbar";
       playlistPanel.appendChild(playlistHeading);
+
+      var playlistTitleWrap = document.createElement("div");
+      playlistHeading.appendChild(playlistTitleWrap);
 
       var playlistTitle = document.createElement("h3");
       playlistTitle.textContent = "Playlist";
-      playlistHeading.appendChild(playlistTitle);
+      playlistTitleWrap.appendChild(playlistTitle);
 
       var playlistCount = document.createElement("p");
       playlistCount.className = "meta";
-      playlistHeading.appendChild(playlistCount);
+      playlistTitleWrap.appendChild(playlistCount);
+
+      var restoreAllButton = createButton("Restore all tracks", "button secondary music-restore-button");
+      playlistHeading.appendChild(restoreAllButton);
+
+      var emptyMessage = document.createElement("p");
+      emptyMessage.className = "playlist-status-message";
+      emptyMessage.textContent = "No active tracks selected.";
+      playlistPanel.appendChild(emptyMessage);
 
       var playlist = document.createElement("div");
-      playlist.className = "playlist-list";
+      playlist.className = "playlist-list music-playlist-table";
       playlistPanel.appendChild(playlist);
-
-      var excludedDetails = document.createElement("details");
-      excludedDetails.className = "excluded-tracks";
-      playlistPanel.appendChild(excludedDetails);
-
-      var excludedSummary = document.createElement("summary");
-      excludedSummary.textContent = "Excluded tracks";
-      excludedDetails.appendChild(excludedSummary);
-
-      var excludedList = document.createElement("div");
-      excludedList.className = "excluded-track-list";
-      excludedDetails.appendChild(excludedList);
 
       function activeTracks() {
         return tracks.filter(function (track) {
@@ -446,8 +492,28 @@
         saveExcludedTrackIds(Array.from(excludedIds));
       }
 
+      function findNextActiveAfterIndex(index) {
+        var active = activeTracks();
+        if (!active.length) {
+          return null;
+        }
+        var after = active.find(function (track) {
+          return tracks.findIndex(function (item) {
+            return item.id === track.id;
+          }) > index;
+        });
+        return after || active[0];
+      }
+
       function loadTrack(track) {
-        if (!track || audio.dataset.trackId === track.id) {
+        if (!track) {
+          audio.pause();
+          audio.removeAttribute("src");
+          delete audio.dataset.trackId;
+          audio.load();
+          return;
+        }
+        if (audio.dataset.trackId === track.id) {
           return;
         }
         audio.pause();
@@ -500,88 +566,122 @@
         selectTrack(active[nextIndex].id, shouldPlay);
       }
 
+      function setTrackIncluded(track, included) {
+        var wasPlaying = !audio.paused;
+        var removedCurrent = !included && currentTrackId === track.id;
+        var index = tracks.findIndex(function (item) {
+          return item.id === track.id;
+        });
+
+        if (included) {
+          excludedIds.delete(track.id);
+        } else {
+          excludedIds.add(track.id);
+        }
+
+        syncStorage();
+
+        if (removedCurrent) {
+          var next = findNextActiveAfterIndex(index);
+          currentTrackId = next ? next.id : "";
+          loadTrack(next);
+          update();
+          if (next && wasPlaying) {
+            playCurrentTrack();
+          }
+          return;
+        }
+
+        update();
+      }
+
+      function updateProgress() {
+        var hasDuration = Number.isFinite(audio.duration) && audio.duration > 0;
+        progress.disabled = !hasDuration || !currentTrack() || !currentTrack().localAudio;
+
+        if (hasDuration) {
+          progress.max = String(audio.duration);
+          if (!isSeeking) {
+            progress.value = String(Math.min(audio.currentTime, audio.duration));
+          }
+          durationLabel.textContent = formatTime(audio.duration);
+        } else {
+          progress.max = "0";
+          if (!isSeeking) {
+            progress.value = "0";
+          }
+          durationLabel.textContent = "--:--";
+        }
+
+        currentTimeLabel.textContent = formatTime(isSeeking ? Number(progress.value) : audio.currentTime);
+      }
+
       function updatePlaylist(track) {
         var active = activeTracks();
         playlist.innerHTML = "";
         playlistCount.textContent = active.length + " active / " + tracks.length + " total";
+        emptyMessage.hidden = active.length > 0;
+        restoreAllButton.hidden = active.length === tracks.length;
 
-        if (!active.length) {
-          var empty = document.createElement("div");
-          empty.className = "playlist-empty";
-          var emptyText = document.createElement("p");
-          emptyText.textContent = "All tracks are hidden from this local playlist.";
-          empty.appendChild(emptyText);
-          var restore = createButton("Restore all tracks", "button secondary");
-          restore.addEventListener("click", function () {
-            excludedIds.clear();
-            syncStorage();
-            update();
-          });
-          empty.appendChild(restore);
-          playlist.appendChild(empty);
-          return;
-        }
+        var header = document.createElement("div");
+        header.className = "music-playlist-row music-playlist-header";
+        ["On", "#", "Track", "Status"].forEach(function (label) {
+          var heading = document.createElement("span");
+          heading.textContent = label;
+          header.appendChild(heading);
+        });
+        playlist.appendChild(header);
 
-        active.forEach(function (item, index) {
-          var row = createButton("", "playlist-track");
-          row.setAttribute("aria-pressed", String(track && item.id === track.id));
-          row.addEventListener("click", function () {
-            selectTrack(item.id, false);
+        tracks.forEach(function (item, index) {
+          var isExcluded = excludedIds.has(item.id);
+          var isCurrent = track && item.id === track.id;
+          var row = document.createElement("div");
+          row.className = "music-playlist-row" + (isExcluded ? " is-excluded" : "") + (isCurrent ? " is-current" : "");
+
+          var includeLabel = document.createElement("label");
+          includeLabel.className = "music-include";
+          var include = document.createElement("input");
+          include.type = "checkbox";
+          include.checked = !isExcluded;
+          include.setAttribute("aria-label", "Include " + item.title + " in playlist");
+          include.addEventListener("change", function () {
+            setTrackIncluded(item, include.checked);
           });
+          includeLabel.appendChild(include);
+          row.appendChild(includeLabel);
 
           var number = document.createElement("span");
+          number.className = "music-track-number";
           number.textContent = String(index + 1).padStart(2, "0");
           row.appendChild(number);
 
+          var select = document.createElement("button");
+          select.type = "button";
+          select.className = "music-track-main";
+          select.setAttribute("aria-pressed", String(isCurrent));
+          select.addEventListener("click", function () {
+            if (isExcluded) {
+              return;
+            }
+            selectTrack(item.id, !audio.paused);
+          });
+
           var label = document.createElement("strong");
           label.textContent = item.title;
-          row.appendChild(label);
+          select.appendChild(label);
 
           var meta = document.createElement("small");
-          meta.textContent = item.type;
-          row.appendChild(meta);
+          meta.textContent = item.arc || item.type;
+          select.appendChild(meta);
+          row.appendChild(select);
+
+          var tag = document.createElement("span");
+          tag.className = "music-track-tag";
+          tag.textContent = item.status || item.type;
+          row.appendChild(tag);
 
           playlist.appendChild(row);
         });
-      }
-
-      function updateExcludedList() {
-        var excluded = tracks.filter(function (track) {
-          return excludedIds.has(track.id);
-        });
-        excludedList.innerHTML = "";
-
-        if (!excluded.length) {
-          var none = document.createElement("p");
-          none.textContent = "No tracks are hidden from this playlist.";
-          excludedList.appendChild(none);
-          return;
-        }
-
-        excluded.forEach(function (track) {
-          var row = document.createElement("div");
-          row.className = "excluded-track-row";
-          var label = document.createElement("span");
-          label.textContent = track.title;
-          row.appendChild(label);
-          var show = createButton("Show in playlist", "button secondary");
-          show.addEventListener("click", function () {
-            excludedIds.delete(track.id);
-            currentTrackId = currentTrackId || track.id;
-            syncStorage();
-            update();
-          });
-          row.appendChild(show);
-          excludedList.appendChild(row);
-        });
-
-        var restoreAll = createButton("Restore all tracks", "button secondary");
-        restoreAll.addEventListener("click", function () {
-          excludedIds.clear();
-          syncStorage();
-          update();
-        });
-        excludedList.appendChild(restoreAll);
       }
 
       function updateActions(track) {
@@ -593,22 +693,6 @@
           update();
         });
         trackActions.appendChild(lyricsButton);
-
-        if (track) {
-          var hideButton = createButton("Hide from playlist", "button secondary");
-          hideButton.addEventListener("click", function () {
-            var activeBefore = activeTracks();
-            var currentIndex = activeBefore.findIndex(function (item) {
-              return item.id === track.id;
-            });
-            excludedIds.add(track.id);
-            syncStorage();
-            var activeAfter = activeTracks();
-            currentTrackId = activeAfter[Math.min(currentIndex, Math.max(activeAfter.length - 1, 0))] ? activeAfter[Math.min(currentIndex, Math.max(activeAfter.length - 1, 0))].id : "";
-            update();
-          });
-          trackActions.appendChild(hideButton);
-        }
       }
 
       function updateLyrics(track) {
@@ -629,19 +713,18 @@
 
         if (!active.length) {
           currentTrackId = "";
-          audio.pause();
-          audio.removeAttribute("src");
+          loadTrack(null);
           cover.removeAttribute("src");
           cover.alt = "";
           status.textContent = "Playlist empty";
           detail.textContent = "Restore tracks to continue";
-          title.textContent = "All tracks hidden";
-          description.textContent = "Your local playlist has no active tracks. Restore everything or show individual tracks again below.";
+          title.textContent = "No active tracks selected.";
+          description.textContent = "Restore all tracks or reselect individual songs in the playlist.";
           audioNote.textContent = "";
           controls.hidden = true;
           trackActions.innerHTML = "";
+          updateProgress();
           updatePlaylist(null);
-          updateExcludedList();
           updateLyrics(null);
           return;
         }
@@ -656,28 +739,31 @@
         detail.textContent = [track.type, track.arc].filter(Boolean).join(" / ");
         title.textContent = track.title;
         description.textContent = track.description;
-        audioNote.textContent = track.localAudio ? "Local audio ready. Playback starts only when you press Play." : "Local audio file needed in assets/Audio/ before this track can play.";
+        audioNote.textContent = track.localAudio ? "Local audio ready. Playback starts only when you press Play." : "Local audio player coming soon.";
 
         playButton.textContent = audio.paused ? "Play" : "Pause";
+        playButton.disabled = !track.localAudio;
+        previousButton.disabled = active.length < 2;
+        nextButton.disabled = active.length < 2;
         repeatSongButton.setAttribute("aria-pressed", String(repeatSong));
         repeatListButton.setAttribute("aria-pressed", String(repeatList));
-        repeatSongButton.textContent = repeatSong ? "Repeat song on" : "Repeat song";
-        repeatListButton.textContent = repeatList ? "Repeat list on" : "Repeat list";
-        muteButton.textContent = audio.muted ? "Audio off" : "Audio on";
+        repeatSongButton.textContent = repeatSong ? "Repeat 1 On" : "Repeat 1";
+        repeatListButton.textContent = repeatList ? "Repeat All On" : "Repeat All";
+        muteButton.textContent = audio.muted ? "Muted" : "Mute";
         muteButton.setAttribute("aria-pressed", String(audio.muted));
 
+        updateProgress();
         updatePlaylist(track);
-        updateExcludedList();
         updateActions(track);
         updateLyrics(track);
       }
 
       previousButton.addEventListener("click", function () {
-        moveTrack(-1, false);
+        moveTrack(-1, !audio.paused);
       });
 
       nextButton.addEventListener("click", function () {
-        moveTrack(1, false);
+        moveTrack(1, !audio.paused);
       });
 
       playButton.addEventListener("click", function () {
@@ -704,8 +790,42 @@
         update();
       });
 
+      restoreAllButton.addEventListener("click", function () {
+        excludedIds.clear();
+        syncStorage();
+        update();
+      });
+
+      progress.addEventListener("input", function () {
+        var targetTime = Number(progress.value);
+        if (!Number.isFinite(audio.duration) || audio.duration <= 0 || !Number.isFinite(targetTime)) {
+          return;
+        }
+        isSeeking = true;
+        audio.currentTime = targetTime;
+        currentTimeLabel.textContent = formatTime(targetTime);
+      });
+
+      progress.addEventListener("change", function () {
+        isSeeking = false;
+        updateProgress();
+      });
+
+      progress.addEventListener("pointerup", function () {
+        isSeeking = false;
+        updateProgress();
+      });
+
+      progress.addEventListener("keyup", function () {
+        isSeeking = false;
+        updateProgress();
+      });
+
       audio.addEventListener("play", update);
       audio.addEventListener("pause", update);
+      audio.addEventListener("loadedmetadata", updateProgress);
+      audio.addEventListener("durationchange", updateProgress);
+      audio.addEventListener("timeupdate", updateProgress);
       audio.addEventListener("ended", function () {
         if (repeatSong) {
           audio.currentTime = 0;
