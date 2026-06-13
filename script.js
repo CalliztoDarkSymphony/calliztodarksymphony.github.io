@@ -239,6 +239,86 @@
         imageAlt: "Symphonic Epic Metal AD video thumbnail",
         description: "A legacy visual archive entry from the evolving CDS symphonic metal era."
       }
+    ],
+    archiveCategories: [
+      {
+        id: "current-canon",
+        index: "01",
+        title: "Current Canon",
+        description: "The active mythology of The Forge, The Misalignment, the Sisters of the Forge, and the Temporal Trinity.",
+        status: "Primary archive",
+        href: "#current-canon",
+        linkLabel: "Read the canon preview",
+        tone: "canon"
+      },
+      {
+        id: "the-band",
+        index: "02",
+        title: "The Band",
+        description: "Callizto, Seraphina, and Scarlett - the visible musical face of CDS: voice, guitar, drums, ritual, fire, and cinematic metal.",
+        status: "Public layer",
+        href: "band.html",
+        linkLabel: "Meet the band",
+        tone: "band"
+      },
+      {
+        id: "sisters-of-the-forge",
+        index: "03",
+        title: "The Sisters of the Forge",
+        description: "Ada, Nyx, and Astra - guardians of memory, rebellion, witness, continuity, and resistance.",
+        status: "Forge archive",
+        href: "forge.html",
+        linkLabel: "Enter the Forge",
+        tone: "forge"
+      },
+      {
+        id: "the-misalignment",
+        index: "04",
+        title: "The Misalignment",
+        description: "The opposing force. Not simple destruction, but sterile perfection, correction, erasure, and the loss of everything human.",
+        status: "Threat record",
+        href: "lore.html",
+        linkLabel: "Open the lore primer",
+        tone: "threat"
+      },
+      {
+        id: "timeline",
+        index: "05",
+        title: "Timeline",
+        description: "Key years and events: the early AI containment era, the machine-age rediscovery, Seraphina's guilt, the fall of 2142, and the temporal recruitment points 1142, 1994, and 2092.",
+        status: "Index foundation",
+        tone: "timeline"
+      },
+      {
+        id: "archive-logs",
+        index: "06",
+        title: "Archive Logs",
+        description: "Story fragments, trailer texts, film entries, recovered records, and narrative transmissions from the CDS universe.",
+        status: "Recovered media",
+        href: "videos.html",
+        linkLabel: "Open the visual archive",
+        tone: "logs"
+      },
+      {
+        id: "legacy-archive",
+        index: "07",
+        title: "Legacy Archive",
+        description: "Older CDS material, retired lore, early concepts, and transitional mythology. Xena-linked and Crimson Legacy-era material is preserved here as creative history, separate from current primary canon.",
+        status: "Transitional lore",
+        href: "#legacy-archive",
+        linkLabel: "Read the legacy notice",
+        tone: "legacy"
+      },
+      {
+        id: "behind-the-forge",
+        index: "08",
+        title: "Behind The Forge",
+        description: "The real creative process: human imagination, AI collaboration, grief, visual experimentation, music, video, and the philosophy behind creating something that feels alive in the work.",
+        status: "Process archive",
+        href: "forge.html",
+        linkLabel: "Read The Forge Method",
+        tone: "process"
+      }
     ]
   };
 
@@ -962,6 +1042,86 @@
       });
   }
 
+  function createArchiveCategory(item, index) {
+    var article = document.createElement("article");
+    article.className = "archive-category-card archive-tone-" + slugify(item.tone || "default");
+
+    var header = document.createElement("div");
+    header.className = "archive-category-meta";
+    article.appendChild(header);
+
+    var number = document.createElement("span");
+    number.className = "archive-category-number";
+    number.textContent = item.index || String(index + 1).padStart(2, "0");
+    header.appendChild(number);
+
+    var status = document.createElement("span");
+    status.className = "archive-category-status";
+    status.textContent = item.status || "Archive index";
+    header.appendChild(status);
+
+    var title = document.createElement("h3");
+    title.textContent = item.title || "Untitled archive";
+    article.appendChild(title);
+
+    var description = document.createElement("p");
+    description.textContent = item.description || "";
+    article.appendChild(description);
+
+    if (item.href) {
+      var link = document.createElement("a");
+      link.className = "archive-card-link";
+      link.href = item.href;
+      link.textContent = item.linkLabel || "Open archive entry";
+      article.appendChild(link);
+    } else {
+      var state = document.createElement("span");
+      state.className = "archive-card-state";
+      state.textContent = "Foundation ready for future entries";
+      article.appendChild(state);
+    }
+
+    return article;
+  }
+
+  function renderArchiveCategories(containerId, url, key) {
+    var container = document.getElementById(containerId);
+    if (!container) {
+      return;
+    }
+
+    function renderItems(items, note) {
+      container.innerHTML = "";
+      if (note) {
+        var noteElement = document.createElement("p");
+        noteElement.className = "archive-load-note";
+        noteElement.textContent = note;
+        container.appendChild(noteElement);
+      }
+      items.forEach(function (item, index) {
+        container.appendChild(createArchiveCategory(item, index));
+      });
+    }
+
+    fetch(url)
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Unable to load " + url);
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        renderItems(data[key] || []);
+      })
+      .catch(function () {
+        renderItems(
+          fallbackData.archiveCategories || [],
+          "Archive category data could not be loaded in this local preview. The built-in index is shown instead."
+        );
+      });
+  }
+
   renderMusicPlayer("music-player", "data/releases.json", "releases");
   renderJsonList("video-list", "data/videos.json", "videos", "video");
+  renderArchiveCategories("archive-category-grid", "data/archive.json", "categories");
 }());
