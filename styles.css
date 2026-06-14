@@ -638,6 +638,57 @@ p {
   margin-bottom: 1.2rem;
 }
 
+.band-portrait-grid {
+  align-items: stretch;
+}
+
+.band-portrait-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding: 0;
+}
+
+.band-portrait-card::before {
+  display: none;
+}
+
+.band-portrait-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  margin: 0;
+  border-bottom: 1px solid rgba(214, 221, 235, 0.14);
+  filter: saturate(0.9) contrast(1.04) brightness(0.86);
+}
+
+.band-portrait-copy {
+  position: relative;
+  flex: 1;
+  padding: clamp(1.15rem, 2.7vw, 1.5rem);
+}
+
+.band-portrait-copy::before {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 2px;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--violet), var(--blue));
+  box-shadow: 0 0 24px rgba(168, 92, 255, 0.42);
+}
+
+.band-portrait-copy h2,
+.band-portrait-copy h3 {
+  margin-top: 0;
+}
+
+.band-portrait-copy > :last-child {
+  margin-bottom: 0;
+}
+
 .role {
   margin: 0.5rem 0 0;
   color: var(--blue);
@@ -2504,6 +2555,10 @@ p {
   }
 
   .sister-card img {
+    aspect-ratio: 16 / 11;
+  }
+
+  .band-portrait-card > img {
     aspect-ratio: 16 / 11;
   }
 
