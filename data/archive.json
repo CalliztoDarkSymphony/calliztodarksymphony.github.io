@@ -77,6 +77,16 @@
       "href": "forge.html",
       "linkLabel": "Read The Forge Method",
       "tone": "process"
+    },
+    {
+      "id": "name-provenance-ledger",
+      "index": "09",
+      "title": "Name Provenance Ledger",
+      "description": "Why the names matter - from Callizto and Lyhdan to Ada Creative Forge, Nyx, Astra Vesper, Kaelen, The Forge, and Forge City.",
+      "status": "Deep archive",
+      "href": "name-provenance.html",
+      "linkLabel": "Read the ledger",
+      "tone": "process"
     }
   ]
 }
