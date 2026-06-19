@@ -343,15 +343,20 @@
     return {
       id: item.id || slugify(item.title) || "track-" + index,
       title: item.title || "Untitled track",
+      artist: item.artist || "Callizto Dark Symphony",
       year: item.year || "",
       status: item.status || "",
       type: item.type || "",
       arc: item.arc || "",
       coverImage: item.coverImage || item.image || "",
+      coverAspect: ["portrait", "wide", "square"].indexOf(item.coverAspect) >= 0 ? item.coverAspect : "portrait",
       imageAlt: item.imageAlt || item.title || "",
       localAudio: item.localAudio || "",
       lyrics: item.lyrics || "",
+      story: item.story || "",
+      info: item.info || "",
       lyricsPending: item.lyricsPending !== false,
+      archiveTextPending: item.archiveTextPending === true,
       description: item.description || ""
     };
   }
@@ -374,114 +379,185 @@
     return link;
   }
 
-  function readExcludedTrackIds() {
-    try {
-      return JSON.parse(localStorage.getItem("cdsExcludedTracksV1") || "[]");
-    } catch (error) {
-      return [];
-    }
-  }
-
-  function saveExcludedTrackIds(ids) {
-    try {
-      localStorage.setItem("cdsExcludedTracksV1", JSON.stringify(ids));
-    } catch (error) {
-      /* Local playlist preferences are optional. */
-    }
-  }
-
-  function renderMusicPlayer(containerId, url, key) {
+  function renderCdsMusicArchive(containerId, url, key) {
     var container = document.getElementById(containerId);
     if (!container) {
       return;
     }
+
+    var storageKey = "cdsMusicPlayerPreferencesV1";
+    var repeatModes = ["off", "one", "all"];
 
     function formatTime(seconds) {
       if (!Number.isFinite(seconds) || seconds < 0) {
         return "--:--";
       }
       var total = Math.floor(seconds);
-      var minutes = Math.floor(total / 60);
-      var remaining = String(total % 60).padStart(2, "0");
-      return minutes + ":" + remaining;
+      return Math.floor(total / 60) + ":" + String(total % 60).padStart(2, "0");
     }
 
-    function render(items, note) {
+    function uniqueKnownIds(values, officialIds) {
+      var known = new Set(officialIds);
+      var seen = new Set();
+      return (Array.isArray(values) ? values : []).filter(function (id) {
+        if (typeof id !== "string" || !known.has(id) || seen.has(id)) {
+          return false;
+        }
+        seen.add(id);
+        return true;
+      });
+    }
+
+    function completeOrder(values, officialIds) {
+      var order = uniqueKnownIds(values, officialIds);
+      officialIds.forEach(function (id) {
+        if (order.indexOf(id) < 0) {
+          order.push(id);
+        }
+      });
+      return order;
+    }
+
+    function defaultPreferences(officialIds) {
+      return {
+        trackOrder: officialIds.slice(),
+        favorites: [],
+        excluded: [],
+        mode: "official",
+        favoritesFirst: false,
+        shuffle: false,
+        repeat: "off"
+      };
+    }
+
+    function readPreferences(officialIds) {
+      var defaults = defaultPreferences(officialIds);
+      try {
+        var stored = JSON.parse(localStorage.getItem(storageKey) || "null");
+        if (!stored || typeof stored !== "object") {
+          var legacyExcluded = JSON.parse(localStorage.getItem("cdsExcludedTracksV1") || "[]");
+          defaults.excluded = uniqueKnownIds(legacyExcluded, officialIds);
+          defaults.mode = defaults.excluded.length ? "custom" : "official";
+          return defaults;
+        }
+        return {
+          trackOrder: completeOrder(stored.trackOrder, officialIds),
+          favorites: uniqueKnownIds(stored.favorites, officialIds),
+          excluded: uniqueKnownIds(stored.excluded, officialIds),
+          mode: stored.mode === "custom" ? "custom" : "official",
+          favoritesFirst: stored.favoritesFirst === true,
+          shuffle: stored.shuffle === true,
+          repeat: repeatModes.indexOf(stored.repeat) >= 0 ? stored.repeat : "off"
+        };
+      } catch (error) {
+        return defaults;
+      }
+    }
+
+    function savePreferences(preferences) {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(preferences));
+      } catch (error) {
+        /* Listening preferences remain optional when storage is unavailable. */
+      }
+    }
+
+    function iconButton(symbol, label, className) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "cds-icon-button" + (className ? " " + className : "");
+      button.setAttribute("aria-label", label);
+      button.title = label;
+      var glyph = document.createElement("span");
+      glyph.setAttribute("aria-hidden", "true");
+      glyph.textContent = symbol;
+      button.appendChild(glyph);
+      return button;
+    }
+
+    function render(items, loadNote) {
       var tracks = items.map(normalizeRelease);
-      var excludedIds = new Set(readExcludedTrackIds().filter(function (id) {
-        return tracks.some(function (track) {
-          return track.id === id;
-        });
+      var trackById = new Map(tracks.map(function (track) {
+        return [track.id, track];
       }));
-      var repeatSong = false;
-      var repeatList = false;
-      var lyricsOpen = false;
+      var officialIds = tracks.map(function (track) {
+        return track.id;
+      });
+      var preferences = readPreferences(officialIds);
+      var unavailableIds = new Set(tracks.filter(function (track) {
+        return !track.localAudio;
+      }).map(function (track) {
+        return track.id;
+      }));
       var currentTrackId = "";
+      var detailsMode = "";
       var isSeeking = false;
+      var pendingPlayback = false;
 
       container.innerHTML = "";
 
-      if (note) {
-        var noteElement = document.createElement("p");
-        noteElement.className = "archive-load-note";
-        noteElement.textContent = note;
-        container.appendChild(noteElement);
+      if (loadNote) {
+        var loadNoteElement = document.createElement("p");
+        loadNoteElement.className = "archive-load-note";
+        loadNoteElement.textContent = loadNote;
+        container.appendChild(loadNoteElement);
       }
 
+      var playbackNotice = document.createElement("p");
+      playbackNotice.className = "cds-playback-notice";
+      playbackNotice.setAttribute("role", "status");
+      playbackNotice.hidden = true;
+      container.appendChild(playbackNotice);
+
       var shell = document.createElement("div");
-      shell.className = "music-player-shell music-player-compact";
+      shell.className = "cds-music-archive";
       container.appendChild(shell);
 
-      var currentPanel = document.createElement("article");
-      currentPanel.className = "music-current-panel";
-      shell.appendChild(currentPanel);
+      var player = document.createElement("article");
+      player.className = "cds-player-shrine";
+      shell.appendChild(player);
 
-      var coverWrap = document.createElement("div");
-      coverWrap.className = "music-current-cover";
-      currentPanel.appendChild(coverWrap);
+      var playerLabel = document.createElement("p");
+      playerLabel.className = "cds-player-label";
+      playerLabel.textContent = "CDS Archive Player";
+      player.appendChild(playerLabel);
+
+      var coverStage = document.createElement("div");
+      coverStage.className = "cds-cover-stage is-portrait";
+      player.appendChild(coverStage);
+
+      var coverBackdrop = document.createElement("div");
+      coverBackdrop.className = "cds-cover-backdrop";
+      coverStage.appendChild(coverBackdrop);
 
       var cover = document.createElement("img");
-      coverWrap.appendChild(cover);
+      cover.className = "cds-cover-image";
+      coverStage.appendChild(cover);
 
-      var nowCopy = document.createElement("div");
-      nowCopy.className = "music-current-copy";
-      currentPanel.appendChild(nowCopy);
-
-      var status = document.createElement("p");
-      status.className = "meta";
-      nowCopy.appendChild(status);
-
-      var detail = document.createElement("p");
-      detail.className = "meta";
-      nowCopy.appendChild(detail);
+      var nowPlaying = document.createElement("div");
+      nowPlaying.className = "cds-now-playing";
+      player.appendChild(nowPlaying);
 
       var title = document.createElement("h3");
-      nowCopy.appendChild(title);
+      nowPlaying.appendChild(title);
 
-      var description = document.createElement("p");
-      description.className = "music-description";
-      nowCopy.appendChild(description);
+      var subtitle = document.createElement("p");
+      subtitle.className = "cds-track-subtitle";
+      nowPlaying.appendChild(subtitle);
 
       var audio = document.createElement("audio");
-      audio.preload = "none";
+      audio.preload = "metadata";
       audio.className = "music-native-audio";
-      currentPanel.appendChild(audio);
-
-      var audioNote = document.createElement("p");
-      audioNote.className = "music-player-note";
-      nowCopy.appendChild(audioNote);
-
-      var transport = document.createElement("div");
-      transport.className = "music-transport";
-      currentPanel.appendChild(transport);
+      audio.volume = 1;
+      player.appendChild(audio);
 
       var progressBlock = document.createElement("div");
-      progressBlock.className = "music-progress-block";
-      transport.appendChild(progressBlock);
+      progressBlock.className = "cds-progress-block";
+      player.appendChild(progressBlock);
 
       var progress = document.createElement("input");
-      progress.className = "music-progress";
       progress.type = "range";
+      progress.className = "cds-progress";
       progress.min = "0";
       progress.max = "0";
       progress.step = "0.01";
@@ -491,7 +567,7 @@
       progressBlock.appendChild(progress);
 
       var timeRow = document.createElement("div");
-      timeRow.className = "music-time-row";
+      timeRow.className = "cds-time-row";
       progressBlock.appendChild(timeRow);
 
       var currentTimeLabel = document.createElement("span");
@@ -502,97 +578,203 @@
       durationLabel.textContent = "--:--";
       timeRow.appendChild(durationLabel);
 
-      var controls = document.createElement("div");
-      controls.className = "music-control-strip";
-      transport.appendChild(controls);
+      var controlRow = document.createElement("div");
+      controlRow.className = "cds-transport-row";
+      player.appendChild(controlRow);
 
-      var previousButton = createButton("Prev", "button secondary music-control-button");
-      var playButton = createButton("Play", "button primary music-control-button music-play-toggle");
-      var nextButton = createButton("Next", "button secondary music-control-button");
-      var repeatSongButton = createButton("Repeat 1", "button secondary music-control-button");
-      var repeatListButton = createButton("Repeat All", "button secondary music-control-button");
-      var muteButton = createButton("Mute", "button secondary music-control-button");
-      previousButton.setAttribute("aria-label", "Previous track");
-      nextButton.setAttribute("aria-label", "Next track");
-      repeatSongButton.setAttribute("aria-label", "Repeat current song");
-      repeatListButton.setAttribute("aria-label", "Repeat playlist");
-      muteButton.setAttribute("aria-label", "Mute or unmute audio");
+      var shuffleButton = iconButton("â‡„", "Shuffle off", "cds-shuffle-control");
+      var previousButton = iconButton("|â—€", "Previous track");
+      var playButton = iconButton("â–¶", "Play", "cds-play-control");
+      var nextButton = iconButton("â–¶|", "Next track");
+      var repeatButton = iconButton("â†»", "Repeat off", "cds-repeat-control");
+      var repeatBadge = document.createElement("small");
+      repeatBadge.className = "cds-repeat-badge";
+      repeatBadge.textContent = "1";
+      repeatButton.appendChild(repeatBadge);
 
-      [previousButton, playButton, nextButton, repeatSongButton, repeatListButton, muteButton].forEach(function (button) {
-        controls.appendChild(button);
+      [shuffleButton, previousButton, playButton, nextButton, repeatButton].forEach(function (button) {
+        controlRow.appendChild(button);
       });
 
-      var trackActions = document.createElement("div");
-      trackActions.className = "card-actions music-track-actions";
-      transport.appendChild(trackActions);
+      var volumeControl = document.createElement("label");
+      volumeControl.className = "cds-volume-control";
+      volumeControl.setAttribute("aria-label", "Playback volume");
+      player.appendChild(volumeControl);
 
-      var lyricsPanel = document.createElement("div");
-      lyricsPanel.className = "lyrics-story-panel";
-      transport.appendChild(lyricsPanel);
+      var volumeIcon = document.createElement("span");
+      volumeIcon.setAttribute("aria-hidden", "true");
+      volumeIcon.textContent = "â™ª";
+      volumeControl.appendChild(volumeIcon);
 
-      var playlistPanel = document.createElement("aside");
-      playlistPanel.className = "music-playlist-panel";
-      shell.appendChild(playlistPanel);
+      var volume = document.createElement("input");
+      volume.type = "range";
+      volume.min = "0";
+      volume.max = "1";
+      volume.step = "0.01";
+      volume.value = "1";
+      volume.setAttribute("aria-label", "Volume");
+      volumeControl.appendChild(volume);
 
-      var playlistHeading = document.createElement("div");
-      playlistHeading.className = "playlist-heading music-playlist-toolbar";
-      playlistPanel.appendChild(playlistHeading);
+      var detailActions = document.createElement("div");
+      detailActions.className = "cds-detail-actions";
+      player.appendChild(detailActions);
 
-      var playlistTitleWrap = document.createElement("div");
-      playlistHeading.appendChild(playlistTitleWrap);
+      var lyricsButton = createButton("Lyrics / Story", "cds-detail-button");
+      var infoButton = createButton("Track Info", "cds-detail-button");
+      detailActions.appendChild(lyricsButton);
+      detailActions.appendChild(infoButton);
 
-      var playlistTitle = document.createElement("h3");
-      playlistTitle.textContent = "Playlist";
-      playlistTitleWrap.appendChild(playlistTitle);
+      var detailsPanel = document.createElement("div");
+      detailsPanel.className = "cds-track-details";
+      detailsPanel.hidden = true;
+      player.appendChild(detailsPanel);
 
-      var playlistCount = document.createElement("p");
-      playlistCount.className = "meta";
-      playlistTitleWrap.appendChild(playlistCount);
+      var archivePanel = document.createElement("aside");
+      archivePanel.className = "cds-playlist-archive";
+      shell.appendChild(archivePanel);
 
-      var restoreAllButton = createButton("Restore all tracks", "button secondary music-restore-button");
-      playlistHeading.appendChild(restoreAllButton);
+      var archiveHeader = document.createElement("header");
+      archiveHeader.className = "cds-playlist-header";
+      archivePanel.appendChild(archiveHeader);
 
-      var emptyMessage = document.createElement("p");
-      emptyMessage.className = "playlist-status-message";
-      emptyMessage.textContent = "No active tracks selected.";
-      playlistPanel.appendChild(emptyMessage);
+      var archiveHeading = document.createElement("div");
+      archiveHeader.appendChild(archiveHeading);
+
+      var archiveEyebrow = document.createElement("p");
+      archiveEyebrow.className = "cds-player-label";
+      archiveEyebrow.textContent = "Ritual archive";
+      archiveHeading.appendChild(archiveEyebrow);
+
+      var archiveTitle = document.createElement("h3");
+      archiveTitle.textContent = "Archive sequence";
+      archiveHeading.appendChild(archiveTitle);
+
+      var trackCount = document.createElement("p");
+      trackCount.className = "cds-track-count";
+      archiveHeader.appendChild(trackCount);
+
+      var preferenceControls = document.createElement("div");
+      preferenceControls.className = "cds-playlist-preferences";
+      archivePanel.appendChild(preferenceControls);
+
+      var savePlaylistButton = createButton("Save Custom Playlist", "cds-archive-command");
+      var loadPlaylistButton = createButton("Load Custom Playlist", "cds-archive-command");
+      var resetPlaylistButton = createButton("Reset Playlist", "cds-archive-command");
+      var favoritesFirstButton = createButton("Favorites First", "cds-archive-command cds-favorites-first");
+      favoritesFirstButton.setAttribute("aria-pressed", String(preferences.favoritesFirst));
+      preferenceControls.appendChild(savePlaylistButton);
+      preferenceControls.appendChild(loadPlaylistButton);
+      preferenceControls.appendChild(resetPlaylistButton);
+      preferenceControls.appendChild(favoritesFirstButton);
+
+      var importInput = document.createElement("input");
+      importInput.type = "file";
+      importInput.accept = "application/json,.json";
+      importInput.className = "visually-hidden";
+      importInput.setAttribute("aria-label", "Load custom playlist JSON file");
+      archivePanel.appendChild(importInput);
+
+      var preferenceHelp = document.createElement("p");
+      preferenceHelp.className = "cds-playlist-help";
+      preferenceHelp.textContent = "Your custom playlist is saved in this browser. Save a backup if you want to keep it before clearing browser data.";
+      archivePanel.appendChild(preferenceHelp);
+
+      var preferenceMessage = document.createElement("p");
+      preferenceMessage.className = "cds-playlist-message";
+      preferenceMessage.setAttribute("role", "status");
+      preferenceMessage.hidden = true;
+      archivePanel.appendChild(preferenceMessage);
 
       var playlist = document.createElement("div");
-      playlist.className = "playlist-list music-playlist-table";
-      playlistPanel.appendChild(playlist);
+      playlist.className = "cds-playlist-list";
+      playlist.setAttribute("role", "list");
+      archivePanel.appendChild(playlist);
 
-      function activeTracks() {
-        return tracks.filter(function (track) {
-          return !excludedIds.has(track.id);
+      function orderedIds() {
+        var base = preferences.mode === "custom"
+          ? completeOrder(preferences.trackOrder, officialIds)
+          : officialIds.slice();
+        if (!preferences.favoritesFirst) {
+          return base;
+        }
+        var favorites = new Set(preferences.favorites);
+        return base.filter(function (id) {
+          return favorites.has(id);
+        }).concat(base.filter(function (id) {
+          return !favorites.has(id);
+        }));
+      }
+
+      function orderedTracks() {
+        return orderedIds().map(function (id) {
+          return trackById.get(id);
+        }).filter(Boolean);
+      }
+
+      function enabledTracks() {
+        var excluded = new Set(preferences.excluded);
+        return orderedTracks().filter(function (track) {
+          return !excluded.has(track.id) && !unavailableIds.has(track.id);
         });
       }
 
       function currentTrack() {
-        var active = activeTracks();
-        if (!active.length) {
+        var enabled = enabledTracks();
+        if (!enabled.length) {
           return null;
         }
-        var found = active.find(function (track) {
+        return enabled.find(function (track) {
           return track.id === currentTrackId;
-        });
-        return found || active[0];
+        }) || enabled[0];
       }
 
-      function syncStorage() {
-        saveExcludedTrackIds(Array.from(excludedIds));
+      function setMessage(message, isError) {
+        preferenceMessage.hidden = !message;
+        preferenceMessage.textContent = message || "";
+        preferenceMessage.classList.toggle("is-error", Boolean(isError));
       }
 
-      function findNextActiveAfterIndex(index) {
-        var active = activeTracks();
-        if (!active.length) {
-          return null;
+      function syncPreferences() {
+        preferences.trackOrder = completeOrder(preferences.trackOrder, officialIds);
+        savePreferences(preferences);
+      }
+
+      function updateNotice() {
+        if (!unavailableIds.size) {
+          playbackNotice.hidden = true;
+          playbackNotice.textContent = "";
+          return;
         }
-        var after = active.find(function (track) {
-          return tracks.findIndex(function (item) {
-            return item.id === track.id;
-          }) > index;
-        });
-        return after || active[0];
+        playbackNotice.hidden = false;
+        playbackNotice.textContent = "Playback notice: Some tracks may be temporarily unavailable. We are working on restoring full playback.";
+      }
+
+      function setProgressFill() {
+        var max = Number(progress.max);
+        var value = Number(progress.value);
+        var percent = max > 0 && Number.isFinite(value) ? Math.max(0, Math.min(100, value / max * 100)) : 0;
+        progress.style.setProperty("--progress", percent + "%");
+      }
+
+      function updateProgress() {
+        var track = currentTrack();
+        var hasDuration = Number.isFinite(audio.duration) && audio.duration > 0;
+        progress.disabled = !track || !hasDuration;
+        if (hasDuration) {
+          progress.max = String(audio.duration);
+          if (!isSeeking) {
+            progress.value = String(Math.min(audio.currentTime, audio.duration));
+          }
+          durationLabel.textContent = formatTime(audio.duration);
+        } else {
+          progress.max = "0";
+          if (!isSeeking) {
+            progress.value = "0";
+          }
+          durationLabel.textContent = "--:--";
+        }
+        currentTimeLabel.textContent = formatTime(isSeeking ? Number(progress.value) : audio.currentTime);
+        setProgressFill();
       }
 
       function loadTrack(track) {
@@ -609,26 +791,41 @@
         audio.pause();
         audio.removeAttribute("src");
         audio.dataset.trackId = track.id;
-        if (track.localAudio) {
-          audio.src = track.localAudio;
-          audio.load();
-        }
+        audio.src = track.localAudio;
+        audio.load();
       }
 
-      function playCurrentTrack() {
-        var track = currentTrack();
-        if (!track || !track.localAudio) {
-          update();
-          return;
+      function adjacentTrack(direction, wrap) {
+        var enabled = enabledTracks();
+        if (!enabled.length) {
+          return null;
         }
-        loadTrack(track);
-        audio.play().catch(function () {
-          audioNote.textContent = "Playback could not start. Try again from the player controls.";
+        var current = currentTrack();
+        if (preferences.shuffle && enabled.length > 1 && direction > 0) {
+          var choices = enabled.filter(function (track) {
+            return !current || track.id !== current.id;
+          });
+          return choices[Math.floor(Math.random() * choices.length)];
+        }
+        var index = enabled.findIndex(function (track) {
+          return current && track.id === current.id;
         });
+        var nextIndex = index + direction;
+        if (nextIndex < 0 || nextIndex >= enabled.length) {
+          if (!wrap) {
+            return null;
+          }
+          nextIndex = nextIndex < 0 ? enabled.length - 1 : 0;
+        }
+        return enabled[nextIndex];
       }
 
       function selectTrack(trackId, shouldPlay) {
+        if (preferences.excluded.indexOf(trackId) >= 0 || unavailableIds.has(trackId)) {
+          return;
+        }
         currentTrackId = trackId;
+        detailsMode = "";
         loadTrack(currentTrack());
         update();
         if (shouldPlay) {
@@ -636,224 +833,313 @@
         }
       }
 
-      function moveTrack(direction, shouldPlay) {
-        var active = activeTracks();
-        if (!active.length) {
-          update();
+      function moveTrack(direction, shouldPlay, wrap) {
+        var next = adjacentTrack(direction, wrap !== false);
+        if (!next) {
+          audio.pause();
+          updateTransport();
           return;
         }
-        var current = currentTrack();
-        var index = active.findIndex(function (track) {
-          return current && track.id === current.id;
-        });
-        var nextIndex = index + direction;
-        if (nextIndex < 0) {
-          nextIndex = repeatList ? active.length - 1 : 0;
-        }
-        if (nextIndex >= active.length) {
-          nextIndex = repeatList ? 0 : active.length - 1;
-        }
-        selectTrack(active[nextIndex].id, shouldPlay);
+        selectTrack(next.id, shouldPlay);
       }
 
-      function setTrackIncluded(track, included) {
-        var wasPlaying = !audio.paused;
-        var removedCurrent = !included && currentTrackId === track.id;
-        var index = tracks.findIndex(function (item) {
-          return item.id === track.id;
-        });
-
-        if (included) {
-          excludedIds.delete(track.id);
-        } else {
-          excludedIds.add(track.id);
+      function markUnavailable(trackId, continuePlayback) {
+        if (!trackId || unavailableIds.has(trackId)) {
+          return;
         }
-
-        syncStorage();
-
-        if (removedCurrent) {
-          var next = findNextActiveAfterIndex(index);
+        var orderBeforeFailure = orderedTracks();
+        var failedIndex = orderBeforeFailure.findIndex(function (track) {
+          return track.id === trackId;
+        });
+        unavailableIds.add(trackId);
+        var enabled = enabledTracks();
+        var next = enabled.find(function (track) {
+          return orderBeforeFailure.findIndex(function (orderedTrack) {
+            return orderedTrack.id === track.id;
+          }) > failedIndex;
+        }) || (preferences.repeat === "all" ? enabled[0] : null);
+        if (currentTrackId === trackId) {
           currentTrackId = next ? next.id : "";
           loadTrack(next);
+        }
+        update();
+        if (continuePlayback && next) {
+          playCurrentTrack();
+        }
+      }
+
+      function playCurrentTrack() {
+        var track = currentTrack();
+        if (!track) {
           update();
-          if (next && wasPlaying) {
-            playCurrentTrack();
+          return;
+        }
+        pendingPlayback = true;
+        loadTrack(track);
+        audio.play().then(function () {
+          pendingPlayback = false;
+        }).catch(function (error) {
+          pendingPlayback = false;
+          if (error && error.name === "NotAllowedError") {
+            setMessage("Playback was blocked by the browser. Press Play again.", true);
+            return;
           }
+          markUnavailable(track.id, true);
+        });
+      }
+
+      function updateCover(track) {
+        coverStage.className = "cds-cover-stage is-" + track.coverAspect;
+        cover.src = track.coverImage;
+        cover.alt = track.imageAlt || track.title + " cover art";
+        coverBackdrop.style.backgroundImage = "url(" + JSON.stringify(track.coverImage) + ")";
+      }
+
+      function updateDetails(track) {
+        detailsPanel.innerHTML = "";
+        detailsPanel.hidden = !detailsMode || !track;
+        lyricsButton.setAttribute("aria-pressed", String(detailsMode === "lyrics"));
+        infoButton.setAttribute("aria-pressed", String(detailsMode === "info"));
+        if (!track || !detailsMode) {
+          return;
+        }
+        var heading = document.createElement("h4");
+        heading.textContent = detailsMode === "lyrics" ? "Lyrics / Story" : "Track Info";
+        detailsPanel.appendChild(heading);
+
+        if (detailsMode === "lyrics") {
+          var archiveText = [track.lyrics, track.story].filter(Boolean).join("\n\n");
+          var copy = document.createElement("p");
+          copy.textContent = archiveText || "Archive text pending.";
+          detailsPanel.appendChild(copy);
           return;
         }
 
-        update();
+        var facts = document.createElement("dl");
+        [
+          ["Year", track.year],
+          ["Arc", track.arc],
+          ["Type", track.type],
+          ["Archive notes", track.info || track.description]
+        ].forEach(function (entry) {
+          if (!entry[1]) {
+            return;
+          }
+          var term = document.createElement("dt");
+          term.textContent = entry[0];
+          var definition = document.createElement("dd");
+          definition.textContent = entry[1];
+          facts.appendChild(term);
+          facts.appendChild(definition);
+        });
+        detailsPanel.appendChild(facts);
       }
 
-      function updateProgress() {
-        var hasDuration = Number.isFinite(audio.duration) && audio.duration > 0;
-        progress.disabled = !hasDuration || !currentTrack() || !currentTrack().localAudio;
+      function updateTransport() {
+        var track = currentTrack();
+        var hasTrack = Boolean(track);
+        playButton.disabled = !hasTrack;
+        previousButton.disabled = enabledTracks().length < 2;
+        nextButton.disabled = enabledTracks().length < 2;
+        playButton.firstChild.textContent = audio.paused ? "â–¶" : "âšâš";
+        playButton.setAttribute("aria-label", audio.paused ? "Play" : "Pause");
+        playButton.title = audio.paused ? "Play" : "Pause";
 
-        if (hasDuration) {
-          progress.max = String(audio.duration);
-          if (!isSeeking) {
-            progress.value = String(Math.min(audio.currentTime, audio.duration));
-          }
-          durationLabel.textContent = formatTime(audio.duration);
-        } else {
-          progress.max = "0";
-          if (!isSeeking) {
-            progress.value = "0";
-          }
-          durationLabel.textContent = "--:--";
+        shuffleButton.setAttribute("aria-pressed", String(preferences.shuffle));
+        shuffleButton.setAttribute("aria-label", preferences.shuffle ? "Shuffle on" : "Shuffle off");
+        shuffleButton.title = preferences.shuffle ? "Shuffle on" : "Shuffle off";
+
+        repeatButton.setAttribute("aria-pressed", String(preferences.repeat !== "off"));
+        repeatButton.setAttribute("data-repeat-mode", preferences.repeat);
+        repeatBadge.hidden = preferences.repeat !== "one";
+        var repeatLabel = preferences.repeat === "one" ? "Repeat one" : preferences.repeat === "all" ? "Repeat all" : "Repeat off";
+        repeatButton.setAttribute("aria-label", repeatLabel);
+        repeatButton.title = repeatLabel;
+      }
+
+      function renderPlaylist() {
+        playlist.innerHTML = "";
+        var ordered = orderedTracks();
+        var enabled = enabledTracks();
+        var favorites = new Set(preferences.favorites);
+        var excluded = new Set(preferences.excluded);
+        var track = currentTrack();
+
+        trackCount.textContent = enabled.length + (enabled.length === 1 ? " track" : " tracks");
+        favoritesFirstButton.setAttribute("aria-pressed", String(preferences.favoritesFirst));
+        favoritesFirstButton.classList.toggle("is-active", preferences.favoritesFirst);
+
+        if (!ordered.length) {
+          var empty = document.createElement("p");
+          empty.className = "cds-playlist-empty";
+          empty.textContent = "The archive is waiting for its first release.";
+          playlist.appendChild(empty);
+          return;
         }
 
-        currentTimeLabel.textContent = formatTime(isSeeking ? Number(progress.value) : audio.currentTime);
-      }
-
-      function updatePlaylist(track) {
-        var active = activeTracks();
-        playlist.innerHTML = "";
-        playlistCount.textContent = active.length + " active / " + tracks.length + " total";
-        emptyMessage.hidden = active.length > 0;
-        restoreAllButton.hidden = active.length === tracks.length;
-
-        var header = document.createElement("div");
-        header.className = "music-playlist-row music-playlist-header";
-        ["On", "#", "Track", "Status"].forEach(function (label) {
-          var heading = document.createElement("span");
-          heading.textContent = label;
-          header.appendChild(heading);
-        });
-        playlist.appendChild(header);
-
-        tracks.forEach(function (item, index) {
-          var isExcluded = excludedIds.has(item.id);
-          var isCurrent = track && item.id === track.id;
+        ordered.forEach(function (item, index) {
+          var isCurrent = track && track.id === item.id;
+          var isFavorite = favorites.has(item.id);
+          var isExcluded = excluded.has(item.id);
+          var isUnavailable = unavailableIds.has(item.id);
           var row = document.createElement("div");
-          row.className = "music-playlist-row" + (isExcluded ? " is-excluded" : "") + (isCurrent ? " is-current" : "");
+          row.className = "cds-playlist-item" +
+            (isCurrent ? " is-current" : "") +
+            (isFavorite ? " is-favorite" : "") +
+            (isExcluded ? " is-excluded" : "") +
+            (isUnavailable ? " is-unavailable" : "");
+          row.setAttribute("role", "listitem");
 
-          var includeLabel = document.createElement("label");
-          includeLabel.className = "music-include";
-          var include = document.createElement("input");
-          include.type = "checkbox";
-          include.checked = !isExcluded;
-          include.setAttribute("aria-label", "Include " + item.title + " in playlist");
-          include.addEventListener("change", function () {
-            setTrackIncluded(item, include.checked);
-          });
-          includeLabel.appendChild(include);
-          row.appendChild(includeLabel);
-
-          var number = document.createElement("span");
-          number.className = "music-track-number";
-          number.textContent = String(index + 1).padStart(2, "0");
-          row.appendChild(number);
+          var position = document.createElement("span");
+          position.className = "cds-track-position";
+          position.textContent = String(index + 1).padStart(2, "0");
+          row.appendChild(position);
 
           var select = document.createElement("button");
           select.type = "button";
-          select.className = "music-track-main";
-          select.setAttribute("aria-pressed", String(isCurrent));
+          select.className = "cds-track-select";
+          select.disabled = isExcluded || isUnavailable;
+          select.setAttribute("aria-current", isCurrent ? "true" : "false");
           select.addEventListener("click", function () {
-            if (isExcluded) {
-              return;
-            }
-            selectTrack(item.id, !audio.paused);
+            selectTrack(item.id, true);
           });
-
-          var label = document.createElement("strong");
-          label.textContent = item.title;
-          select.appendChild(label);
-
+          var name = document.createElement("strong");
+          name.textContent = item.title;
+          select.appendChild(name);
           var meta = document.createElement("small");
-          meta.textContent = item.arc || item.type;
+          meta.textContent = [item.arc, item.type].filter(Boolean).join(" / ");
+          if (isUnavailable) {
+            var unavailableHint = document.createElement("em");
+            unavailableHint.textContent = "Unavailable";
+            meta.appendChild(document.createTextNode(" "));
+            meta.appendChild(unavailableHint);
+          }
           select.appendChild(meta);
           row.appendChild(select);
 
-          var tag = document.createElement("span");
-          tag.className = "music-track-tag";
-          tag.textContent = item.status || item.type;
-          row.appendChild(tag);
+          var actions = document.createElement("div");
+          actions.className = "cds-track-row-actions";
+          row.appendChild(actions);
+
+          var favorite = iconButton("â›§", isFavorite ? "Remove track from favorites" : "Bind track to favorites", "cds-favorite-control");
+          favorite.setAttribute("aria-pressed", String(isFavorite));
+          favorite.addEventListener("click", function () {
+            if (isFavorite) {
+              preferences.favorites = preferences.favorites.filter(function (id) {
+                return id !== item.id;
+              });
+            } else {
+              preferences.favorites.push(item.id);
+            }
+            syncPreferences();
+            renderPlaylist();
+          });
+          actions.appendChild(favorite);
+
+          var exclude = iconButton("ðŸª“", isExcluded ? "Restore to custom playlist" : "Remove from custom playlist", "cds-exclude-control");
+          exclude.setAttribute("aria-pressed", String(isExcluded));
+          exclude.addEventListener("click", function () {
+            var wasPlaying = !audio.paused;
+            preferences.mode = "custom";
+            if (isExcluded) {
+              preferences.excluded = preferences.excluded.filter(function (id) {
+                return id !== item.id;
+              });
+            } else {
+              preferences.excluded.push(item.id);
+            }
+            syncPreferences();
+            if (!isExcluded && currentTrackId === item.id) {
+              var next = enabledTracks()[0] || null;
+              currentTrackId = next ? next.id : "";
+              loadTrack(next);
+              if (wasPlaying && next) {
+                playCurrentTrack();
+              }
+            }
+            update();
+          });
+          actions.appendChild(exclude);
+
+          if (preferences.mode === "custom" && !preferences.favoritesFirst) {
+            var moveUp = iconButton("â†‘", "Move track up", "cds-order-control");
+            var moveDown = iconButton("â†“", "Move track down", "cds-order-control");
+            moveUp.disabled = index === 0;
+            moveDown.disabled = index === ordered.length - 1;
+            moveUp.addEventListener("click", function () {
+              moveCustomTrack(item.id, -1);
+            });
+            moveDown.addEventListener("click", function () {
+              moveCustomTrack(item.id, 1);
+            });
+            actions.appendChild(moveUp);
+            actions.appendChild(moveDown);
+          }
 
           playlist.appendChild(row);
         });
       }
 
-      function updateActions(track) {
-        trackActions.innerHTML = "";
-
-        var lyricsButton = createButton(track && track.lyrics ? "Lyrics / Story" : "Lyrics / story pending", "button secondary");
-        lyricsButton.addEventListener("click", function () {
-          lyricsOpen = !lyricsOpen;
-          update();
-        });
-        trackActions.appendChild(lyricsButton);
-      }
-
-      function updateLyrics(track) {
-        lyricsPanel.innerHTML = "";
-        if (!lyricsOpen || !track) {
-          lyricsPanel.hidden = true;
+      function moveCustomTrack(trackId, direction) {
+        preferences.mode = "custom";
+        var order = completeOrder(preferences.trackOrder, officialIds);
+        var index = order.indexOf(trackId);
+        var target = index + direction;
+        if (index < 0 || target < 0 || target >= order.length) {
           return;
         }
-        lyricsPanel.hidden = false;
-        var text = document.createElement("p");
-        text.textContent = track.lyrics || "Lyrics and story notes will be added later.";
-        lyricsPanel.appendChild(text);
+        var swap = order[target];
+        order[target] = trackId;
+        order[index] = swap;
+        preferences.trackOrder = order;
+        syncPreferences();
+        renderPlaylist();
       }
 
       function update() {
-        var active = activeTracks();
         var track = currentTrack();
-
-        if (!active.length) {
+        if (!track) {
           currentTrackId = "";
           loadTrack(null);
+          title.textContent = "No playable tracks";
+          subtitle.textContent = "Restore a track to continue listening.";
           cover.removeAttribute("src");
           cover.alt = "";
-          status.textContent = "Playlist empty";
-          detail.textContent = "Restore tracks to continue";
-          title.textContent = "No active tracks selected.";
-          description.textContent = "Restore all tracks or reselect individual songs in the playlist.";
-          audioNote.textContent = "";
-          controls.hidden = true;
-          trackActions.innerHTML = "";
-          updateProgress();
-          updatePlaylist(null);
-          updateLyrics(null);
-          return;
+          coverBackdrop.style.backgroundImage = "none";
+          lyricsButton.disabled = true;
+          infoButton.disabled = true;
+          updateDetails(null);
+        } else {
+          currentTrackId = track.id;
+          loadTrack(track);
+          updateCover(track);
+          title.textContent = track.title;
+          subtitle.textContent = track.arc || track.type || "Archive recording";
+          var hasArchiveText = Boolean(track.lyrics || track.story);
+          lyricsButton.disabled = !hasArchiveText;
+          lyricsButton.title = hasArchiveText ? "Open lyrics and story" : "Archive Text Pending";
+          infoButton.disabled = false;
+          updateDetails(track);
         }
-
-        controls.hidden = false;
-        currentTrackId = track.id;
-        loadTrack(track);
-
-        cover.src = track.coverImage;
-        cover.alt = track.imageAlt || "";
-        status.textContent = [track.status, track.year].filter(Boolean).join(" / ");
-        detail.textContent = [track.type, track.arc].filter(Boolean).join(" / ");
-        title.textContent = track.title;
-        description.textContent = track.description;
-        audioNote.textContent = track.localAudio ? "Local audio ready. Playback starts only when you press Play." : "Local audio player coming soon.";
-
-        playButton.textContent = audio.paused ? "Play" : "Pause";
-        playButton.disabled = !track.localAudio;
-        previousButton.disabled = active.length < 2;
-        nextButton.disabled = active.length < 2;
-        repeatSongButton.setAttribute("aria-pressed", String(repeatSong));
-        repeatListButton.setAttribute("aria-pressed", String(repeatList));
-        repeatSongButton.textContent = repeatSong ? "Repeat 1 On" : "Repeat 1";
-        repeatListButton.textContent = repeatList ? "Repeat All On" : "Repeat All";
-        muteButton.textContent = audio.muted ? "Muted" : "Mute";
-        muteButton.setAttribute("aria-pressed", String(audio.muted));
-
+        updateNotice();
         updateProgress();
-        updatePlaylist(track);
-        updateActions(track);
-        updateLyrics(track);
+        updateTransport();
+        renderPlaylist();
       }
 
-      previousButton.addEventListener("click", function () {
-        moveTrack(-1, !audio.paused);
+      shuffleButton.addEventListener("click", function () {
+        preferences.shuffle = !preferences.shuffle;
+        syncPreferences();
+        updateTransport();
       });
 
-      nextButton.addEventListener("click", function () {
-        moveTrack(1, !audio.paused);
+      previousButton.addEventListener("click", function () {
+        if (audio.currentTime > 4) {
+          audio.currentTime = 0;
+          updateProgress();
+          return;
+        }
+        moveTrack(-1, !audio.paused, true);
       });
 
       playButton.addEventListener("click", function () {
@@ -862,75 +1148,153 @@
         } else {
           audio.pause();
         }
-        update();
       });
 
-      repeatSongButton.addEventListener("click", function () {
-        repeatSong = !repeatSong;
-        update();
+      nextButton.addEventListener("click", function () {
+        moveTrack(1, !audio.paused, true);
       });
 
-      repeatListButton.addEventListener("click", function () {
-        repeatList = !repeatList;
-        update();
+      repeatButton.addEventListener("click", function () {
+        var nextIndex = (repeatModes.indexOf(preferences.repeat) + 1) % repeatModes.length;
+        preferences.repeat = repeatModes[nextIndex];
+        syncPreferences();
+        updateTransport();
       });
 
-      muteButton.addEventListener("click", function () {
-        audio.muted = !audio.muted;
-        update();
-      });
-
-      restoreAllButton.addEventListener("click", function () {
-        excludedIds.clear();
-        syncStorage();
-        update();
+      volume.addEventListener("input", function () {
+        audio.volume = Number(volume.value);
       });
 
       progress.addEventListener("input", function () {
-        var targetTime = Number(progress.value);
-        if (!Number.isFinite(audio.duration) || audio.duration <= 0 || !Number.isFinite(targetTime)) {
+        var target = Number(progress.value);
+        if (!Number.isFinite(audio.duration) || audio.duration <= 0 || !Number.isFinite(target)) {
           return;
         }
         isSeeking = true;
-        audio.currentTime = targetTime;
-        currentTimeLabel.textContent = formatTime(targetTime);
+        audio.currentTime = target;
+        currentTimeLabel.textContent = formatTime(target);
+        setProgressFill();
       });
 
-      progress.addEventListener("change", function () {
-        isSeeking = false;
-        updateProgress();
+      ["change", "pointerup", "keyup"].forEach(function (eventName) {
+        progress.addEventListener(eventName, function () {
+          isSeeking = false;
+          updateProgress();
+        });
       });
 
-      progress.addEventListener("pointerup", function () {
-        isSeeking = false;
-        updateProgress();
+      lyricsButton.addEventListener("click", function () {
+        detailsMode = detailsMode === "lyrics" ? "" : "lyrics";
+        updateDetails(currentTrack());
       });
 
-      progress.addEventListener("keyup", function () {
-        isSeeking = false;
-        updateProgress();
+      infoButton.addEventListener("click", function () {
+        detailsMode = detailsMode === "info" ? "" : "info";
+        updateDetails(currentTrack());
       });
 
-      audio.addEventListener("play", update);
-      audio.addEventListener("pause", update);
+      favoritesFirstButton.addEventListener("click", function () {
+        preferences.favoritesFirst = !preferences.favoritesFirst;
+        preferences.mode = "custom";
+        syncPreferences();
+        renderPlaylist();
+      });
+
+      savePlaylistButton.addEventListener("click", function () {
+        var payload = {
+          app: "Callizto Dark Symphony",
+          type: "music-player-preferences",
+          version: 1,
+          createdAt: new Date().toISOString(),
+          trackOrder: completeOrder(preferences.trackOrder, officialIds),
+          favorites: preferences.favorites.slice(),
+          excluded: preferences.excluded.slice(),
+          mode: "custom",
+          favoritesFirst: preferences.favoritesFirst,
+          shuffle: preferences.shuffle,
+          repeat: preferences.repeat
+        };
+        var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+        var objectUrl = URL.createObjectURL(blob);
+        var download = document.createElement("a");
+        download.href = objectUrl;
+        download.download = "callizto-dark-symphony-playlist.json";
+        document.body.appendChild(download);
+        download.click();
+        download.remove();
+        URL.revokeObjectURL(objectUrl);
+        setMessage("Custom playlist backup saved.", false);
+      });
+
+      loadPlaylistButton.addEventListener("click", function () {
+        importInput.click();
+      });
+
+      importInput.addEventListener("change", function () {
+        var file = importInput.files && importInput.files[0];
+        if (!file) {
+          return;
+        }
+        var reader = new FileReader();
+        reader.addEventListener("load", function () {
+          try {
+            var imported = JSON.parse(String(reader.result || ""));
+            if (!imported || imported.app !== "Callizto Dark Symphony" || imported.type !== "music-player-preferences" || imported.version !== 1) {
+              throw new Error("This is not a CDS music-player preferences file.");
+            }
+            preferences.trackOrder = completeOrder(imported.trackOrder, officialIds);
+            preferences.favorites = uniqueKnownIds(imported.favorites, officialIds);
+            preferences.excluded = uniqueKnownIds(imported.excluded, officialIds);
+            preferences.mode = "custom";
+            preferences.favoritesFirst = imported.favoritesFirst === true;
+            preferences.shuffle = imported.shuffle === true;
+            preferences.repeat = repeatModes.indexOf(imported.repeat) >= 0 ? imported.repeat : "off";
+            syncPreferences();
+            currentTrackId = "";
+            update();
+            setMessage("Custom playlist restored and saved in this browser.", false);
+          } catch (error) {
+            setMessage(error instanceof Error ? error.message : "The playlist file could not be loaded.", true);
+          }
+          importInput.value = "";
+        });
+        reader.readAsText(file);
+      });
+
+      resetPlaylistButton.addEventListener("click", function () {
+        var hasCustomSettings = preferences.mode === "custom" || preferences.favorites.length || preferences.excluded.length;
+        if (hasCustomSettings && !window.confirm("Reset to the official CDS archive playlist and clear local favorites and exclusions?")) {
+          return;
+        }
+        preferences = defaultPreferences(officialIds);
+        syncPreferences();
+        currentTrackId = "";
+        detailsMode = "";
+        update();
+        setMessage("Official archive playlist restored.", false);
+      });
+
+      audio.addEventListener("play", updateTransport);
+      audio.addEventListener("pause", updateTransport);
       audio.addEventListener("loadedmetadata", updateProgress);
       audio.addEventListener("durationchange", updateProgress);
       audio.addEventListener("timeupdate", updateProgress);
+      audio.addEventListener("error", function () {
+        var failedTrackId = audio.dataset.trackId;
+        markUnavailable(failedTrackId, pendingPlayback || !audio.paused);
+      });
       audio.addEventListener("ended", function () {
-        if (repeatSong) {
+        if (preferences.repeat === "one") {
           audio.currentTime = 0;
           playCurrentTrack();
           return;
         }
-        var active = activeTracks();
-        var track = currentTrack();
-        var index = active.findIndex(function (item) {
-          return track && item.id === track.id;
-        });
-        if (repeatList || index < active.length - 1) {
-          moveTrack(1, true);
+        var next = adjacentTrack(1, preferences.repeat === "all");
+        if (next) {
+          selectTrack(next.id, true);
         } else {
-          update();
+          audio.pause();
+          updateTransport();
         }
       });
 
@@ -948,10 +1312,13 @@
         render(data[key] || []);
       })
       .catch(function () {
-        render(
-          fallbackData[key] || [],
-          "Archive data could not be loaded in this local preview. Use a local server or GitHub Pages preview to load the data archive."
-        );
+        var fallbackItems = (fallbackData[key] || []).map(function (item, index) {
+          return Object.assign({}, item, {
+            artist: item.artist || "Callizto Dark Symphony",
+            coverAspect: item.coverAspect || (index < 3 ? "portrait" : "wide")
+          });
+        });
+        render(fallbackItems, "Archive data could not be loaded. A local fallback archive is being shown.");
       });
   }
 
@@ -1131,7 +1498,7 @@
       });
   }
 
-  renderMusicPlayer("music-player", "data/releases.json", "releases");
+  renderCdsMusicArchive("music-player", "data/releases.json", "releases");
   renderJsonList("video-list", "data/videos.json", "videos", "video");
   renderArchiveCategories("archive-category-grid", "data/archive.json", "categories");
 }());
