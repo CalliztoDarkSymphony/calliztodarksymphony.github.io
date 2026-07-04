@@ -221,3 +221,226 @@
   .cds-track-select small { max-width: 10rem; }
   .cds-track-menu { grid-template-columns: 1fr; }
 }
+/* CDS Music Archive Desktop Layout v2 */
+@media (min-width: 1180px) {
+  .music-player-section {
+    padding-inline: clamp(1.4rem, 3vw, 3rem);
+  }
+
+  .music-player-heading {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.55fr) minmax(0, 1.45fr);
+    gap: clamp(1.4rem, 3vw, 3rem);
+    align-items: end;
+    max-width: min(1500px, calc(100vw - 4rem));
+    margin-inline: auto;
+  }
+
+  .music-player-heading h2 {
+    max-width: 620px;
+  }
+
+  .music-player-heading p:not(.eyebrow) {
+    max-width: 780px;
+    margin: 0;
+    color: rgba(214, 221, 235, 0.66);
+  }
+
+  .cds-music-archive {
+    grid-template-columns: minmax(16rem, 0.58fr) minmax(34rem, 1.32fr) minmax(20rem, 0.72fr);
+    gap: clamp(0.9rem, 1.5vw, 1.25rem);
+    align-items: start;
+    max-width: min(1500px, calc(100vw - 4rem));
+  }
+
+  .cds-player-shrine {
+    grid-column: 3;
+    grid-row: 1;
+    position: sticky;
+    top: 5.25rem;
+    max-height: calc(100vh - 6.25rem);
+    overflow: auto;
+    padding: clamp(1rem, 1.5vw, 1.25rem);
+  }
+
+  .cds-playlist-archive {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: minmax(15rem, 0.44fr) minmax(0, 1.56fr);
+    grid-template-areas:
+      "header header"
+      "tabs list"
+      "tools list"
+      "actions message"
+      "backup list";
+    gap: 0.85rem 1rem;
+    min-height: min(58rem, calc(100vh - 6rem));
+    padding: clamp(1rem, 1.6vw, 1.35rem);
+  }
+
+  .cds-playlist-header {
+    grid-area: header;
+    align-items: center;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(218, 201, 229, 0.10);
+  }
+
+  .cds-playlist-header h3 {
+    font-size: clamp(1.8rem, 2vw, 2.35rem);
+  }
+
+  .cds-archive-tabs {
+    grid-area: tabs;
+    grid-template-columns: 1fr;
+    gap: 0.42rem;
+    margin: 0;
+    padding: 0 0.75rem 0 0;
+    border-right: 1px solid rgba(218, 201, 229, 0.10);
+    border-bottom: 0;
+  }
+
+  .cds-archive-tab {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    min-height: 3.15rem;
+    padding-inline: 0.72rem;
+    text-align: left;
+  }
+
+  .cds-archive-tab small {
+    margin: 0;
+    text-align: right;
+  }
+
+  .cds-archive-tab[aria-selected="true"]::after {
+    inset: 0 auto 0 -1px;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(180deg, #9f52df, #7b305f);
+  }
+
+  .cds-library-tools {
+    grid-area: tools;
+    grid-template-columns: 1fr;
+    align-self: start;
+    margin: 0;
+    padding: 0.9rem 0.75rem 0.95rem 0;
+    border-right: 1px solid rgba(218, 201, 229, 0.10);
+  }
+
+  .cds-library-search {
+    grid-column: 1;
+  }
+
+  .cds-library-filters {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .cds-filter-button {
+    text-align: left;
+  }
+
+  .cds-view-toolbar {
+    grid-area: actions;
+    display: grid;
+    gap: 0.5rem;
+    justify-content: stretch;
+    align-self: start;
+    margin: 0;
+    padding-right: 0.75rem;
+    border-right: 1px solid rgba(218, 201, 229, 0.10);
+  }
+
+  .cds-view-toolbar .cds-archive-command {
+    width: 100%;
+  }
+
+  .cds-playlist-message {
+    grid-area: message;
+    margin: 0;
+  }
+
+  .cds-playlist-message[hidden] {
+    display: none;
+  }
+
+  .cds-playlist-list {
+    grid-area: list;
+    align-content: start;
+    max-height: min(47rem, calc(100vh - 14rem));
+    overflow: auto;
+    padding-right: 0.35rem;
+    scrollbar-color: rgba(168, 92, 255, 0.45) rgba(214, 221, 235, 0.08);
+  }
+
+  .cds-playlist-item {
+    grid-template-columns: 2.5rem 2.2rem minmax(0, 1fr) auto;
+    gap: 0.7rem;
+    min-height: 4.05rem;
+    padding: 0.76rem 0.82rem;
+  }
+
+  .cds-track-select strong {
+    font-size: 0.98rem;
+  }
+
+  .cds-track-select small {
+    font-size: 0.72rem;
+  }
+
+  .cds-track-menu {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cds-archive-backup {
+    grid-area: backup;
+    grid-template-columns: 1fr;
+    align-self: end;
+    margin: 0;
+    padding: 0.9rem 0.75rem 0 0;
+    border-top: 1px solid rgba(218, 201, 229, 0.10);
+    border-right: 1px solid rgba(218, 201, 229, 0.10);
+  }
+
+  .cds-archive-backup .cds-archive-command {
+    width: 100%;
+  }
+
+  .cds-cover-stage {
+    aspect-ratio: 4 / 5;
+  }
+
+  .cds-now-playing h3 {
+    font-size: clamp(1.5rem, 1.8vw, 2.1rem);
+  }
+
+  .cds-track-details {
+    max-height: 13rem;
+    overflow: auto;
+  }
+}
+
+@media (min-width: 1180px) and (max-height: 760px) {
+  .cds-player-shrine {
+    position: static;
+    max-height: none;
+  }
+
+  .cds-playlist-archive {
+    min-height: 0;
+  }
+
+  .cds-playlist-list {
+    max-height: 38rem;
+  }
+}
+
+@media (max-width: 1179px) {
+  .music-player-heading p:not(.eyebrow) {
+    max-width: 760px;
+    color: rgba(214, 221, 235, 0.62);
+  }
+}

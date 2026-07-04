@@ -3468,3 +3468,318 @@ p {
     padding-bottom: 3rem;
   }
 }
+
+/* Desktop Website Shell v1 */
+@media (min-width: 981px) {
+  .site-header {
+    padding-inline: clamp(2rem, 4vw, 4.6rem);
+    min-height: 4.45rem;
+    background:
+      linear-gradient(180deg, rgba(3, 3, 7, 0.96), rgba(3, 3, 7, 0.78)),
+      radial-gradient(circle at 14% 0%, rgba(168, 92, 255, 0.16), transparent 22rem),
+      rgba(3, 3, 7, 0.92);
+  }
+
+  .site-header::after {
+    content: "";
+    position: absolute;
+    right: clamp(2rem, 4vw, 4.6rem);
+    bottom: -1px;
+    left: clamp(2rem, 4vw, 4.6rem);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(168, 92, 255, 0.58), rgba(137, 237, 255, 0.20), transparent);
+    pointer-events: none;
+  }
+
+  .brand {
+    gap: 0.85rem;
+    font-size: clamp(0.92rem, 1vw, 1.08rem);
+  }
+
+  .brand::after {
+    content: "AI-assisted music / film / mythology";
+    padding-left: 0.85rem;
+    border-left: 1px solid rgba(214, 221, 235, 0.16);
+    color: rgba(214, 221, 235, 0.42);
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.58rem;
+    font-weight: 850;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .site-nav {
+    gap: clamp(0.42rem, 0.86vw, 0.86rem);
+  }
+
+  .site-nav a {
+    position: relative;
+    padding: 0.55rem 0.12rem;
+    font-size: clamp(0.62rem, 0.68vw, 0.72rem);
+  }
+
+  .site-nav a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0.22rem;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--violet), rgba(142, 22, 44, 0.72));
+    opacity: 0;
+    transform: scaleX(0.35);
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+
+  .site-nav a:hover::after,
+  .site-nav a:focus-visible::after,
+  .site-nav a.active::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .section,
+  .page-hero {
+    max-width: min(1400px, calc(100vw - 5rem));
+  }
+
+  .page-hero {
+    border-bottom: 1px solid rgba(214, 221, 235, 0.08);
+  }
+
+  .page-hero:not(.compact),
+  .page-hero.compact {
+    min-height: clamp(27rem, 48vh, 38rem);
+    align-content: end;
+  }
+
+  .section {
+    padding-block: clamp(4.6rem, 7vw, 7.4rem);
+  }
+
+  .section-heading > p:not(.eyebrow) {
+    max-width: 760px;
+    color: var(--silver);
+  }
+
+  .site-footer {
+    padding-inline: clamp(2rem, 4vw, 4.6rem);
+  }
+}
+
+.home-command-deck {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(214, 221, 235, 0.10);
+  border-bottom: 1px solid rgba(214, 221, 235, 0.10);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(168, 92, 255, 0.12), transparent 22rem),
+    radial-gradient(circle at 86% 20%, rgba(137, 237, 255, 0.07), transparent 24rem),
+    linear-gradient(180deg, rgba(8, 7, 12, 0.72), rgba(3, 3, 7, 0.88));
+}
+
+.home-command-deck .section-heading {
+  max-width: 820px;
+  margin-bottom: clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.portal-card-grid,
+.gateway-card-grid,
+.forge-command-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.portal-card-grid,
+.forge-command-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gateway-card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.portal-card,
+.gateway-card,
+.forge-command-card {
+  position: relative;
+  min-height: 15.5rem;
+  overflow: hidden;
+  padding: clamp(1.15rem, 2.2vw, 1.65rem);
+  border: 1px solid rgba(214, 221, 235, 0.14);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(168, 92, 255, 0.15), transparent 18rem),
+    linear-gradient(155deg, rgba(17, 13, 24, 0.96), rgba(5, 6, 10, 0.98) 60%, rgba(28, 6, 16, 0.80));
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.42);
+  color: var(--silver);
+}
+
+.portal-card::before,
+.gateway-card::before,
+.forge-command-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--violet), rgba(142, 22, 44, 0.76));
+  box-shadow: 0 0 28px rgba(168, 92, 255, 0.35);
+}
+
+.portal-card-primary::before,
+.gateway-card:hover::before,
+.portal-card:hover::before,
+.forge-command-card:hover::before {
+  background: linear-gradient(180deg, rgba(137, 237, 255, 0.85), var(--violet), rgba(142, 22, 44, 0.84));
+}
+
+.portal-card span,
+.gateway-card span,
+.forge-command-card span {
+  color: rgba(137, 237, 255, 0.72);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.portal-card h3,
+.gateway-card h3,
+.forge-command-card h3 {
+  margin-top: 1.9rem;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 2.4vw, 2.35rem);
+  font-weight: 500;
+}
+
+.gateway-card h3,
+.forge-command-card h3 {
+  margin-top: 1.25rem;
+  font-size: clamp(1.35rem, 2vw, 1.95rem);
+}
+
+.portal-card p,
+.gateway-card p,
+.forge-command-card p {
+  margin-bottom: 0;
+  color: rgba(214, 221, 235, 0.68);
+}
+
+.hero-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.45rem;
+}
+
+.hero-stat-row span {
+  min-height: 2.25rem;
+  padding: 0.62rem 0.78rem;
+  border: 1px solid rgba(214, 221, 235, 0.13);
+  border-radius: 999px;
+  background: rgba(7, 6, 11, 0.56);
+  color: rgba(221, 214, 229, 0.72);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.archive-gateway,
+.forge-command {
+  border-top: 1px solid rgba(214, 221, 235, 0.10);
+  border-bottom: 1px solid rgba(214, 221, 235, 0.10);
+  background:
+    radial-gradient(circle at 80% 10%, rgba(168, 92, 255, 0.10), transparent 24rem),
+    linear-gradient(90deg, rgba(137, 237, 255, 0.04), transparent 48%);
+}
+
+.forge-hero {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(168, 92, 255, 0.16), transparent 24rem),
+    radial-gradient(circle at 78% 24%, rgba(142, 22, 44, 0.13), transparent 24rem);
+}
+
+@media (min-width: 981px) {
+  .home-portal {
+    min-height: calc(100vh - 4.45rem);
+    padding-bottom: clamp(4rem, 8vh, 7rem);
+  }
+
+  .home-portal .portal-copy {
+    width: min(850px, 100%);
+  }
+
+  .home-portal h1 {
+    max-width: 930px;
+    font-size: clamp(4.6rem, 8vw, 8.9rem);
+    line-height: 0.88;
+  }
+
+  .home-portal .signal-line {
+    max-width: 760px;
+    color: #e5d7ec;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.3rem, 2.1vw, 2rem);
+    line-height: 1.24;
+  }
+
+  .home-portal .lead {
+    max-width: 720px;
+  }
+
+  .archive-hero {
+    min-height: clamp(34rem, 72vh, 48rem);
+  }
+
+  .archive-hero h1 {
+    font-size: clamp(5.8rem, 10vw, 10rem);
+  }
+
+  .archive-start,
+  .current-canon-preview,
+  .deep-archive-intro,
+  .archive-home-hook,
+  .provenance-orientation,
+  .side-archives {
+    grid-template-columns: minmax(18rem, 0.7fr) minmax(0, 1.3fr);
+  }
+
+  .forge-command .ritual-heading,
+  .archive-gateway .ritual-heading {
+    max-width: 880px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .brand::after {
+    display: none;
+  }
+
+  .gateway-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .portal-card-grid,
+  .forge-command-grid,
+  .gateway-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-card,
+  .gateway-card,
+  .forge-command-card {
+    min-height: 0;
+  }
+}
+
+/* Desktop shell responsive guard */
+@media (max-width: 1320px) {
+  .brand::after {
+    display: none;
+  }
+}
