@@ -23,8 +23,34 @@
     sidebar: document.getElementById("wiki-sidebar"),
     sidebarOpen: document.getElementById("wiki-sidebar-open"),
     sidebarClose: document.getElementById("wiki-sidebar-close"),
-    startIntro: document.getElementById("wiki-start-intro")
+    startIntro: document.getElementById("wiki-start-intro"),
+    contentStage: document.querySelector(".wiki-content-stage"),
+    main: document.getElementById("wiki-main")
   };
+
+  function scrollToReadingTop() {
+    var anchor = els.contentStage || els.main || document.getElementById("wiki-reader");
+    if (!anchor) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    var headerOffset = window.innerWidth >= 981 ? 88 : 72;
+    var top = anchor.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+    var targetTop = Math.max(0, top);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.scrollTo(0, targetTop);
+      return;
+    }
+    window.scrollTo({ top: targetTop, behavior: "smooth" });
+  }
+
+  function focusArticleTitle() {
+    if (!els.title || !els.panel || els.panel.hidden) {
+      return;
+    }
+    els.title.setAttribute("tabindex", "-1");
+    els.title.focus({ preventScroll: true });
+  }
 
   function escapeHtml(value) {
     return String(value)
@@ -358,9 +384,11 @@
     }
     setStatus("Reading #" + String(article.id).padStart(4, "0"));
     renderArticleNav(file);
+    scrollToReadingTop();
 
     if (contentCache[file]) {
       els.body.innerHTML = renderMarkdown(contentCache[file]);
+      focusArticleTitle();
       return;
     }
 
@@ -375,11 +403,13 @@
         contentCache[file] = markdown;
         if (activeFile === file && els.body) {
           els.body.innerHTML = renderMarkdown(markdown);
+          focusArticleTitle();
         }
       })
       .catch(function (error) {
         if (activeFile === file && els.body) {
           els.body.innerHTML = '<p class="wiki-load-error">' + escapeHtml(error.message) + "</p>";
+          focusArticleTitle();
         }
       });
   }

@@ -6,7 +6,7 @@
   <title>CDS Wiki | Callizto Dark Symphony</title>
   <meta name="description" content="The public Callizto Dark Symphony wiki archive: mythology, characters, songs, Forge lore, and project documentation.">
   <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="wiki.css?v=20260706-layout2">
+  <link rel="stylesheet" href="wiki.css?v=20260706-layout4">
 </head>
 <body class="wiki-page">
   <header class="site-header">
@@ -49,30 +49,32 @@
     </aside>
 
     <main class="wiki-main" id="wiki-main">
-      <div class="wiki-toolbar">
-        <button class="wiki-sidebar-open" type="button" id="wiki-sidebar-open" aria-controls="wiki-sidebar" aria-expanded="false">Articles</button>
-        <p class="wiki-toolbar-status" id="wiki-toolbar-status">Loading wiki archive...</p>
-      </div>
+      <div class="wiki-content-stage">
+        <div class="wiki-toolbar">
+          <button class="wiki-sidebar-open" type="button" id="wiki-sidebar-open" aria-controls="wiki-sidebar" aria-expanded="false">Articles</button>
+          <p class="wiki-toolbar-status" id="wiki-toolbar-status">Loading wiki archive...</p>
+        </div>
 
-      <article class="wiki-reader" id="wiki-reader" aria-live="polite">
-        <div class="wiki-welcome" id="wiki-welcome">
-          <p class="eyebrow">Public Wiki</p>
-          <h2>Enter the archive when you want depth.</h2>
-          <p>Select an article from the list, or start with the introduction.</p>
-          <p class="wiki-welcome-actions">
-            <button type="button" class="button primary" id="wiki-start-intro">Open Wiki Introduction</button>
-          </p>
-        </div>
-        <div class="wiki-article-panel" id="wiki-article-panel" hidden>
-          <header class="wiki-article-header">
-            <p class="wiki-article-phase" id="wiki-article-phase"></p>
-            <h2 class="wiki-article-title" id="wiki-article-title"></h2>
-            <p class="wiki-article-file" id="wiki-article-file"></p>
-          </header>
-          <div class="wiki-article-body" id="wiki-article-body"></div>
-          <nav class="wiki-article-nav" id="wiki-article-nav" aria-label="Article navigation"></nav>
-        </div>
-      </article>
+        <article class="wiki-reader" id="wiki-reader" aria-live="polite">
+          <div class="wiki-welcome" id="wiki-welcome">
+            <p class="eyebrow">Public Wiki</p>
+            <h2>Enter the archive when you want depth.</h2>
+            <p>Select an article from the list, or start with the introduction.</p>
+            <p class="wiki-welcome-actions">
+              <button type="button" class="button primary" id="wiki-start-intro">Open Wiki Introduction</button>
+            </p>
+          </div>
+          <div class="wiki-article-panel" id="wiki-article-panel" hidden>
+            <header class="wiki-article-header">
+              <p class="wiki-article-phase" id="wiki-article-phase"></p>
+              <h2 class="wiki-article-title" id="wiki-article-title"></h2>
+              <p class="wiki-article-file" id="wiki-article-file"></p>
+            </header>
+            <div class="wiki-article-body" id="wiki-article-body"></div>
+            <nav class="wiki-article-nav" id="wiki-article-nav" aria-label="Article navigation"></nav>
+          </div>
+        </article>
+      </div>
     </main>
   </div>
 
@@ -91,6 +93,6 @@
   </footer>
 
   <script src="../script.js"></script>
-  <script src="wiki.js"></script>
+  <script src="wiki.js?v=20260706-scroll1"></script>
 </body>
 </html>
