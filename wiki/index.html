@@ -6,7 +6,7 @@
   <title>CDS Wiki | Callizto Dark Symphony</title>
   <meta name="description" content="The public Callizto Dark Symphony wiki archive: mythology, characters, songs, Forge lore, and project documentation.">
   <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="wiki.css?v=20260706-layout4">
+  <link rel="stylesheet" href="wiki.css?v=20260706-stats1">
 </head>
 <body class="wiki-page">
   <header class="site-header">
@@ -56,13 +56,21 @@
         </div>
 
         <article class="wiki-reader" id="wiki-reader" aria-live="polite">
-          <div class="wiki-welcome" id="wiki-welcome">
-            <p class="eyebrow">Public Wiki</p>
-            <h2>Enter the archive when you want depth.</h2>
-            <p>Select an article from the list, or start with the introduction.</p>
-            <p class="wiki-welcome-actions">
-              <button type="button" class="button primary" id="wiki-start-intro">Open Wiki Introduction</button>
-            </p>
+          <div class="wiki-welcome-view" id="wiki-welcome-view">
+            <div class="wiki-welcome" id="wiki-welcome">
+              <p class="eyebrow">Public Wiki</p>
+              <h2>Enter the archive when you want depth.</h2>
+              <p>Select an article from the list, or start with the introduction.</p>
+              <p class="wiki-welcome-actions">
+                <button type="button" class="button primary" id="wiki-start-intro">Open Wiki Introduction</button>
+              </p>
+            </div>
+
+            <aside class="wiki-signal-panel" id="wiki-signal-panel" aria-label="Archive signal statistics">
+              <p class="wiki-signal-eyebrow">Archive Signal</p>
+              <p class="wiki-signal-lead" id="wiki-signal-lead"></p>
+              <dl class="wiki-signal-stats" id="wiki-signal-stats"></dl>
+            </aside>
           </div>
           <div class="wiki-article-panel" id="wiki-article-panel" hidden>
             <header class="wiki-article-header">
@@ -93,6 +101,6 @@
   </footer>
 
   <script src="../script.js"></script>
-  <script src="wiki.js?v=20260706-scroll1"></script>
+  <script src="wiki.js?v=20260706-stats1"></script>
 </body>
 </html>

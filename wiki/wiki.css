@@ -217,6 +217,11 @@
   max-width: 820px;
 }
 
+.wiki-welcome-view {
+  display: grid;
+  gap: 1rem;
+}
+
 .wiki-welcome {
   padding: clamp(1.5rem, 4vw, 2.5rem);
   border: 1px solid var(--line);
@@ -225,6 +230,67 @@
     radial-gradient(circle at 12% 0%, rgba(168, 92, 255, 0.12), transparent 20rem),
     linear-gradient(160deg, rgba(12, 10, 18, 0.98), rgba(5, 5, 9, 0.96));
   box-shadow: var(--shadow);
+}
+
+.wiki-signal-panel {
+  padding: clamp(1.1rem, 2.5vw, 1.45rem);
+  border: 1px solid rgba(214, 221, 235, 0.12);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(137, 237, 255, 0.07), transparent 16rem),
+    linear-gradient(155deg, rgba(10, 9, 14, 0.96), rgba(5, 5, 9, 0.98));
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+}
+
+.wiki-signal-eyebrow {
+  margin: 0;
+  color: var(--blue);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.wiki-signal-lead {
+  margin: 0.55rem 0 1rem;
+  max-width: 52ch;
+  color: rgba(214, 221, 235, 0.62);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.wiki-signal-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem 1rem;
+  margin: 0;
+}
+
+.wiki-signal-stats div {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(214, 221, 235, 0.08);
+  border-radius: 6px;
+  background: rgba(4, 4, 8, 0.55);
+}
+
+.wiki-signal-stats dt {
+  margin: 0;
+  color: rgba(137, 237, 255, 0.62);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.wiki-signal-stats dd {
+  margin: 0;
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.1;
 }
 
 .wiki-welcome h2 {
@@ -511,7 +577,17 @@
   }
 }
 
+@media (min-width: 900px) {
+  .wiki-signal-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 680px) {
+  .wiki-signal-stats {
+    grid-template-columns: 1fr;
+  }
+
   .wiki-article-nav {
     grid-template-columns: 1fr;
   }

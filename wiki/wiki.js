@@ -7,12 +7,36 @@
   var searchQuery = "";
   var contentCache = Object.create(null);
 
+  var archiveStatsDefaults = {
+    articles: 100,
+    phases: 6,
+    words: 55853,
+    characters: 361881,
+    lines: 6066,
+    estimatedTokens: 90473,
+    missingRecords: 0,
+    tagline: "A living archive, not required reading. But the signal is there for those who want to go deeper."
+  };
+
+  var archiveStatFields = [
+    { key: "articles", label: "Articles" },
+    { key: "phases", label: "Phases" },
+    { key: "words", label: "Words" },
+    { key: "characters", label: "Characters" },
+    { key: "lines", label: "Lines" },
+    { key: "estimatedTokens", label: "Estimated AI tokens" },
+    { key: "missingRecords", label: "Missing records" }
+  ];
+
   var els = {
     phaseNav: document.getElementById("wiki-phase-nav"),
     articleList: document.getElementById("wiki-article-list"),
     listMeta: document.getElementById("wiki-list-meta"),
     search: document.getElementById("wiki-search"),
+    welcomeView: document.getElementById("wiki-welcome-view"),
     welcome: document.getElementById("wiki-welcome"),
+    signalLead: document.getElementById("wiki-signal-lead"),
+    signalStats: document.getElementById("wiki-signal-stats"),
     panel: document.getElementById("wiki-article-panel"),
     phase: document.getElementById("wiki-article-phase"),
     title: document.getElementById("wiki-article-title"),
@@ -27,6 +51,61 @@
     contentStage: document.querySelector(".wiki-content-stage"),
     main: document.getElementById("wiki-main")
   };
+
+  function formatStatValue(key, value) {
+    if (typeof value !== "number" || isNaN(value)) {
+      return String(value == null ? "" : value);
+    }
+    return value.toLocaleString("en-US");
+  }
+
+  function resolveArchiveStats(manifestData, externalStats) {
+    var stats = Object.assign({}, archiveStatsDefaults, externalStats || {});
+    if (manifestData) {
+      if (manifestData.stats && typeof manifestData.stats === "object") {
+        Object.assign(stats, manifestData.stats);
+      }
+      if (Array.isArray(manifestData.articles) && manifestData.articles.length) {
+        stats.articles = manifestData.articles.length;
+      }
+      if (Array.isArray(manifestData.phases) && manifestData.phases.length) {
+        stats.phases = manifestData.phases.length;
+      }
+    }
+    return stats;
+  }
+
+  function renderArchiveSignal(stats) {
+    var resolved = resolveArchiveStats(manifest, stats);
+    if (els.signalLead) {
+      els.signalLead.textContent = resolved.tagline || archiveStatsDefaults.tagline;
+    }
+    if (!els.signalStats) {
+      return;
+    }
+    els.signalStats.innerHTML = archiveStatFields.map(function (field) {
+      return (
+        "<div><dt>" + escapeHtml(field.label) + "</dt><dd>" +
+        escapeHtml(formatStatValue(field.key, resolved[field.key])) + "</dd></div>"
+      );
+    }).join("");
+  }
+
+  function loadArchiveStats() {
+    return fetch("wiki-stats.json")
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("No external wiki stats file.");
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        renderArchiveSignal(data);
+      })
+      .catch(function () {
+        renderArchiveSignal();
+      });
+  }
 
   function scrollToReadingTop() {
     var anchor = els.contentStage || els.main || document.getElementById("wiki-reader");
@@ -345,8 +424,8 @@
 
   function showWelcome() {
     activeFile = "";
-    if (els.welcome) {
-      els.welcome.hidden = false;
+    if (els.welcomeView) {
+      els.welcomeView.hidden = false;
     }
     if (els.panel) {
       els.panel.hidden = true;
@@ -364,8 +443,8 @@
     activeFile = file;
     updateUrl(file);
     renderArticleList();
-    if (els.welcome) {
-      els.welcome.hidden = true;
+    if (els.welcomeView) {
+      els.welcomeView.hidden = true;
     }
     if (els.panel) {
       els.panel.hidden = false;
@@ -458,6 +537,7 @@
     .then(function (data) {
       manifest = data;
       renderPhaseNav();
+      loadArchiveStats();
       bindUi();
       var params = new URLSearchParams(window.location.search);
       var file = params.get("article");
