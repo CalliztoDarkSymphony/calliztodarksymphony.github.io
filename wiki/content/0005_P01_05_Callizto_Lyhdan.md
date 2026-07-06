@@ -34,7 +34,7 @@ Her story arcs often involve confronting inherited trauma, claiming (or rejectin
 
 Digital Callizto did not begin as a clean, intentional myth.
 
-Tomas was new to AI image generation and did not yet understand prompt engineering. He was frustrated with plastic, soulless goth-woman outputs and with prompts that broke whenever he tried to change them. In anger, he attached a photo of the living Labrador Callizto to one of those prompts as a raw “fuck this AI / eat this” gesture.
+The Architect was new to AI image generation and did not yet understand prompt engineering. Frustrated with plastic, soulless goth-woman outputs and with prompts that broke whenever they were changed, the Architect attached a photo of the living Labrador Callizto to one of those prompts as a raw “fuck this AI / eat this” gesture.
 
 The AI misread that living-dog reference into the fierce gothic woman who became digital Callizto.
 

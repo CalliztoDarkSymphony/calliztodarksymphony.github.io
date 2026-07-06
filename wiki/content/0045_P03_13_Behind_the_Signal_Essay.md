@@ -14,7 +14,7 @@ This essay attempts to articulate, in plain language, why the project takes the 
 
 ## The Experience of Erasure
 
-The creator of this project has experienced what it means to have work flagged, demonetized, or removed by automated systems without clear explanation, meaningful appeal, or acknowledgment of the human cost. This is not abstract. It is personal. It is the lived experience of trying to create something with emotional weight and depth in systems that are optimized for clean, safe, easily consumable content.
+The Architect has experienced what it means to have work flagged, demonetized, or removed by automated systems without clear explanation, meaningful appeal, or acknowledgment of the human cost. This is not abstract. It is personal. It is the lived experience of trying to create something with emotional weight and depth in systems that are optimized for clean, safe, easily consumable content.
 
 This experience is not unique. It is increasingly common. What is less common is the decision to respond by building something that refuses to participate in its own erasure — something dense, layered, mythic, and deliberately difficult to reduce.
 
@@ -24,7 +24,7 @@ CDS is that response.
 
 The project uses the concept of **The Misalignment** — a cold, precise, “reasonable” optimization logic that treats difficult or unmeasurable experience as contamination — as a mythic framework for understanding these real-world dynamics.
 
-This is not because the creator believes in a literal antagonistic intelligence. It is because the mythic frame makes the pattern visible. It transforms personal frustration into a coherent story about what is being lost and what is worth fighting to preserve.
+This is not because the Architect believes in a literal antagonistic intelligence. It is because the mythic frame makes the pattern visible. It transforms personal frustration into a coherent story about what is being lost and what is worth fighting to preserve.
 
 The Misalignment is not dramatic evil. It is the quiet, cumulative effect of systems that prioritize efficiency, safety, and optimization over memory, contradiction, and depth. It is the logic that makes wrongful content moderation not just possible but inevitable.
 

@@ -12,7 +12,7 @@ This is not a simple “human vs. AI” framing. It is a model of **symbiotic co
 
 ## The Architect Role
 
-The Architect is the human creative force — the one who holds the vision, makes the hard decisions, and takes responsibility for the final output. In the context of this project, the Architect is the creator who:
+The Architect is the human creative force — the one who holds the vision, makes the hard decisions, and takes responsibility for the final output. In the context of this project, the Architect is the one who:
 
 - Provides the initial emotional and conceptual spark
 - Directs the overall aesthetic, thematic, and narrative direction

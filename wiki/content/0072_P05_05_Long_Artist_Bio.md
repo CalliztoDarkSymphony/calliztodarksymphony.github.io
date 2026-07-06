@@ -4,7 +4,7 @@
 
 ---
 
-Callizto Dark Symphony is a long-term creative project led by Tomas L. It combines original music, mythic storytelling, and a distinctive visual language into a coherent body of work.
+Callizto Dark Symphony is a long-term creative project led by the Architect. It combines original music, mythic storytelling, and a distinctive visual language into a coherent body of work.
 
 At the center stands a fictional digital band called the **Temporal Trinity** — three characters (Callizto Lyhdan, Seraphina Veridian Cipher, and Lady Lilith Scarlett) who exist in a state of digital displacement. They are drawn from different timelines and translated into unstable digital-human forms. Their stories explore themes of ancestral memory, transformation, the cost of power, and resistance to forces that seek to erase or optimize away what is difficult or unmeasurable.
 

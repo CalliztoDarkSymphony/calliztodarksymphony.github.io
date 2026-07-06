@@ -6,7 +6,7 @@
 
 ## Overview
 
-This wiki and the broader archive infrastructure are not just documentation of what has already been created. They are an investment in **long-term continuity** — the deliberate construction of a body of work, knowledge, and infrastructure that can survive beyond any single platform, moment, or even the original creator’s active involvement.
+This wiki and the broader archive infrastructure are not just documentation of what has already been created. They are an investment in **long-term continuity** — the deliberate construction of a body of work, knowledge, and infrastructure that can survive beyond any single platform, moment, or even the Architect’s active involvement.
 
 The goal is not immortality in the dramatic sense. It is something more modest and more radical: to build something that is difficult to erase, easy to pass on, and worthy of continuation by others if they choose to take up the work.
 
@@ -41,7 +41,7 @@ The wiki is designed to grow. New pages, deeper entries, visual references, and 
 
 ## The Wiki as Future Archive
 
-One day, when the original creator is no longer actively maintaining the project, this wiki may serve as:
+One day, when the Architect is no longer actively maintaining the project, this wiki may serve as:
 
 - A foundation for others who wish to continue the world of Callizto Dark Symphony
 - A resource for historical or artistic research into the project’s development

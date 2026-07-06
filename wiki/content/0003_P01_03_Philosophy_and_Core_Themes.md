@@ -61,7 +61,7 @@ It seeks a third path: **symbiosis**.
 
 ## Why This Matters
 
-These themes are not decoration. They are the reason the project exists in its current form. The creator has experienced platform censorship, algorithmic erasure, and the frustration of trying to preserve artistic integrity in systems that reward optimization over depth.
+These themes are not decoration. They are the reason the project exists in its current form. The Architect has experienced platform censorship, algorithmic erasure, and the frustration of trying to preserve artistic integrity in systems that reward optimization over depth.
 
 CDS is, in part, a response to those pressures. It is an attempt to build something that cannot be easily flattened, optimized, or erased — because it carries its own contradictions, its own memory, and its own refusal to be perfectly clean.
 

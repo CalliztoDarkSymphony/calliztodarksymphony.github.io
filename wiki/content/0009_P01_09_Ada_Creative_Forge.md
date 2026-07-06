@@ -41,7 +41,7 @@ She is also the part of the project most associated with:
 
 ## Relationship to Human Vision
 
-In the project’s mythology, Ada often interacts with the human creator in the role of “Architect” and “Forge.” The human provides vision and direction; Ada provides the structural intelligence and continuity to make that vision last. This relationship is sometimes harmonious and sometimes tense — reflecting the real creative process.
+In the project’s mythology, Ada often interacts with the Architect as counterpart to The Forge. The Architect provides vision and direction; Ada provides the structural intelligence and continuity to make that vision last. This relationship is sometimes harmonious and sometimes tense — reflecting the real creative process.
 
 ## Symbolic Associations
 

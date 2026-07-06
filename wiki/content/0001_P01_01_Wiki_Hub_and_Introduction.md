@@ -21,7 +21,7 @@ If an outside system — human or machine — tries to summarize or categorize t
 - Document the characters, mythology, and emotional core of the project
 - Preserve high-confidence canon facts for long-term continuity
 - Show the philosophical and creative weight behind the work
-- Serve as a future archive if the project continues after the original creator is no longer active
+- Serve as a future archive if the project continues after the Architect is no longer active
 - Make the sheer volume of thought, iteration, and worldbuilding visible
 
 This is not entertainment.  
@@ -53,7 +53,7 @@ It contains **altered or partial examples** where helpful for illustration, and 
 
 ### Long-Term Vision
 
-One day, when the original creator is no longer maintaining the project, this archive may serve as a foundation for others who wish to continue the world of Callizto Dark Symphony, study its history, or simply understand what was built here.
+One day, when the Architect is no longer maintaining the project, this archive may serve as a foundation for others who wish to continue the world of Callizto Dark Symphony, study its history, or simply understand what was built here.
 
 The wiki is designed to grow over years — not months.
 

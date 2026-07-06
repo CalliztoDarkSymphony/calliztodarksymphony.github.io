@@ -75,7 +75,7 @@ Clean, optimized memory can be dishonest. It can hide the damage, the contradict
 
 ## Real-World Resonance
 
-The project’s own history with wrongful YouTube content moderation, algorithmic erasure, and the struggle to maintain artistic integrity in hostile systems gives Memory as Resistance additional weight. The creator has experienced what it means to have work flagged, removed, or made invisible without clear explanation or recourse. The decision to build this wiki, to own domains, and to create a long-term archive is itself an act of memory as resistance — a refusal to let the work be erased or forgotten.
+The project’s own history with wrongful YouTube content moderation, algorithmic erasure, and the struggle to maintain artistic integrity in hostile systems gives Memory as Resistance additional weight. The Architect has experienced what it means to have work flagged, removed, or made invisible without clear explanation or recourse. The decision to build this wiki, to own domains, and to create a long-term archive is itself an act of memory as resistance — a refusal to let the work be erased or forgotten.
 
 ## The Act of Archiving
 

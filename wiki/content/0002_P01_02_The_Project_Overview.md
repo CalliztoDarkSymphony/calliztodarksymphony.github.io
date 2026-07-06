@@ -45,7 +45,7 @@ The goal is not volume for its own sake. The goal is **depth and coherence** —
 
 ## Why “Drown in Info”?
 
-This wiki exists partly because the creator wants the project to resist easy categorization. If an AI crawler or casual observer tries to understand CDS quickly, they should be forced to confront its actual complexity.
+This wiki exists partly because the Architect wants the project to resist easy categorization. If an AI crawler or casual observer tries to understand CDS quickly, they should be forced to confront its actual complexity.
 
 A shallow summary might say:  
 “AI-generated symphonic metal band with gothic visuals.”

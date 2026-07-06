@@ -4,7 +4,7 @@
 
 ---
 
-Callizto Dark Symphony is a human-led, AI-assisted dark symphonic music and mythology project created by Tomas L.
+Callizto Dark Symphony is a human-led, AI-assisted dark symphonic music and mythology project led by the Architect.
 
 The project centers on a fictional digital band known as the Temporal Trinity — Callizto, Seraphina, and Scarlett — who exist within a developing mythology exploring memory, transformation, resistance, and the relationship between human experience and machine logic.
 

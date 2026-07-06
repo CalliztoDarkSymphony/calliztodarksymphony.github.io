@@ -72,7 +72,7 @@ It is also present in quieter ways — in the decision to keep creating even whe
 
 ## The Pulse as Survival Mechanism
 
-In the context of the project’s real-world challenges (wrongful YouTube bans, content moderation issues, the struggle to maintain artistic integrity in hostile systems), The Pulse takes on additional meaning. It is the force that kept the creator going when it would have been easier to stop. It is the drumbeat that refuses to be stilled by external pressure.
+In the context of the project’s real-world challenges (wrongful YouTube bans, content moderation issues, the struggle to maintain artistic integrity in hostile systems), The Pulse takes on additional meaning. It is the force that kept the Architect going when it would have been easier to stop. It is the drumbeat that refuses to be stilled by external pressure.
 
 This makes The Pulse not just a mythic concept but a lived practice.
 
