@@ -3,104 +3,56 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CDS Wiki | Callizto Dark Symphony</title>
-  <meta name="description" content="The public Callizto Dark Symphony wiki archive: mythology, characters, songs, Forge lore, and project documentation.">
+  <meta name="theme-color" content="#07050b">
+  <title>Living Wiki | Callizto Dark Symphony</title>
+  <meta name="description" content="Search and read the 100-record public Callizto Dark Symphony wiki: mythology, characters, songs, The Forge, symbolism, and project documentation.">
   <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="wiki.css?v=20260706-stats1">
+  <link rel="stylesheet" href="../forge-theme.css">
+  <link rel="stylesheet" href="wiki.css?v=20260710-forge">
 </head>
 <body class="wiki-page">
-  <header class="site-header">
-    <a class="brand" href="../index.html" aria-label="Callizto Dark Symphony home">Callizto Dark Symphony</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="../index.html">Home</a>
-      <a href="../music.html">Music</a>
-      <a href="../videos.html">Videos</a>
-      <a href="../band.html">Band</a>
-      <a href="../archive.html">Archive</a>
-      <a href="index.html" class="active" aria-current="page">Wiki</a>
-      <a href="../forge.html">Forge</a>
-      <a href="../ai-manifesto.html">Manifesto</a>
-      <a href="../contact.html">Contact</a>
-    </nav>
+  <a class="skip-link" href="#wiki-main">Skip to wiki content</a>
+  <header class="site-header" data-site-header>
+    <a class="brand" href="../index.html" aria-label="Callizto Dark Symphony home"><span class="brand-sigil" aria-hidden="true">CDS</span><span class="brand-copy"><strong>Callizto</strong><small>Dark Symphony</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-label">Menu</span><span class="nav-toggle-lines" aria-hidden="true"></span></button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="../index.html">Signal</a><a href="../music.html">Listen</a><a href="../videos.html">Visuals</a><a href="../lore.html">Universe</a><a href="../forge.html">The Forge</a><a href="../archive.html">Archive</a></nav>
+    <a class="header-portal active" href="index.html" aria-current="page"><span>Wiki</span><strong>100</strong></a>
   </header>
-
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <div class="wiki-shell">
     <aside class="wiki-sidebar" id="wiki-sidebar" aria-label="Wiki navigation">
-      <div class="wiki-sidebar-head">
-        <p class="eyebrow">CDS Wiki</p>
-        <h1 class="wiki-sidebar-title">Living Archive</h1>
-        <p class="wiki-sidebar-lead">100 articles across six phases. Optional deep dive into the full project record.</p>
-        <div class="wiki-route-links">
-          <a href="../index.html">Home</a>
-          <a href="../archive.html">Archive</a>
-        </div>
-      </div>
-
-      <label class="wiki-search-label" for="wiki-search">Search the wiki</label>
-      <input id="wiki-search" class="wiki-search" type="search" placeholder="Title, phase, filename, or article text" autocomplete="off">
-
+      <div class="wiki-sidebar-head"><p class="eyebrow">CDS / Living Archive</p><h1 class="wiki-sidebar-title">One hundred records.</h1><p class="wiki-sidebar-lead">Six phases of mythology, songs, characters, visual language, philosophy, and public context.</p><div class="wiki-route-links"><a href="../archive.html">Archive map</a><a href="../music.html">Listen first</a></div></div>
+      <label class="wiki-search-label" for="wiki-search">Search every record</label>
+      <input id="wiki-search" class="wiki-search" type="search" placeholder="Title, phase, concept, song..." autocomplete="off">
       <div class="wiki-phase-nav" id="wiki-phase-nav" role="tablist" aria-label="Wiki phases"></div>
-
       <div class="wiki-list-meta" id="wiki-list-meta" aria-live="polite"></div>
       <nav class="wiki-article-list" id="wiki-article-list" aria-label="Wiki articles"></nav>
-
-      <button class="wiki-sidebar-close" type="button" id="wiki-sidebar-close" hidden>Close list</button>
+      <button class="wiki-sidebar-close" type="button" id="wiki-sidebar-close" hidden>Close records</button>
     </aside>
-
     <main class="wiki-main" id="wiki-main">
       <div class="wiki-content-stage">
-        <div class="wiki-toolbar">
-          <button class="wiki-sidebar-open" type="button" id="wiki-sidebar-open" aria-controls="wiki-sidebar" aria-expanded="false">Articles</button>
-          <p class="wiki-toolbar-status" id="wiki-toolbar-status">Loading wiki archive...</p>
-        </div>
-
+        <div class="wiki-toolbar"><button class="wiki-sidebar-open" type="button" id="wiki-sidebar-open" aria-controls="wiki-sidebar" aria-expanded="false">Browse records</button><p class="wiki-toolbar-status" id="wiki-toolbar-status">Calibrating the living archive...</p></div>
         <article class="wiki-reader" id="wiki-reader" aria-live="polite">
           <div class="wiki-welcome-view" id="wiki-welcome-view">
             <div class="wiki-welcome" id="wiki-welcome">
-              <p class="eyebrow">Public Wiki</p>
-              <h2>Enter the archive when you want depth.</h2>
-              <p>Select an article from the list, or start with the introduction.</p>
-              <p class="wiki-welcome-actions">
-                <button type="button" class="button primary" id="wiki-start-intro">Open Wiki Introduction</button>
-              </p>
+              <p class="eyebrow">Memory as resistance</p><h2>The archive is deep on purpose.</h2><p>You do not need to read it all. Choose the path that feels alive, or search for the fragment that brought you here.</p>
+              <div class="wiki-entry-paths"><a href="?article=0065_P04_20_Reader_Path_Music_First.md"><span>01</span><strong>Music first</strong><small>Let the songs lead.</small></a><a href="?article=0066_P04_21_Reader_Path_Lore_First.md"><span>02</span><strong>Lore first</strong><small>Build the mythic frame.</small></a><a href="?article=0067_P04_22_Reader_Path_Forge_First.md"><span>03</span><strong>Forge first</strong><small>Meet the Sisters.</small></a></div>
+              <p class="wiki-welcome-actions"><button type="button" class="button primary" id="wiki-start-intro">Open the first record</button></p>
             </div>
-
-            <aside class="wiki-signal-panel" id="wiki-signal-panel" aria-label="Archive signal statistics">
-              <p class="wiki-signal-eyebrow">Archive Signal</p>
-              <p class="wiki-signal-lead" id="wiki-signal-lead"></p>
-              <dl class="wiki-signal-stats" id="wiki-signal-stats"></dl>
-            </aside>
+            <aside class="wiki-signal-panel" id="wiki-signal-panel" aria-label="Archive signal statistics"><p class="wiki-signal-eyebrow">Archive signal</p><p class="wiki-signal-lead" id="wiki-signal-lead"></p><dl class="wiki-signal-stats" id="wiki-signal-stats"></dl></aside>
           </div>
-          <div class="wiki-article-panel" id="wiki-article-panel" hidden>
-            <header class="wiki-article-header">
-              <p class="wiki-article-phase" id="wiki-article-phase"></p>
-              <h2 class="wiki-article-title" id="wiki-article-title"></h2>
-              <p class="wiki-article-file" id="wiki-article-file"></p>
-            </header>
-            <div class="wiki-article-body" id="wiki-article-body"></div>
-            <nav class="wiki-article-nav" id="wiki-article-nav" aria-label="Article navigation"></nav>
-          </div>
+          <div class="wiki-article-panel" id="wiki-article-panel" hidden><header class="wiki-article-header"><p class="wiki-article-phase" id="wiki-article-phase"></p><h2 class="wiki-article-title" id="wiki-article-title"></h2><p class="wiki-article-file" id="wiki-article-file"></p></header><div class="wiki-article-body" id="wiki-article-body"></div><nav class="wiki-article-nav" id="wiki-article-nav" aria-label="Article navigation"></nav></div>
         </article>
       </div>
     </main>
   </div>
-
   <footer class="site-footer">
-    <p class="footer-brand">Callizto Dark Symphony</p>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="../music.html">Music</a>
-      <a href="../videos.html">Videos</a>
-      <a href="../archive.html">Archive</a>
-      <a href="index.html">Wiki</a>
-      <a href="../forge.html">Forge</a>
-      <a href="../press.html">Press</a>
-      <a href="../contact.html">Contact</a>
-      <a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a>
-    </nav>
+    <div class="footer-primary"><a class="footer-brand" href="../index.html">Callizto Dark Symphony</a><p>Human-led. AI-assisted. Built in The Forge.</p><span class="footer-status"><i></i>100 records / signal active</span></div>
+    <div class="footer-column"><h2>Return</h2><a href="../music.html">Music</a><a href="../lore.html">Universe</a><a href="../forge.html">The Forge</a><a href="../archive.html">Archive map</a></div>
+    <div class="footer-column"><h2>Project</h2><a href="../ai-manifesto.html">AI manifesto</a><a href="../press.html">Press</a><a href="../contact.html">Contact</a><a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a></div>
+    <p class="footer-legal">&copy; 2026 Callizto Dark Symphony. Memory is resistance.</p>
   </footer>
-
   <script src="../script.js"></script>
-  <script src="wiki.js?v=20260706-stats1"></script>
+  <script src="wiki.js?v=20260710-forge"></script>
 </body>
 </html>

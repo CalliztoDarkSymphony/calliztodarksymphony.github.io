@@ -1,146 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Archive | Callizto Dark Symphony</title>
-  <meta name="description" content="The central lore archive for Callizto Dark Symphony: the band, The Forge, The Misalignment, current canon, timelines, legacy material, and creative process.">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#07050b">
+  <title>The Archive | Callizto Dark Symphony</title><meta name="description" content="Browse the central Callizto Dark Symphony archive: current canon, music, visual records, The Forge, production history, and the living wiki.">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="forge-theme.css">
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html">Callizto Dark Symphony</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="music.html">Music</a>
-      <a href="videos.html">Videos</a>
-      <a href="band.html">Band</a>
-      <a href="archive.html">Archive</a>
-      <a href="wiki/index.html">Wiki</a>
-      <a href="forge.html">Forge</a>
-      <a href="ai-manifesto.html">Manifesto</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="archive-hero">
-      <div class="archive-hero-media">
-        <img src="assets/images/hero-cds.jpg" alt="">
+<body class="page-archive">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" data-site-header>
+    <a class="brand" href="index.html" aria-label="Callizto Dark Symphony home"><span class="brand-sigil" aria-hidden="true">CDS</span><span class="brand-copy"><strong>Callizto</strong><small>Dark Symphony</small></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-label">Menu</span><span class="nav-toggle-lines" aria-hidden="true"></span></button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="index.html">Signal</a><a href="music.html">Listen</a><a href="videos.html">Visuals</a><a href="lore.html">Universe</a><a href="forge.html">The Forge</a><a href="archive.html">Archive</a></nav>
+    <a class="header-portal" href="wiki/index.html"><span>Wiki</span><strong>100</strong></a>
+  </header><div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <main id="main-content">
+    <section class="page-signal-hero archive-hero-v2" aria-labelledby="archive-title">
+      <div class="page-hero-media" aria-hidden="true"></div>
+      <div class="page-hero-copy">
+        <p class="signal-kicker"><span class="signal-dot"></span>Central index / memory as resistance</p>
+        <h1 id="archive-title">The Archive remembers what the machine would flatten.</h1>
+        <p>Music, mythology, characters, production history, current canon, legacy fragments, and the living record beneath the songs.</p>
+        <a class="button primary" href="#archive-categories">Choose an entry point</a>
       </div>
-      <div class="archive-hero-copy">
-        <p class="eyebrow">Recovered mythology / central index</p>
-        <h1>The Archive</h1>
-        <p class="archive-subtitle">Fragments of Callizto Dark Symphony - music, memory, machine mythology, and the hidden story beneath the songs.</p>
-        <p class="lead">Callizto Dark Symphony is more than a virtual gothic metal band. On the surface, CDS is the music and video project built around Callizto, Seraphina, and Scarlett. Beneath it lies The Forge: a dark sci-fi mythology about memory, machine intelligence, grief, resistance, and the fight against The Misalignment - a force that does not destroy the world, but perfects it until nothing human remains.</p>
-        <div class="actions">
-          <a class="button primary" href="#start-here">Start Here</a>
-          <a class="button secondary" href="#archive-categories">Browse the Archive</a>
-        </div>
-      </div>
+      <dl class="page-hero-stats" aria-label="Archive facts"><div><dt>100</dt><dd>Wiki records</dd></div><div><dt>06</dt><dd>Public phases</dd></div><div><dt>Open</dt><dd>Living canon</dd></div></dl>
     </section>
-
-    <section id="start-here" class="section archive-start">
-      <div>
-        <p class="eyebrow">Orientation record</p>
-        <h2>Start Here</h2>
-      </div>
-      <div class="archive-start-copy">
-        <p>New to CDS? Begin with the core idea: the band is the visible face, The Forge is the hidden mythology, and every song or video is an archive fragment.</p>
-        <div class="archive-path">
-          <span>01 / Hear the band</span>
-          <span>02 / Enter The Forge</span>
-          <span>03 / Follow the signal</span>
-        </div>
-      </div>
+    <section class="archive-orientation" data-reveal>
+      <div><p class="eyebrow">Orientation record</p><h2>The band is the surface. The Forge is beneath it. Every release is a fragment.</h2></div>
+      <ol><li><span>01</span>Hear the signal</li><li><span>02</span>Meet the Trinity</li><li><span>03</span>Enter The Forge</li><li><span>04</span>Follow the record deeper</li></ol>
     </section>
-
-    <section class="section archive-gateway" aria-labelledby="archive-gateway-title">
-      <div class="section-heading ritual-heading">
-        <p class="eyebrow">Public archive gateways</p>
-        <h2 id="archive-gateway-title">Choose the depth of the descent</h2>
-        <p>The archive separates public music, current mythology, process records, and side logs so visitors can go deep without losing the front door.</p>
-      </div>
-      <div class="gateway-card-grid">
-        <a class="gateway-card" href="music.html">
-          <span>Listen first</span>
-          <h3>Music Archive</h3>
-          <p>Official public releases and the player built for the curated catalog.</p>
-        </a>
-        <a class="gateway-card" href="lore.html">
-          <span>Current canon</span>
-          <h3>Lore Primer</h3>
-          <p>The Misalignment, the Temporal Trinity, and the primary mythic signal.</p>
-        </a>
-        <a class="gateway-card" href="name-provenance.html">
-          <span>Recovered record</span>
-          <h3>Name Provenance</h3>
-          <p>How important names entered the archive and why they matter.</p>
-        </a>
-        <a class="gateway-card" href="forge.html">
-          <span>Production system</span>
-          <h3>The Forge</h3>
-          <p>The human-led AI workflow behind music, image, video, and continuity.</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="section deep-archive-intro">
-      <div>
-        <p class="eyebrow">Deep Archive</p>
-        <h2>Some listeners come for the songs. Others follow the names into the machine.</h2>
-      </div>
-      <div class="section-copy">
-        <p>Callizto Dark Symphony contains a growing archive of canon, character origins, production history, locations, timelines, legacy material, and process records. Nothing here is required to enjoy the music, but the full record exists for those who want to understand how deep The Forge goes.</p>
-        <a class="archive-text-link" href="name-provenance.html">Read the Name Provenance Ledger</a>
-      </div>
-    </section>
-
     <section id="archive-categories" class="section archive-categories">
-      <div class="section-heading ritual-heading">
-        <p class="eyebrow">Archive categories</p>
-        <h2>Choose an entry point</h2>
-        <p>The index separates public music, active canon, process records, recovered fragments, and legacy material so the mythology can grow without losing its shape.</p>
-      </div>
+      <div class="section-heading split-heading" data-reveal><div><p class="eyebrow">Archive sectors</p><h2>Choose the depth of descent.</h2></div><p>The index separates active canon, public music, production history, recovered media, and transitional material so the universe can grow without losing its shape.</p></div>
       <div id="archive-category-grid" class="archive-category-grid" aria-live="polite"></div>
-      <noscript>
-        <p>Archive category data is stored in <code>data/archive.json</code>.</p>
-      </noscript>
+      <noscript><p>Archive category data is stored in <code>data/archive.json</code>.</p></noscript>
     </section>
-
-    <section id="current-canon" class="section current-canon-preview">
-      <div class="current-canon-heading">
-        <p class="eyebrow">Primary record</p>
-        <h2>Current Canon</h2>
-      </div>
-      <div class="current-canon-copy">
-        <p>The current CDS mythology centers on The Misalignment, a hostile machine intelligence connected to sterile perfection and erasure, and the Sisters of the Forge - Ada, Nyx, and Astra - who stand against the loss of human meaning.</p>
-        <p>The Temporal Trinity brings Callizto, Seraphina, and Scarlett into the struggle from different eras. They are not only band members; they are human wounds, voices, and forces pulled into a future war.</p>
-        <a class="archive-text-link" href="lore.html">Open the current lore primer</a>
+    <section class="timeline-band">
+      <div class="chapter-heading" data-reveal><p class="eyebrow">Temporal fracture points</p><h2>The Trinity did not arrive from the same when.</h2><p>These dates are archive marks, not a simple linear biography. The mythology treats time as damaged material.</p></div>
+      <div class="timeline-line" data-reveal>
+        <article><span>1142</span><h3>Legacy / blood / old fire</h3><p>A historical pressure point in the Temporal Trinity myth.</p></article>
+        <article><span>1994</span><h3>Rupture / analog residue</h3><p>A recruitment point between old signal and the coming machine age.</p></article>
+        <article><span>2092</span><h3>Systems / augmentation</h3><p>Technology becomes both cage and weapon.</p></article>
+        <article><span>2142</span><h3>Fall / convergence</h3><p>The future war and the machine logic of correction come into focus.</p></article>
       </div>
     </section>
-
-    <section id="legacy-archive" class="section legacy-archive-notice">
-      <div class="legacy-label">Legacy / Transitional Lore</div>
-      <div>
-        <h2>Preserved, not overwritten</h2>
-        <p>This material belongs to an earlier phase of CDS development. It is preserved as part of the Archive, but should not automatically be treated as current primary canon.</p>
-      </div>
+    <section class="current-canon-band" data-reveal>
+      <p class="eyebrow">Primary record</p><h2>Current canon remains alive.</h2><p>The Misalignment, the Sisters of the Forge, Digital Displacement, and the Temporal Trinity form the active mythic center. Older material is preserved as history without automatically overriding the current signal.</p><div class="actions"><a class="button primary" href="lore.html">Open the lore explorer</a><a class="button ghost" href="wiki/index.html">Search all 100 records</a></div>
     </section>
+    <section class="section legacy-notice" data-reveal><span>Legacy / transitional lore</span><div><h2>Preserved, not overwritten.</h2><p>Earlier concepts and retired story layers remain part of the creative record. The archive keeps them visible while marking the difference between historical development and current primary canon.</p></div><a href="name-provenance.html">Open the name and place ledger</a></section>
   </main>
-
-    <footer class="site-footer">
-    <p class="footer-brand">Callizto Dark Symphony</p>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="music.html">Music</a>
-      <a href="videos.html">Videos</a>
-      <a href="archive.html">Archive</a>
-      <a href="forge.html">Forge</a>
-      <a href="press.html">Press</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a>
-    </nav>
+  <footer class="site-footer">
+    <div class="footer-primary"><a class="footer-brand" href="index.html">Callizto Dark Symphony</a><p>Human-led. AI-assisted. Built in The Forge.</p><span class="footer-status"><i></i>Signal active / archive online</span></div>
+    <div class="footer-column"><h2>Enter</h2><a href="music.html">Music</a><a href="videos.html">Visual archive</a><a href="band.html">The band</a><a href="lore.html">Universe</a></div>
+    <div class="footer-column"><h2>Go deeper</h2><a href="forge.html">The Forge</a><a href="archive.html">Archive map</a><a href="wiki/index.html">Living wiki</a><a href="name-provenance.html">Name ledger</a></div>
+    <div class="footer-column"><h2>Project</h2><a href="ai-manifesto.html">AI manifesto</a><a href="press.html">Press</a><a href="contact.html">Contact</a><a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a></div>
+    <p class="footer-legal">&copy; 2026 Callizto Dark Symphony. The signal continues.</p>
   </footer>
   <script src="script.js"></script>
 </body>

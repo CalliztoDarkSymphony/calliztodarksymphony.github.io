@@ -3,72 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Music | Callizto Dark Symphony</title>
-  <meta name="description" content="Enter the Callizto Dark Symphony music archive: original dark symphonic metal releases, cinematic chapters, and local audio playback.">
+  <meta name="theme-color" content="#07050b">
+  <title>Music Archive | Callizto Dark Symphony</title>
+  <meta name="description" content="Listen to the Callizto Dark Symphony public music archive with local audio, playlist, queue, and favorites.">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="music-archive-core.css">
+  <link rel="stylesheet" href="forge-theme.css">
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html">Callizto Dark Symphony</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<body class="page-music">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" data-site-header>
+    <a class="brand" href="index.html" aria-label="Callizto Dark Symphony home">
+      <span class="brand-sigil" aria-hidden="true">CDS</span>
+      <span class="brand-copy"><strong>Callizto</strong><small>Dark Symphony</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-label">Menu</span><span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="music.html">Music</a>
-      <a href="videos.html">Videos</a>
-      <a href="band.html">Band</a>
-      <a href="archive.html">Archive</a>
-      <a href="wiki/index.html">Wiki</a>
-      <a href="forge.html">Forge</a>
-      <a href="ai-manifesto.html">Manifesto</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html">Signal</a><a href="music.html">Listen</a><a href="videos.html">Visuals</a>
+      <a href="lore.html">Universe</a><a href="forge.html">The Forge</a><a href="archive.html">Archive</a>
     </nav>
+    <a class="header-portal" href="wiki/index.html"><span>Wiki</span><strong>100</strong></a>
   </header>
-  <main>
-    <section class="page-hero compact music-archive-hero">
-      <p class="eyebrow">CDS Music Archive</p>
-      <h1>The public listening chamber</h1>
-      <p class="lead">Curated dark symphonic metal releases, cinematic chapters, favorites, queue, and personal playlist tools built for a growing public catalog.</p>
-      <div class="hero-stat-row" aria-label="Archive highlights">
-        <span>Library</span>
-        <span>My Playlist</span>
-        <span>Queue</span>
-        <span>Favorites</span>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <main id="main-content">
+    <section class="page-signal-hero music-hero" aria-labelledby="music-title">
+      <div class="page-hero-media" aria-hidden="true"></div>
+      <div class="page-hero-copy">
+        <p class="signal-kicker"><span class="signal-dot"></span>CDS Music Archive / local audio online</p>
+        <h1 id="music-title">Enter the listening chamber.</h1>
+        <p>Original dark symphonic metal, cinematic chapters, and a full browser-local archive console built for a catalog that can keep growing.</p>
+        <a class="button primary" href="#archive-console">Open the console</a>
       </div>
+      <dl class="page-hero-stats" aria-label="Music archive facts">
+        <div><dt>10</dt><dd>Public releases</dd></div>
+        <div><dt>04</dt><dd>Library modes</dd></div>
+        <div><dt>Local</dt><dd>Audio playback</dd></div>
+      </dl>
     </section>
-    <section class="section music-player-section">
-      <div class="section-heading music-player-heading">
-        <p class="eyebrow">CDS Archive Player</p>
-        <h2>Desktop archive console</h2>
-        <p>Search the public library, shape your browser-local playlist, stage a temporary queue, and keep the now-playing release in view.</p>
+    <section class="signal-rail" aria-label="Music archive capabilities">
+      <span>Library</span><i></i><span>My Playlist</span><i></i><span>Queue</span><i></i><span>Favorites</span>
+    </section>
+    <section id="archive-console" class="section music-player-section">
+      <div class="section-heading split-heading" data-reveal>
+        <div><p class="eyebrow">Archive console</p><h2>Your catalog. Your order. Your signal.</h2></div>
+        <p>Search the public library, save favorites, build a personal playlist, stage a temporary queue, and export a browser-local backup. Nothing here is sent anywhere.</p>
       </div>
       <div id="music-player" class="music-player" aria-live="polite"></div>
-      <noscript>
-        <p>Release data is stored in <code>data/releases.json</code>.</p>
-      </noscript>
+      <noscript><p>Release data is stored in <code>data/releases.json</code>. JavaScript is required for playback controls.</p></noscript>
     </section>
-    <section class="section split">
-      <div>
-        <p class="eyebrow">Sound direction</p>
-        <h2>Original music, cinematic worldbuilding</h2>
-      </div>
-      <div class="section-copy">
-        <p>The archive preserves official sequence, release art, and the story threads connecting each song to the wider CDS universe.</p>
-        <p>Your favorites and custom listening order stay in this browser unless you choose to export a backup.</p>
+    <section class="section listening-paths" data-reveal>
+      <div class="section-heading"><p class="eyebrow">Suggested descents</p><h2>Three ways into the catalog.</h2></div>
+      <div class="editorial-grid">
+        <article><span>01 / Inheritance</span><h3>The Crimson Legacy Trilogy</h3><p>Crimson Legacy, Iron Queen, and Throne of Ash and Gold. Crown, burden, ruin, and what survives the fire.</p></article>
+        <article><span>02 / The Signal</span><h3>Heart of the Static</h3><p>The cyber-goth pulse inside machine noise: memory translated through a world that wants clean silence.</p></article>
+        <article><span>03 / Defiance</span><h3>We Are Warriors</h3><p>An anthem of survival, unity, and the refusal to let pressure flatten the human trace.</p></article>
       </div>
     </section>
   </main>
-    <footer class="site-footer">
-    <p class="footer-brand">Callizto Dark Symphony</p>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="music.html">Music</a>
-      <a href="videos.html">Videos</a>
-      <a href="archive.html">Archive</a>
-      <a href="forge.html">Forge</a>
-      <a href="press.html">Press</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a>
-    </nav>
+  <footer class="site-footer">
+    <div class="footer-primary"><a class="footer-brand" href="index.html">Callizto Dark Symphony</a><p>Human-led. AI-assisted. Built in The Forge.</p><span class="footer-status"><i></i>Signal active / archive online</span></div>
+    <div class="footer-column"><h2>Enter</h2><a href="music.html">Music</a><a href="videos.html">Visual archive</a><a href="band.html">The band</a><a href="lore.html">Universe</a></div>
+    <div class="footer-column"><h2>Go deeper</h2><a href="forge.html">The Forge</a><a href="archive.html">Archive map</a><a href="wiki/index.html">Living wiki</a><a href="name-provenance.html">Name ledger</a></div>
+    <div class="footer-column"><h2>Project</h2><a href="ai-manifesto.html">AI manifesto</a><a href="press.html">Press</a><a href="contact.html">Contact</a><a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a></div>
+    <p class="footer-legal">&copy; 2026 Callizto Dark Symphony. The signal continues.</p>
   </footer>
   <script src="script.js"></script>
   <script src="music-archive-core.js"></script>

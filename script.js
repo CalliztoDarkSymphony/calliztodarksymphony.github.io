@@ -362,6 +362,8 @@
   function createCard(item, type) {
     var article = document.createElement("article");
     article.className = type + "-card";
+    article.dataset.arc = item.arc || "";
+    article.dataset.status = item.status || "";
 
     var imageSource = item.image || item.coverImage;
     if (imageSource) {
@@ -525,7 +527,262 @@
       });
   }
 
+  window.CDSArchiveData = fallbackData;
 
   renderJsonList("video-list", "data/videos.json", "videos", "video");
   renderArchiveCategories("archive-category-grid", "data/archive.json", "categories");
+}());
+
+(function () {
+  "use strict";
+
+  var body = document.body;
+  var nav = document.querySelector(".site-nav");
+  var toggle = document.querySelector(".nav-toggle");
+  var header = document.querySelector("[data-site-header]");
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  document.documentElement.classList.add("js");
+
+  function syncNavigation() {
+    if (!nav || !toggle) {
+      return;
+    }
+    var open = nav.classList.contains("open");
+    body.classList.toggle("nav-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    var label = toggle.querySelector(".nav-toggle-label");
+    if (label) {
+      label.textContent = open ? "Close" : "Menu";
+    }
+  }
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      window.requestAnimationFrame(syncNavigation);
+    });
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("open");
+        syncNavigation();
+      });
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        syncNavigation();
+        toggle.focus();
+      }
+    });
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 980 && nav.classList.contains("open")) {
+        nav.classList.remove("open");
+        syncNavigation();
+      }
+    });
+  }
+
+  function updatePageChrome() {
+    var root = document.documentElement;
+    var max = Math.max(1, root.scrollHeight - window.innerHeight);
+    root.style.setProperty("--scroll-progress", String(Math.min(1, window.scrollY / max)));
+    if (header) {
+      header.classList.toggle("is-scrolled", window.scrollY > 24);
+    }
+  }
+
+  updatePageChrome();
+  window.addEventListener("scroll", updatePageChrome, { passive: true });
+  window.addEventListener("resize", updatePageChrome);
+
+  function initializeReveals() {
+    var nodes = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+    if (!nodes.length || reducedMotion || !("IntersectionObserver" in window)) {
+      nodes.forEach(function (node) { node.classList.add("is-visible"); });
+      return;
+    }
+    body.classList.add("motion-ready");
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8%", threshold: 0.08 });
+    nodes.forEach(function (node) { observer.observe(node); });
+  }
+
+  function formatTime(seconds) {
+    if (!Number.isFinite(seconds) || seconds < 0) {
+      return "0:00";
+    }
+    var whole = Math.floor(seconds);
+    return Math.floor(whole / 60) + ":" + String(whole % 60).padStart(2, "0");
+  }
+
+  function initializeHomePlayer() {
+    var mount = document.getElementById("home-signal-player");
+    if (!mount) {
+      return;
+    }
+
+    function render(items) {
+      var tracks = (items || []).filter(function (item) { return item.localAudio; });
+      if (!tracks.length) {
+        mount.innerHTML = '<p class="signal-player-loading">No playable archive records were found.</p>';
+        return;
+      }
+
+      mount.innerHTML =
+        '<div class="signal-player-shell">' +
+          '<div class="signal-player-cover"><img alt=""></div>' +
+          '<div class="signal-player-console">' +
+            '<p class="signal-player-meta"></p><h3 class="signal-player-title"></h3><p class="signal-player-description"></p>' +
+            '<div class="signal-player-transport">' +
+              '<button class="signal-play-button" type="button"><span class="signal-play-icon" aria-hidden="true"></span><span class="visually-hidden">Play</span></button>' +
+              '<input class="signal-player-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Track progress">' +
+              '<span class="signal-player-time">0:00 / 0:00</span>' +
+            '</div>' +
+            '<p class="signal-player-notice" aria-live="polite"></p>' +
+            '<audio preload="metadata"></audio>' +
+          '</div>' +
+          '<div class="signal-track-list" aria-label="Quick listening list"></div>' +
+        '</div>';
+
+      var cover = mount.querySelector(".signal-player-cover img");
+      var meta = mount.querySelector(".signal-player-meta");
+      var title = mount.querySelector(".signal-player-title");
+      var description = mount.querySelector(".signal-player-description");
+      var play = mount.querySelector(".signal-play-button");
+      var playLabel = play.querySelector(".visually-hidden");
+      var progress = mount.querySelector(".signal-player-progress");
+      var time = mount.querySelector(".signal-player-time");
+      var notice = mount.querySelector(".signal-player-notice");
+      var audio = mount.querySelector("audio");
+      var list = mount.querySelector(".signal-track-list");
+      var currentIndex = 0;
+
+      tracks.forEach(function (track, index) {
+        var button = document.createElement("button");
+        button.type = "button";
+        button.className = "signal-track-button";
+        button.innerHTML = '<span>' + String(index + 1).padStart(2, "0") + '</span><span><strong></strong><small></small></span>';
+        button.querySelector("strong").textContent = track.title;
+        button.querySelector("small").textContent = track.arc || track.type || "Archive release";
+        button.addEventListener("click", function () {
+          selectTrack(index, true);
+        });
+        list.appendChild(button);
+      });
+
+      function updatePlayState() {
+        var playing = !audio.paused;
+        play.classList.toggle("is-playing", playing);
+        playLabel.textContent = playing ? "Pause" : "Play";
+        play.setAttribute("aria-label", playing ? "Pause " + tracks[currentIndex].title : "Play " + tracks[currentIndex].title);
+      }
+
+      function selectTrack(index, shouldPlay) {
+        currentIndex = (index + tracks.length) % tracks.length;
+        var track = tracks[currentIndex];
+        cover.src = track.coverImage || "assets/images/release-placeholder.svg";
+        cover.alt = track.imageAlt || track.title + " cover art";
+        meta.textContent = [track.arc, track.type].filter(Boolean).join(" / ");
+        title.textContent = track.title;
+        description.textContent = track.description || "Callizto Dark Symphony archive release.";
+        audio.src = track.localAudio;
+        progress.value = "0";
+        time.textContent = "0:00 / 0:00";
+        notice.textContent = "";
+        list.querySelectorAll(".signal-track-button").forEach(function (button, buttonIndex) {
+          button.classList.toggle("active", buttonIndex === currentIndex);
+          button.setAttribute("aria-pressed", String(buttonIndex === currentIndex));
+        });
+        updatePlayState();
+        if (shouldPlay) {
+          audio.play().catch(function () {
+            notice.textContent = "Playback could not start. Select play to try again.";
+            updatePlayState();
+          });
+        }
+      }
+
+      play.addEventListener("click", function () {
+        if (audio.paused) {
+          audio.play().catch(function () { notice.textContent = "Playback is unavailable for this record."; });
+        } else {
+          audio.pause();
+        }
+      });
+      progress.addEventListener("input", function () {
+        if (Number.isFinite(audio.duration)) {
+          audio.currentTime = Number(progress.value) / 100 * audio.duration;
+        }
+      });
+      audio.addEventListener("timeupdate", function () {
+        if (Number.isFinite(audio.duration) && audio.duration > 0) {
+          progress.value = String(audio.currentTime / audio.duration * 100);
+          time.textContent = formatTime(audio.currentTime) + " / " + formatTime(audio.duration);
+        }
+      });
+      audio.addEventListener("play", updatePlayState);
+      audio.addEventListener("pause", updatePlayState);
+      audio.addEventListener("ended", function () { selectTrack(currentIndex + 1, true); });
+      audio.addEventListener("error", function () { notice.textContent = "This local audio record could not be loaded."; });
+      selectTrack(0, false);
+    }
+
+    fetch("data/releases.json")
+      .then(function (response) {
+        if (!response.ok) { throw new Error("Release archive unavailable"); }
+        return response.json();
+      })
+      .then(function (data) { render(data.releases || []); })
+      .catch(function () { render(window.CDSArchiveData ? window.CDSArchiveData.releases : []); });
+  }
+
+  function initializeLoreExplorer() {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll("[data-lore-tab]"));
+    var panels = Array.prototype.slice.call(document.querySelectorAll("[data-lore-panel]"));
+    if (!tabs.length || !panels.length) {
+      return;
+    }
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var key = tab.getAttribute("data-lore-tab");
+        tabs.forEach(function (item) { item.setAttribute("aria-selected", String(item === tab)); });
+        panels.forEach(function (panel) { panel.hidden = panel.getAttribute("data-lore-panel") !== key; });
+      });
+    });
+  }
+
+  function initializeVideoFilters() {
+    var filterBar = document.getElementById("video-filters");
+    var list = document.getElementById("video-list");
+    if (!filterBar || !list) {
+      return;
+    }
+    function applyFilter(value) {
+      list.querySelectorAll(".video-card").forEach(function (card) {
+        card.hidden = value !== "all" && card.dataset.arc !== value;
+      });
+    }
+    filterBar.querySelectorAll("button").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var value = button.getAttribute("data-video-filter") || "all";
+        filterBar.querySelectorAll("button").forEach(function (item) {
+          var active = item === button;
+          item.classList.toggle("active", active);
+          item.setAttribute("aria-pressed", String(active));
+        });
+        applyFilter(value);
+      });
+    });
+  }
+
+  initializeReveals();
+  initializeHomePlayer();
+  initializeLoreExplorer();
+  initializeVideoFilters();
 }());

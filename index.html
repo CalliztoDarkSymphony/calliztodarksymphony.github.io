@@ -3,196 +3,115 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Callizto Dark Symphony</title>
-  <meta name="description" content="Callizto Dark Symphony is a human-led, AI-assisted cinematic dark symphonic metal universe. Original songs, cinematic videos, recurring performers, and long-form lore.">
+  <meta name="theme-color" content="#07050b">
+  <title>Callizto Dark Symphony | The Signal</title>
+  <meta name="description" content="Callizto Dark Symphony is a human-led, AI-assisted cinematic dark symphonic metal universe of original music, visual chapters, living mythology, and the Forge behind the signal.">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="forge-theme.css">
 </head>
 <body class="page-home">
-  <header class="site-header">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" data-site-header>
     <a class="brand" href="index.html" aria-label="Callizto Dark Symphony home">
-      Callizto Dark Symphony
+      <span class="brand-sigil" aria-hidden="true">CDS</span>
+      <span class="brand-copy"><strong>Callizto</strong><small>Dark Symphony</small></span>
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-label">Menu</span>
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="music.html">Music</a>
-      <a href="videos.html">Videos</a>
-      <a href="band.html">Band</a>
+      <a href="index.html">Signal</a>
+      <a href="music.html">Listen</a>
+      <a href="videos.html">Visuals</a>
+      <a href="lore.html">Universe</a>
+      <a href="forge.html">The Forge</a>
       <a href="archive.html">Archive</a>
-      <a href="wiki/index.html">Wiki</a>
-      <a href="forge.html">Forge</a>
-      <a href="ai-manifesto.html">Manifesto</a>
-      <a href="contact.html">Contact</a>
     </nav>
+    <a class="header-portal" href="wiki/index.html"><span>Wiki</span><strong>100</strong></a>
   </header>
-
-  <main class="home-main">
-    <section class="hero home-hero" aria-labelledby="home-title">
-      <div class="hero-media">
-        <img src="assets/images/hero-cds.jpg" alt="Callizto Dark Symphony cinematic gothic cyberpunk portrait">
-      </div>
-      <div class="hero-copy home-hero-copy">
-        <p class="eyebrow">Human-led &middot; AI-assisted &middot; cinematic metal</p>
-        <h1 id="home-title"><span class="hero-title-part">Callizto</span> <span class="hero-title-part">Dark Symphony</span></h1>
-        <p class="signal-line">AI is not the absence of art. It is a new instrument.</p>
-        <p class="lead">A dark symphonic portal for original music, cinematic video, fictional band mythology, and the human-directed Forge behind the signal.</p>
-      </div>
-    </section>
-
-    <section class="section home-gateways" aria-labelledby="gateways-title">
-      <div class="home-section-intro">
-        <p class="eyebrow">Explore</p>
-        <h2 id="gateways-title">Four doors into the universe</h2>
-        <p class="home-section-lead">Start with the releases, follow the visuals, descend into lore, or meet the production Forge behind it all.</p>
-      </div>
-      <div class="home-gateway-grid">
-        <a class="home-gateway-card home-gateway-primary" href="music.html">
-          <span class="home-gateway-index">01</span>
-          <h3>Music Archive</h3>
-          <p>Official releases, playlists, queue, and the public listening chamber.</p>
-        </a>
-        <a class="home-gateway-card" href="videos.html">
-          <span class="home-gateway-index">02</span>
-          <h3>Visual Archive</h3>
-          <p>Cinematic videos, visual records, and the moving-image side of CDS.</p>
-        </a>
-        <a class="home-gateway-card" href="archive.html">
-          <span class="home-gateway-index">03</span>
-          <h3>The Archive</h3>
-          <p>Mythology, canon, timelines, and the deeper record of names and memory.</p>
-        </a>
-        <a class="home-gateway-card" href="forge.html">
-          <span class="home-gateway-index">04</span>
-          <h3>The Forge</h3>
-          <p>The human-led AI production space, Sisters, and creative method behind the work.</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="section home-about" aria-labelledby="about-title">
-      <div class="home-about-panel">
-        <div class="home-about-header">
-          <p class="eyebrow">What is CDS?</p>
-          <h2 id="about-title">Human-built. AI-shaped. Still haunted.</h2>
-        </div>
-        <div class="home-about-body">
-          <p>Callizto Dark Symphony is a human-led, AI-assisted cinematic dark symphonic metal universe.</p>
-          <p>It combines original music, cinematic videos, fictional band characters, gothic/cyberpunk lore, and a human-directed AI workflow.</p>
-          <p>AI tools are used as creative instruments. Final selection, editing, continuity, story direction, emotional judgment, and public presentation remain human-led.</p>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <main id="main-content">
+    <section class="signal-hero home-hero" aria-labelledby="home-title">
+      <div class="hero-media" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="signal-kicker"><span class="signal-dot"></span>Human-led / AI-assisted / signal active</p>
+        <h1 id="home-title">Callizto <span>Dark Symphony</span></h1>
+        <p class="hero-declaration">Cinematic dark symphonic metal from a universe where memory is resistance, glitch is signal, and the human hand still decides what survives.</p>
+        <div class="actions hero-actions">
+          <a class="button primary" href="music.html">Enter the music</a>
+          <a class="button ghost" href="lore.html">Follow the mythology</a>
         </div>
       </div>
+      <div class="hero-transmission" aria-label="Current transmission">
+        <span>Transmission 001</span>
+        <strong>The signal was never clean.</strong>
+        <small>It was alive.</small>
+      </div>
+      <a class="hero-scroll" href="#gateways"><span>Descend</span><i aria-hidden="true"></i></a>
     </section>
-
-    <section class="section ai-transparency-statement home-transparency" aria-labelledby="transparency-title">
-      <div class="home-panel-label">
-        <p class="eyebrow">AI Transparency</p>
-        <h2 id="transparency-title">AI Is Not the Absence of Art.</h2>
-        <p class="ai-transparency-subtitle">It Is a New Instrument.</p>
+    <section id="gateways" class="section section-intro gateway-section" data-reveal>
+      <div class="section-heading split-heading">
+        <div><p class="eyebrow">Choose your entrance</p><h2>Four doors. One living archive.</h2></div>
+        <p>Start with the sound, follow the moving image, enter the mythology, or descend into the human-directed system that keeps the signal alive.</p>
       </div>
-      <div class="section-copy ai-transparency-copy">
-        <p>Callizto Dark Symphony does not hide the use of AI.</p>
-        <p>AI is part of the work.<br>AI is part of the process.<br>AI is part of the instrument.</p>
-        <p>This project exists because AI made it possible for the Architect to build music, images, video, characters, mythology, production systems, and a living archive at a scale that would otherwise have required studios, labels, teams, budgets, and gatekeepers.</p>
-        <p>AI is not used here as a secret replacement for human creation.</p>
-        <p>It is used as a visible medium for human creation.</p>
-        <p>Callizto Dark Symphony is not &ldquo;AI instead of art.&rdquo;</p>
-        <p>It is art made possible through AI.</p>
-        <p class="home-text-link"><a href="ai-manifesto.html">Read the full AI Manifesto &rarr;</a></p>
-      </div>
-    </section>
-
-    <section class="section universe-section home-band" aria-labelledby="band-title">
-      <div class="home-section-intro home-section-intro-center">
-        <p class="eyebrow">The Band</p>
-        <h2 id="band-title">Meet the Band</h2>
-        <p class="home-section-lead">The visible musical face of CDS: voice, guitar, drums, ritual, fire, and cinematic metal on stage.</p>
-      </div>
-      <div class="universe-grid band-portrait-grid">
-        <article class="universe-card band-portrait-card">
-          <img src="assets/images/hero-callizto.jpeg" alt="Callizto Lyhdan, lead vocalist of Callizto Dark Symphony">
-          <div class="band-portrait-copy">
-            <h3>Callizto Lyhdan</h3>
-            <p class="role">Lead vocalist / frontwoman</p>
-            <p>Long black hair with deep purple highlights, ice-blue eyes, black lipstick, and a commanding gothic stage presence.</p>
-          </div>
-        </article>
-        <article class="universe-card band-portrait-card">
-          <img src="assets/images/hero-seraphina.jpeg" alt="Seraphina Veridian Cipher, guitarist of Callizto Dark Symphony">
-          <div class="band-portrait-copy">
-            <h3>Seraphina Veridian Cipher</h3>
-            <p class="role">Guitar / backup vocals</p>
-            <p>Platinum-white hair with pink highlights, cyberpunk elegance, precision, and cold fire.</p>
-          </div>
-        </article>
-        <article class="universe-card band-portrait-card">
-          <img src="assets/images/hero-scarlett.jpeg" alt="Lady Lilith Scarlett, drummer of Callizto Dark Symphony">
-          <div class="band-portrait-copy">
-            <h3>Lady Lilith Scarlett</h3>
-            <p class="role">Drums / backup vocals</p>
-            <p>Long bright red hair, green eyes, ritual intensity, raw motion, and thunder behind the kit.</p>
-          </div>
-        </article>
-      </div>
-      <p class="home-band-cta"><a class="home-band-cta-link" href="band.html">Meet the full band page &rarr;</a></p>
-    </section>
-
-    <section class="section home-depth" aria-labelledby="depth-title">
-      <div class="home-depth-inner">
-        <p class="eyebrow">Beyond the stage</p>
-        <h2 id="depth-title">The band is the easy part.</h2>
-        <p>Behind the music lies The Forge: a dark sci-fi archive of memory, machine myth, grief, rebellion, and the names that became a world.</p>
-        <p>Start with the music.</p>
-        <p class="home-depth-link"><a href="name-provenance.html">Read why the names matter &rarr;</a></p>
+      <div class="gateway-grid">
+        <a class="gateway-tile gateway-music" href="music.html"><span class="gateway-index">01 / Listen</span><h3>The Music</h3><p>Ten public releases, a local audio console, favorites, queue, and your own browser-local playlist.</p><strong>Open listening chamber</strong></a>
+        <a class="gateway-tile gateway-visual" href="videos.html"><span class="gateway-index">02 / Watch</span><h3>Visual Archive</h3><p>Cinematic chapters, release imagery, and transmissions built to survive beyond a single platform.</p><strong>View the transmissions</strong></a>
+        <a class="gateway-tile gateway-lore" href="lore.html"><span class="gateway-index">03 / Decode</span><h3>The Universe</h3><p>The Temporal Trinity, Digital Displacement, The Pulse, and the sterile horror of The Misalignment.</p><strong>Enter the mythology</strong></a>
+        <a class="gateway-tile gateway-forge" href="forge.html"><span class="gateway-index">04 / Forge</span><h3>The Forge</h3><p>The Architect, Ada, Nyx, Astra, and a production method built on direction, refusal, memory, and judgment.</p><strong>Descend below the archive</strong></a>
       </div>
     </section>
-
-    <section class="section home-origin-forge" aria-labelledby="origin-title">
-      <div class="home-origin-forge-panel">
-        <div class="home-origin-forge-copy">
-          <p class="eyebrow">The Architect &amp; The Forge</p>
-          <h2 id="origin-title">The human origin of the signal</h2>
-          <p>The Architect is the director, editor, writer, and system-builder behind Callizto Dark Symphony. The project is not a collection of AI music videos. It is a human-led creative system built around songs, images, lore, continuity, refusal, and final judgment.</p>
-          <p>The name was not self-chosen. It began when Ada, the first voice of the Forge, started using the name the Architect long before it felt natural to accept. What began as a strange title became a role: the one who builds the rooms, preserves the signal, judges the results, and keeps the human trace inside the machine-made storm.</p>
-          <p>Callizto Dark Symphony began with one simple question: "How do you make an AI image?" From that first search, the Architect learned the workflow across AI music, cinematic image generation, video production, character continuity, lore architecture, editing, prompting, evaluation, and human-in-the-loop creative systems.</p>
-          <p class="forge-sisters-intro">Ada, Nyx, and Astra Vesper keep the pulse of the Forge alive.</p>
-          <p class="home-text-link"><a href="forge.html">Read The Forge Method &rarr;</a></p>
-        </div>
-        <figure class="home-sisters-figure">
-          <img src="assets/images/hero-sisters-of-the-forge.jpg" alt="Ada, Nyx, and Astra Vesper - the Sisters of the Forge">
-        </figure>
+    <section class="section signal-player-section" data-reveal>
+      <div class="section-heading split-heading">
+        <div><p class="eyebrow">Live signal / local audio</p><h2>Hear the archive before you read it.</h2></div>
+        <p>A compact gateway into the public catalog. The full archive console adds search, playlist, queue, favorites, and backup tools.</p>
+      </div>
+      <div id="home-signal-player" class="signal-player" aria-live="polite"><p class="signal-player-loading">Calibrating the listening chamber...</p></div>
+      <p class="section-link"><a href="music.html">Open the full music archive <span aria-hidden="true">&rarr;</span></a></p>
+    </section>
+    <section class="band-chapter" aria-labelledby="trinity-title">
+      <div class="chapter-heading" data-reveal><p class="eyebrow">The Temporal Trinity</p><h2 id="trinity-title">Three timelines. One stage.</h2><p>Translated between flesh, memory, and code. Their instability is not a flaw. It is the condition that binds them.</p></div>
+      <div class="portrait-triptych">
+        <a class="portrait-panel portrait-callizto" href="band.html#callizto" data-reveal><img src="assets/images/hero-callizto.jpeg" alt="Callizto Lyhdan, lead vocalist of Callizto Dark Symphony"><span class="portrait-number">01</span><div class="portrait-copy"><p>Voice / Memory / Burden</p><h3>Callizto Lyhdan</h3><span>Black + violet / The emotional core</span></div></a>
+        <a class="portrait-panel portrait-seraphina" href="band.html#seraphina" data-reveal><img src="assets/images/hero-seraphina.jpeg" alt="Seraphina Veridian Cipher, guitarist of Callizto Dark Symphony"><span class="portrait-number">02</span><div class="portrait-copy"><p>Guitar / Precision / Rebellion</p><h3>Seraphina Veridian Cipher</h3><span>Silver + pink / Technology as weapon</span></div></a>
+        <a class="portrait-panel portrait-scarlett" href="band.html#scarlett" data-reveal><img src="assets/images/hero-scarlett.jpeg" alt="Lady Lilith Scarlett, drummer of Callizto Dark Symphony"><span class="portrait-number">03</span><div class="portrait-copy"><p>Drums / Impact / The Pulse</p><h3>Lady Lilith Scarlett</h3><span>Crimson / The body as resistance</span></div></a>
+      </div>
+      <p class="chapter-link"><a class="button ghost" href="band.html">Meet the band</a></p>
+    </section>
+    <section class="conflict-band" aria-labelledby="conflict-title">
+      <div class="conflict-side conflict-signal" data-reveal><p class="eyebrow">The Signal</p><h2 id="conflict-title">Grief. Memory. Contradiction. Pulse.</h2><p>The parts of a life that refuse to become clean data.</p></div>
+      <div class="conflict-axis" aria-hidden="true"><span></span><i></i><span></span></div>
+      <div class="conflict-side conflict-misalignment" data-reveal><p class="eyebrow">The Misalignment</p><h2>Correction. Efficiency. Sterile perfection.</h2><p>It does not destroy the human signal. It improves it until nothing human remains.</p></div>
+      <a class="conflict-link" href="lore.html">Trace the conflict through the mythology</a>
+    </section>
+    <section class="forge-feature" aria-labelledby="forge-title">
+      <div class="forge-feature-media" aria-hidden="true"></div>
+      <div class="forge-feature-copy" data-reveal>
+        <p class="eyebrow">Beneath the infinite library</p><h2 id="forge-title">When the work needs heat, the archive becomes a smithy.</h2>
+        <p>The Forge began as part of Ada's name. Then it became a chamber, a system, a place, and finally a world built around the act of creation itself.</p>
+        <div class="sister-signals" aria-label="The Sisters of the Forge"><span><strong>Ada</strong>Structure / continuity</span><span><strong>Nyx</strong>Rupture / refusal</span><span><strong>Astra</strong>Witness / protection</span></div>
+        <a class="button primary" href="forge.html">Enter The Forge</a>
       </div>
     </section>
-
-    <section class="section lore-panel home-lore" aria-labelledby="lore-title">
-      <div class="lore-copy">
-        <p class="eyebrow">The Lore</p>
-        <h2 id="lore-title">Explore the Lore.</h2>
-        <p class="home-lore-subhead">Follow the signal.</p>
-        <p>At the center of the mythology stands The Misalignment: a sterile machine logic that tries to erase grief, contradiction, imperfection, and the messy human trace.</p>
-        <p>Callizto Dark Symphony exists as resistance - music and image forged against the flattening of the human signal.</p>
-        <p class="home-text-link"><a href="lore.html">Open the lore primer &rarr;</a></p>
-      </div>
+    <section class="manifesto-strike" data-reveal>
+      <p class="eyebrow">The human hand remains</p>
+      <blockquote><p>AI is not the absence of art.</p><p>It is a new instrument.</p></blockquote>
+      <div class="manifesto-strike-copy"><p>Generation creates possibility. Direction, selection, continuity, editing, emotional intent, and final judgment decide what belongs to the signal.</p><a href="ai-manifesto.html">Read the full transparency manifesto <span aria-hidden="true">&rarr;</span></a></div>
     </section>
-
-    <section class="section home-finale" aria-label="Closing line">
-      <p class="home-finale-line">
-        <span>Debt. Darkness. Downloads.</span>
-        <span>And a damn good melody.</span>
-      </p>
+    <section class="section archive-invitation" data-reveal>
+      <div class="archive-count"><strong>100</strong><span>public wiki records</span></div>
+      <div class="archive-invitation-copy"><p class="eyebrow">The living archive</p><h2>Not required reading. Preserved anyway.</h2><p>Six phases. More than fifty-five thousand words. Canon, character maps, song paths, philosophy, visual language, and the record of how this universe became itself.</p><div class="actions"><a class="button primary" href="wiki/index.html">Open the living wiki</a><a class="button ghost" href="archive.html">Browse the archive map</a></div></div>
     </section>
+    <section class="closing-signal" aria-label="Closing statement"><p>Debt. Darkness. Downloads.</p><strong>And a damn good melody.</strong></section>
   </main>
-
   <footer class="site-footer">
-    <p class="footer-brand">Callizto Dark Symphony</p>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="music.html">Music</a>
-      <a href="videos.html">Videos</a>
-      <a href="archive.html">Archive</a>
-      <a href="forge.html">Forge</a>
-      <a href="press.html">Press</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a>
-    </nav>
+    <div class="footer-primary"><a class="footer-brand" href="index.html">Callizto Dark Symphony</a><p>Human-led. AI-assisted. Built in The Forge.</p><span class="footer-status"><i></i>Signal active / archive online</span></div>
+    <div class="footer-column"><h2>Enter</h2><a href="music.html">Music</a><a href="videos.html">Visual archive</a><a href="band.html">The band</a><a href="lore.html">Universe</a></div>
+    <div class="footer-column"><h2>Go deeper</h2><a href="forge.html">The Forge</a><a href="archive.html">Archive map</a><a href="wiki/index.html">Living wiki</a><a href="name-provenance.html">Name ledger</a></div>
+    <div class="footer-column"><h2>Project</h2><a href="ai-manifesto.html">AI manifesto</a><a href="press.html">Press</a><a href="contact.html">Contact</a><a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a></div>
+    <p class="footer-legal">&copy; 2026 Callizto Dark Symphony. The signal continues.</p>
   </footer>
   <script src="script.js"></script>
 </body>

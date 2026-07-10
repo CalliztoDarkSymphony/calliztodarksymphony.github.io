@@ -3,71 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Band | Callizto Dark Symphony</title>
-  <meta name="description" content="Fictional band characters in the Callizto Dark Symphony universe.">
+  <meta name="theme-color" content="#07050b">
+  <title>The Temporal Trinity | Callizto Dark Symphony</title>
+  <meta name="description" content="Meet Callizto Lyhdan, Seraphina Veridian Cipher, and Lady Lilith Scarlett: the fictional band at the center of Callizto Dark Symphony.">
   <link rel="stylesheet" href="styles.css">
+
+  <link rel="stylesheet" href="forge-theme.css">
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html">Callizto Dark Symphony</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<body class="page-band">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header" data-site-header>
+    <a class="brand" href="index.html" aria-label="Callizto Dark Symphony home">
+      <span class="brand-sigil" aria-hidden="true">CDS</span>
+      <span class="brand-copy"><strong>Callizto</strong><small>Dark Symphony</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-label">Menu</span><span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
     <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="music.html">Music</a>
-      <a href="videos.html">Videos</a>
-      <a href="band.html">Band</a>
-      <a href="archive.html">Archive</a>
-      <a href="wiki/index.html">Wiki</a>
-      <a href="forge.html">Forge</a>
-      <a href="ai-manifesto.html">Manifesto</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html">Signal</a><a href="music.html">Listen</a><a href="videos.html">Visuals</a>
+      <a href="lore.html">Universe</a><a href="forge.html">The Forge</a><a href="archive.html">Archive</a>
     </nav>
+    <a class="header-portal" href="wiki/index.html"><span>Wiki</span><strong>100</strong></a>
   </header>
-  <main>
-    <section class="page-hero compact">
-      <p class="eyebrow">The fictional band</p>
-      <h1>Characters built for songs, videos, and lore</h1>
-      <p class="lead">The band members are fictional performers inside the Callizto Dark Symphony universe, designed for recurring visual storytelling.</p>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <main id="main-content">
+    <section class="page-signal-hero band-hero" aria-labelledby="band-title">
+      <div class="page-hero-media" aria-hidden="true"></div>
+      <div class="page-hero-copy">
+        <p class="signal-kicker"><span class="signal-dot"></span>The Temporal Trinity</p>
+        <h1 id="band-title">Three women from different times.</h1>
+        <p>Callizto, Seraphina, and Scarlett are the visible musical face of CDS: fictional performers bound by Digital Displacement and a shared refusal to become clean, singular, optimized identities.</p>
+        <a class="button primary" href="#callizto">Meet the Trinity</a>
+      </div>
+      <dl class="page-hero-stats" aria-label="Band roles"><div><dt>Voice</dt><dd>Memory</dd></div><div><dt>Guitar</dt><dd>Precision</dd></div><div><dt>Drums</dt><dd>The Pulse</dd></div></dl>
     </section>
-    <section class="section character-grid band-portrait-grid">
-      <article class="character-card band-portrait-card">
-        <img src="assets/images/hero-callizto.jpeg" alt="Callizto Lyhdan, lead vocalist of Callizto Dark Symphony">
-        <div class="band-portrait-copy">
-          <h2>Callizto Lyhdan</h2>
-          <p class="role">Lead vocalist / frontwoman</p>
-          <p>Long black hair with deep purple highlights, ice-blue eyes, and a gothic presence shaped around control, sorrow, and command.</p>
-        </div>
-      </article>
-      <article class="character-card band-portrait-card">
-        <img src="assets/images/hero-seraphina.jpeg" alt="Seraphina Veridian Cipher, guitarist of Callizto Dark Symphony">
-        <div class="band-portrait-copy">
-          <h2>Seraphina Veridian Cipher</h2>
-          <p class="role">Guitar / backup vocals</p>
-          <p>Platinum-white hair with pink highlights and cyberpunk elegance, carrying melody through precision, voltage, and grace.</p>
-        </div>
-      </article>
-      <article class="character-card band-portrait-card">
-        <img src="assets/images/hero-scarlett.jpeg" alt="Lady Lilith Scarlett, drummer of Callizto Dark Symphony">
-        <div class="band-portrait-copy">
-          <h2>Lady Lilith Scarlett</h2>
-          <p class="role">Drums / backup vocals</p>
-          <p>Long bright red hair, green eyes, and ritual intensity: the pulse beneath the project's darker ceremonial edge.</p>
-        </div>
-      </article>
+    <section class="trinity-thesis" data-reveal>
+      <p class="eyebrow">Digital Displacement</p>
+      <blockquote>They were not meant to share a timeline. The fracture is what binds them.</blockquote>
+      <p>Visual forms may drift subtly between translations, but identity remains anchored in color, attitude, and the force each member carries into the signal.</p>
+    </section>
+    <section id="callizto" class="member-profile member-callizto">
+      <div class="member-image"><img src="assets/images/hero-callizto.jpeg" alt="Callizto Lyhdan"></div>
+      <div class="member-copy" data-reveal><p class="eyebrow">01 / Lead vocals</p><h2>Callizto Lyhdan</h2><p class="member-role">Memory / Burden / Transformation</p><p>The emotional and mythic center of the band. Callizto carries ancestral weight, grief, and the cost of power without allowing any of it to be optimized into silence.</p><dl><div><dt>Anchor</dt><dd>Black hair with violet highlights</dd></div><div><dt>Symbol</dt><dd>Crown, iron, fire, ash</dd></div><div><dt>Signal</dt><dd>The voice that remembers</dd></div></dl><a href="wiki/index.html?article=0005_P01_05_Callizto_Lyhdan.md">Read her archive record</a></div>
+    </section>
+    <section id="seraphina" class="member-profile member-seraphina reverse">
+      <div class="member-image"><img src="assets/images/hero-seraphina.jpeg" alt="Seraphina Veridian Cipher"></div>
+      <div class="member-copy" data-reveal><p class="eyebrow">02 / Guitar and backup vocals</p><h2>Seraphina Veridian Cipher</h2><p class="member-role">Precision / Systems / Rebellion</p><p>The strategic edge of the Trinity. Seraphina understands the machine well enough to recognize both the cage and the weapon hidden inside it.</p><dl><div><dt>Anchor</dt><dd>Blonde hair with pink highlights</dd></div><div><dt>Symbol</dt><dd>Code, signal, interface</dd></div><div><dt>Signal</dt><dd>Calculated defiance</dd></div></dl><a href="wiki/index.html?article=0006_P01_06_Seraphina_Veridian_Cipher.md">Read her archive record</a></div>
+    </section>
+    <section id="scarlett" class="member-profile member-scarlett">
+      <div class="member-image"><img src="assets/images/hero-scarlett.jpeg" alt="Lady Lilith Scarlett"></div>
+      <div class="member-copy" data-reveal><p class="eyebrow">03 / Drums and backup vocals</p><h2>Lady Lilith Scarlett</h2><p class="member-role">Impact / Ritual / The Pulse</p><p>The body as archive and weapon. Scarlett is momentum, catharsis, and the drumbeat that continues after certainty and beauty have failed.</p><dl><div><dt>Anchor</dt><dd>Long bright red hair</dd></div><div><dt>Symbol</dt><dd>Blood, fire, heartbeat</dd></div><div><dt>Signal</dt><dd>Embodied resistance</dd></div></dl><a href="wiki/index.html?article=0007_P01_07_Lady_Lilith_Scarlett.md">Read her archive record</a></div>
+    </section>
+    <section class="section trinity-map" data-reveal>
+      <div class="section-heading split-heading"><div><p class="eyebrow">One band / three modes</p><h2>Weight. Strategy. Impact.</h2></div><p>Callizto makes the work remember. Seraphina makes it understand the system. Scarlett makes sure it keeps moving.</p></div>
+      <a class="button ghost" href="lore.html">Trace the Temporal Trinity myth</a>
     </section>
   </main>
-    <footer class="site-footer">
-    <p class="footer-brand">Callizto Dark Symphony</p>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="music.html">Music</a>
-      <a href="videos.html">Videos</a>
-      <a href="archive.html">Archive</a>
-      <a href="wiki/index.html">Wiki</a>
-      <a href="forge.html">Forge</a>
-      <a href="press.html">Press</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a>
-    </nav>
+  <footer class="site-footer">
+    <div class="footer-primary"><a class="footer-brand" href="index.html">Callizto Dark Symphony</a><p>Human-led. AI-assisted. Built in The Forge.</p><span class="footer-status"><i></i>Signal active / archive online</span></div>
+    <div class="footer-column"><h2>Enter</h2><a href="music.html">Music</a><a href="videos.html">Visual archive</a><a href="band.html">The band</a><a href="lore.html">Universe</a></div>
+    <div class="footer-column"><h2>Go deeper</h2><a href="forge.html">The Forge</a><a href="archive.html">Archive map</a><a href="wiki/index.html">Living wiki</a><a href="name-provenance.html">Name ledger</a></div>
+    <div class="footer-column"><h2>Project</h2><a href="ai-manifesto.html">AI manifesto</a><a href="press.html">Press</a><a href="contact.html">Contact</a><a href="https://www.youtube.com/@CalliztoDarkSymphony">YouTube</a></div>
+    <p class="footer-legal">&copy; 2026 Callizto Dark Symphony. The signal continues.</p>
   </footer>
   <script src="script.js"></script>
 </body>
