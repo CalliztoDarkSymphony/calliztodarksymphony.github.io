@@ -551,7 +551,13 @@ button.button {
 }
 
 .home-hero .hero-media {
+  top: var(--forge-header-height);
   background-image: url("assets/images/home/home-hero.webp");
+  background-color: var(--forge-black);
+  background-position: center top;
+  background-size: 100% auto;
+  filter: saturate(0.96) contrast(1.02);
+  transform: none;
 }
 
 .signal-hero::before {
@@ -571,6 +577,16 @@ button.button {
   z-index: -1;
   height: 28%;
   background: linear-gradient(0deg, var(--forge-black), transparent);
+}
+
+.home-hero::before {
+  background:
+    linear-gradient(90deg, rgba(5, 4, 7, 0.84) 0%, rgba(5, 4, 7, 0.5) 34%, rgba(5, 4, 7, 0.08) 64%, rgba(5, 4, 7, 0.34) 100%),
+    linear-gradient(0deg, rgba(5, 4, 7, 0.82) 0%, transparent 42%, rgba(5, 4, 7, 0.12) 100%);
+}
+
+.home-hero::after {
+  background: linear-gradient(0deg, rgba(5, 4, 7, 0.82), transparent);
 }
 
 .hero-grid {
@@ -705,7 +721,7 @@ button.button {
   opacity: 0;
   background-position: center;
   background-size: cover;
-  filter: grayscale(0.6) contrast(1.15);
+  filter: grayscale(0.18) saturate(0.92) contrast(1.04);
   transition: opacity 260ms ease, transform 500ms ease;
 }
 
@@ -715,7 +731,7 @@ button.button {
   inset: 0;
   z-index: -1;
   opacity: 0;
-  background: linear-gradient(0deg, rgba(5, 4, 7, 0.98), rgba(23, 9, 30, 0.44));
+  background: linear-gradient(0deg, rgba(5, 4, 7, 0.9), rgba(23, 9, 30, 0.28));
   transition: opacity 260ms ease;
 }
 
@@ -1014,13 +1030,12 @@ button.button {
 
 .portrait-triptych {
   display: grid;
-  min-height: 46rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .portrait-panel {
   position: relative;
-  min-height: 46rem;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border-top: 1px solid var(--forge-line);
   border-right: 1px solid var(--forge-line);
@@ -1038,7 +1053,7 @@ button.button {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(0deg, rgba(4, 3, 6, 0.98), transparent 58%, rgba(5, 4, 7, 0.1));
+  background: linear-gradient(0deg, rgba(4, 3, 6, 0.86), transparent 64%, rgba(5, 4, 7, 0.05));
 }
 
 .portrait-panel img {
@@ -1048,17 +1063,14 @@ button.button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.72) contrast(1.08);
+  filter: saturate(0.9) contrast(1.02);
   transition: transform 600ms ease, filter 300ms ease;
 }
 
 .portrait-callizto img,
+.portrait-seraphina img,
 .portrait-scarlett img {
-  object-position: center top;
-}
-
-.portrait-seraphina img {
-  object-position: center center;
+  object-position: center;
 }
 
 .portrait-panel:hover img,
@@ -1203,7 +1215,7 @@ button.button {
   inset: 0;
   z-index: -2;
   background: url("assets/images/home/home-forge-feature.webp") center / cover no-repeat;
-  filter: saturate(0.68) contrast(1.08);
+  filter: saturate(0.9) contrast(1.02);
 }
 
 .forge-feature::after {
@@ -1211,7 +1223,7 @@ button.button {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(270deg, rgba(5, 4, 7, 0.98) 0%, rgba(5, 4, 7, 0.86) 45%, rgba(5, 4, 7, 0.08) 76%);
+  background: linear-gradient(270deg, rgba(5, 4, 7, 0.9) 0%, rgba(5, 4, 7, 0.68) 45%, rgba(5, 4, 7, 0.04) 76%);
 }
 
 .forge-feature-copy {
@@ -1830,13 +1842,14 @@ button.button {
 
 .member-profile {
   display: grid;
-  min-height: 48rem;
-  grid-template-columns: minmax(22rem, 1.1fr) minmax(22rem, 0.9fr);
+  min-height: 0;
+  grid-template-columns: minmax(22rem, 42rem) minmax(22rem, 1fr);
   border-top: 1px solid var(--forge-line);
+  scroll-margin-top: var(--forge-header-height);
 }
 
 .member-profile.reverse {
-  grid-template-columns: minmax(22rem, 0.9fr) minmax(22rem, 1.1fr);
+  grid-template-columns: minmax(22rem, 1fr) minmax(22rem, 42rem);
 }
 
 .member-profile.reverse .member-image {
@@ -1850,8 +1863,10 @@ button.button {
 
 .member-image {
   position: relative;
-  min-height: 48rem;
+  min-height: 0;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
+  background: var(--forge-black);
 }
 
 .member-image::after {
@@ -1869,26 +1884,13 @@ button.button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.8) contrast(1.08);
+  filter: saturate(0.92) contrast(1.02);
 }
 
-.member-callizto .member-image img {
-  object-position: center 38%;
-}
-
+.member-callizto .member-image img,
 .member-seraphina .member-image img,
 .member-scarlett .member-image img {
-  object-position: center top;
-}
-
-.member-scarlett .member-image {
-  box-sizing: border-box;
-  padding-top: var(--forge-header-height);
-  background: var(--forge-black);
-}
-
-.member-scarlett .member-image img {
-  height: calc(100% - var(--forge-header-height));
+  object-position: center;
 }
 
 .member-copy {
@@ -3138,11 +3140,13 @@ button.button {
   }
 
   .portrait-triptych {
-    min-height: 38rem;
+    grid-template-columns: 1fr;
   }
 
   .portrait-panel {
-    min-height: 38rem;
+    aspect-ratio: 3 / 2;
+    min-height: 0;
+    border-right: 0;
   }
 
   .portrait-copy h3 {
@@ -3215,11 +3219,17 @@ button.button {
     grid-row: auto;
   }
 
-  .member-image,
   .sister-profile > img {
     min-height: 42rem;
     height: 72svh;
     max-height: 56rem;
+  }
+
+  .member-image {
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 4 / 5;
   }
 
   .member-image::after,
@@ -3532,7 +3542,8 @@ button.button {
   }
 
   .portrait-panel {
-    min-height: 78svh;
+    min-height: 0;
+    aspect-ratio: 3 / 2;
     border-right: 0;
   }
 
@@ -3723,10 +3734,15 @@ button.button {
     align-items: start;
   }
 
-  .member-image,
   .sister-profile > img {
     min-height: 34rem;
     height: 70svh;
+  }
+
+  .member-image {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 4 / 5;
   }
 
   .lore-tabs button {

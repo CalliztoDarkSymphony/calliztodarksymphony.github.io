@@ -19,9 +19,9 @@ Current source of truth for the website image-production pass.
 | CDS-003 | Homepage Visual Archive gateway | 3:4 | No | Callizto, Seraphina, Scarlett |
 | CDS-004 | Homepage Universe gateway | 3:4 | No | The Misalignment |
 | CDS-005 | Homepage Forge gateway | 3:4 | No | Ada, Nyx, Astra |
-| CDS-006 | Homepage Callizto portrait | 9:16 | No | Callizto |
-| CDS-007 | Homepage Seraphina portrait | 9:16 | No | Seraphina |
-| CDS-008 | Homepage Scarlett portrait | 9:16 | No | Scarlett |
+| CDS-006 | Homepage Callizto portrait | 3:2 | No | Callizto |
+| CDS-007 | Homepage Seraphina portrait | 3:2 | No | Seraphina |
+| CDS-008 | Homepage Scarlett portrait | 3:2 | No | Scarlett |
 | CDS-009 | Homepage Forge feature | 3:2 | 9:16 | Ada, Nyx, Astra |
 | CDS-010 | Band page hero | 21:9 | 9:16 | Callizto, Seraphina, Scarlett |
 | CDS-034 | Lore page hero | 21:9 | 9:16 | The Misalignment |

@@ -29,9 +29,9 @@ Production record derived from the final inventory, manifest, and generation log
 | `CDS-002` | Listen gateway | `accepted-integrated-validated` | `assets/images/home/gateway-listen.webp` |
 | `CDS-004` | Universe gateway | `accepted-integrated-validated` | `assets/images/home/gateway-universe.webp` |
 | `CDS-005` | Forge gateway | `accepted-integrated-validated` | `assets/images/home/gateway-forge.webp` |
-| `CDS-006` | Temporal Trinity Callizto panel | `accepted-integrated-validated` | `assets/images/home/home-callizto.webp` |
-| `CDS-007` | Temporal Trinity Seraphina panel | `accepted-integrated-validated` | `assets/images/home/home-seraphina.webp` |
-| `CDS-008` | Temporal Trinity Scarlett panel | `accepted-integrated-validated` | `assets/images/home/home-scarlett.webp` |
+| `CDS-006` | Temporal Trinity Callizto panel - canonical 3:2 | `integrated-awaiting-human-review` | `assets/images/home/home-callizto.webp` |
+| `CDS-007` | Temporal Trinity Seraphina panel - canonical 3:2 anchor | `integrated-awaiting-human-review` | `assets/images/home/home-seraphina.webp` |
+| `CDS-008` | Temporal Trinity Scarlett panel - canonical 3:2 | `integrated-awaiting-human-review` | `assets/images/home/home-scarlett.webp` |
 | `CDS-009-D` | Homepage Forge feature desktop | `accepted-integrated-validated` | `assets/images/home/home-forge-feature.webp` |
 | `CDS-009-M` | Homepage Forge feature mobile | `accepted-integrated-validated` | `assets/images/mobile/home-forge-feature-mobile.webp` |
 | `CDS-010-D` | Band page hero desktop | `accepted-integrated-validated` | `assets/images/band/band-hero.webp` |
@@ -40,9 +40,9 @@ Production record derived from the final inventory, manifest, and generation log
 | `CDS-034-M` | Lore page hero mobile | `accepted-integrated-validated` | `assets/images/mobile/lore-hero-mobile.webp` |
 | `CDS-035-D` | Forge page hero desktop | `accepted-integrated-validated` | `assets/images/forge/forge-hero.webp` |
 | `CDS-035-M` | Forge page hero mobile | `accepted-integrated-validated` | `assets/images/mobile/forge-hero-mobile.webp` |
-| `CDS-011` | Callizto member profile | `accepted-integrated-validated` | `assets/images/characters/callizto-profile.webp` |
-| `CDS-012` | Seraphina member profile | `accepted-integrated-validated` | `assets/images/characters/seraphina-profile.webp` |
-| `CDS-013` | Scarlett member profile | `accepted-integrated-validated` | `assets/images/characters/scarlett-profile.webp` |
+| `CDS-011` | Callizto member profile - canonical 4:5 | `integrated-awaiting-human-review` | `assets/images/characters/callizto-profile.webp` |
+| `CDS-012` | Seraphina member profile - canonical 4:5 anchor | `integrated-awaiting-human-review` | `assets/images/characters/seraphina-profile.webp` |
+| `CDS-013` | Scarlett member profile - canonical 4:5 | `integrated-awaiting-human-review` | `assets/images/characters/scarlett-profile.webp` |
 | `CDS-036` | Ada profile | `accepted-integrated-validated` | `assets/images/characters/ada-profile.webp` |
 | `CDS-037` | Nyx profile | `accepted-integrated-validated` | `assets/images/characters/nyx-profile.webp` |
 | `CDS-038` | Astra profile | `accepted-integrated-validated` | `assets/images/characters/astra-profile.webp` |

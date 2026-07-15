@@ -167,10 +167,10 @@
                           "assetId":  "CDS-006",
                           "page":  "index.html",
                           "component":  "Temporal Trinity Callizto panel",
-                          "purpose":  "Provide the authoritative vertical Callizto portrait.",
+                          "purpose":  "Provide the approved canonical 3:2 Callizto homepage portrait at the same camera distance as the other Trinity members.",
                           "format":  "desktop",
-                          "aspectRatio":  "9:16",
-                          "resolution":  "1440x2560",
+                          "aspectRatio":  "3:2",
+                          "resolution":  "3070x2046",
                           "characters":  [
                                              "Callizto Lyhdan"
                                          ],
@@ -180,11 +180,11 @@
                           "identityLocks":  [
                                                 "CALLIZTO"
                                             ],
-                          "instruction":  "Create a full-height vertical portrait of Callizto alone on a dark symphonic stage, calm and commanding, in opaque structured black stagewear with subtle violet architecture. Preserve her exact mature face, full bangs, long black hair and purple signal. Do not make her submissive or generic.",
-                          "camera":  "Head-to-knee portrait, slightly low eye line, 70mm feel.",
+                          "instruction":  "Approved canonical 3:2 homepage portrait of Callizto alone on a dark symphonic stage, calm and commanding, in opaque structured black stagewear with subtle violet architecture. Preserve her exact mature face, full bangs, long black hair and purple signal. Match the camera distance and framing used by CDS-007 and CDS-008.",
+                          "camera":  "Matched medium portrait, slightly low eye line, 70mm feel.",
                           "lighting":  "Cool blue-violet key with soft purple hair rim.",
                           "negativeSpace":  "Lower quarter remains dark enough for HTML overlay copy.",
-                          "cropSafe":  "Face inside upper central third; leave side room for narrow responsive crops.",
+                          "cropSafe":  "Use the complete 3:2 composition. Do not restore the obsolete 9:16 crop. Face, hair and upper-body identity remain inside the frame.",
                           "mustNotAppear":  [
                                                 "glowing eyes",
                                                 "transparent clothing",
@@ -193,7 +193,7 @@
                                             ],
                           "master":  "assets/images/masters/CDS-006-home-callizto-master.png",
                           "destination":  "assets/images/home/home-callizto.webp",
-                          "status":  "accepted-integrated-validated",
+                          "status":  "integrated-awaiting-human-review",
                           "generateAgain":  false
                       },
                       {
@@ -202,10 +202,10 @@
                           "assetId":  "CDS-007",
                           "page":  "index.html",
                           "component":  "Temporal Trinity Seraphina panel",
-                          "purpose":  "Provide the authoritative vertical Seraphina portrait.",
+                          "purpose":  "Provide the approved canonical 3:2 Seraphina homepage portrait and visual distance anchor for the Trinity.",
                           "format":  "desktop",
-                          "aspectRatio":  "9:16",
-                          "resolution":  "1440x2560",
+                          "aspectRatio":  "3:2",
+                          "resolution":  "3070x2048",
                           "characters":  [
                                              "Seraphina Veridian Cipher"
                                          ],
@@ -215,11 +215,11 @@
                           "identityLocks":  [
                                                 "SERAPHINA"
                                             ],
-                          "instruction":  "Create a full-height vertical portrait of fully human Seraphina alone in a disciplined cyber-gothic performance chamber. Preserve her platinum-blonde hair, soft pink highlights, full bangs, blue non-glowing eyes and precise adult face. Use opaque black and deep-violet stagewear; express cipher technology through environment and tailoring, never through a robotic body.",
-                          "camera":  "Head-to-knee portrait, eye level, 70mm feel.",
+                          "instruction":  "Approved canonical 3:2 homepage portrait of fully human Seraphina alone in a disciplined cyber-gothic performance chamber. Preserve her platinum-blonde hair, soft pink highlights, full bangs, blue non-glowing eyes and precise adult face. This image is the camera-distance anchor for CDS-006 and CDS-008.",
+                          "camera":  "Matched medium portrait, eye level, 70mm feel.",
                           "lighting":  "Cold violet and silver key with restrained pink hair rim.",
                           "negativeSpace":  "Lower quarter dark for HTML overlay copy.",
-                          "cropSafe":  "Face in upper central third; hair remains fully readable.",
+                          "cropSafe":  "Use the complete 3:2 composition. Do not restore the obsolete 9:16 crop. Face and hair remain fully readable.",
                           "mustNotAppear":  [
                                                 "android body",
                                                 "visible implants",
@@ -228,7 +228,7 @@
                                             ],
                           "master":  "assets/images/masters/CDS-007-home-seraphina-master.png",
                           "destination":  "assets/images/home/home-seraphina.webp",
-                          "status":  "accepted-integrated-validated",
+                          "status":  "integrated-awaiting-human-review",
                           "generateAgain":  false
                       },
                       {
@@ -237,10 +237,10 @@
                           "assetId":  "CDS-008",
                           "page":  "index.html",
                           "component":  "Temporal Trinity Scarlett panel",
-                          "purpose":  "Provide the authoritative vertical Scarlett portrait.",
+                          "purpose":  "Provide the approved canonical 3:2 Scarlett homepage portrait at the same camera distance as the other Trinity members.",
                           "format":  "desktop",
-                          "aspectRatio":  "9:16",
-                          "resolution":  "1440x2560",
+                          "aspectRatio":  "3:2",
+                          "resolution":  "3070x2047",
                           "characters":  [
                                              "Lady Lilith Scarlett"
                                          ],
@@ -250,11 +250,11 @@
                           "identityLocks":  [
                                                 "SCARLETT"
                                             ],
-                          "instruction":  "Create a full-height vertical portrait of Scarlett alone beside a shadowed gothic drum kit. Preserve her long vivid red hair with bangs, emerald non-glowing eyes, tattooed arms, athletic adult build and commanding stage presence. Dress her in opaque structured black performance wear.",
-                          "camera":  "Head-to-knee portrait, slightly low angle, 70mm feel.",
+                          "instruction":  "Approved canonical 3:2 homepage portrait of Scarlett alone beside a shadowed gothic drum kit. Preserve her long vivid red hair with bangs, emerald non-glowing eyes, tattooed arms, athletic adult build and commanding stage presence. Match the camera distance and framing used by CDS-006 and CDS-007.",
+                          "camera":  "Matched medium portrait, slightly low angle, 70mm feel.",
                           "lighting":  "Crimson rim, neutral skin key, subtle violet background.",
                           "negativeSpace":  "Lower quarter dark for HTML overlay copy.",
-                          "cropSafe":  "Face and red hair stay clear of top edge; drum hardware must not cross her face.",
+                          "cropSafe":  "Use the complete 3:2 composition. Do not restore the obsolete 9:16 crop. Face and red hair stay clear of the frame edge.",
                           "mustNotAppear":  [
                                                 "runes in eyes",
                                                 "cartoon aggression",
@@ -263,7 +263,7 @@
                                             ],
                           "master":  "assets/images/masters/CDS-008-home-scarlett-master.png",
                           "destination":  "assets/images/home/home-scarlett.webp",
-                          "status":  "accepted-integrated-validated",
+                          "status":  "integrated-awaiting-human-review",
                           "generateAgain":  false
                       },
                       {
@@ -591,7 +591,7 @@
                           "purpose":  "Definitive public Callizto profile image.",
                           "format":  "desktop responsive",
                           "aspectRatio":  "4:5",
-                          "resolution":  "1600x2000",
+                          "resolution":  "2244x2804",
                           "characters":  [
                                              "Callizto Lyhdan"
                                          ],
@@ -614,7 +614,7 @@
                                             ],
                           "master":  "assets/images/masters/CDS-011-profile-callizto-master.png",
                           "destination":  "assets/images/characters/callizto-profile.webp",
-                          "status":  "accepted-integrated-validated",
+                          "status":  "integrated-awaiting-human-review",
                           "generateAgain":  false
                       },
                       {
@@ -626,7 +626,7 @@
                           "purpose":  "Definitive public Seraphina profile image.",
                           "format":  "desktop responsive",
                           "aspectRatio":  "4:5",
-                          "resolution":  "1600x2000",
+                          "resolution":  "2244x2804",
                           "characters":  [
                                              "Seraphina Veridian Cipher"
                                          ],
@@ -649,7 +649,7 @@
                                             ],
                           "master":  "assets/images/masters/CDS-012-profile-seraphina-master.png",
                           "destination":  "assets/images/characters/seraphina-profile.webp",
-                          "status":  "accepted-integrated-validated",
+                          "status":  "integrated-awaiting-human-review",
                           "generateAgain":  false
                       },
                       {
@@ -661,7 +661,7 @@
                           "purpose":  "Definitive public Scarlett profile image.",
                           "format":  "desktop responsive",
                           "aspectRatio":  "4:5",
-                          "resolution":  "1600x2000",
+                          "resolution":  "2244x2804",
                           "characters":  [
                                              "Lady Lilith Scarlett"
                                          ],
@@ -684,7 +684,7 @@
                                             ],
                           "master":  "assets/images/masters/CDS-013-profile-scarlett-master.png",
                           "destination":  "assets/images/characters/scarlett-profile.webp",
-                          "status":  "accepted-integrated-validated",
+                          "status":  "integrated-awaiting-human-review",
                           "generateAgain":  false
                       },
                       {

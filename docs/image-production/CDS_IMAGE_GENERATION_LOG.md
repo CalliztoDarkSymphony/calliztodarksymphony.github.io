@@ -53,6 +53,15 @@ Integration pass completed for the approved non-album assets present in `assets/
 | `CDS-043` | desktop + mobile | integrated / awaiting human review |
 | `CDS-044` | desktop + mobile | integrated / awaiting human review |
 
+## Canonical Ratio Lock - 2026-07-16
+
+- `CDS-006`, `CDS-007`, and `CDS-008` are approved canonical 3:2 homepage portraits. The previous 9:16 queue specification is obsolete and must not be restored.
+- `CDS-011`, `CDS-012`, and `CDS-013` are approved canonical 4:5 band profiles.
+- `CDS-007` and `CDS-012` remain the approved visual-distance anchors for their respective trios.
+- Layout and derivatives must preserve these source ratios. All six assets remain integrated and awaiting human review after responsive verification.
+- Active homepage derivatives (`CDS-001`, `CDS-002`, `CDS-004` through `CDS-009`) and band profiles (`CDS-011` through `CDS-013`) were regenerated with an embedded sRGB ICC profile. ProPhoto masters were explicitly transformed to sRGB before resize and WebP encoding; profile-free approved replacements were treated as sRGB.
+- Homepage hero framing is width-driven and top-anchored below the fixed header. This prevents Windows display scaling or browser zoom from changing `cover` crop behavior around the three faces.
+
 ### Derivative and Integration Summary
 
 - 37 optimized WebP files created from the accepted PNG masters.
