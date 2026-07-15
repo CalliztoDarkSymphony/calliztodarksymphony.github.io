@@ -19,50 +19,50 @@ Nyx uses `giga Nyx Character Sheet Revision 3.5 - gigapixel-gigapixel-standard v
 
 ## Generation Status
 
-Integration pass completed for the approved non-album assets present in `assets/images/masters/`.
+Integration pass completed for the approved non-album assets present in `assets/images/masters/`. All integrated assets are now awaiting human crop review after the corrective responsive audit.
 
 | Asset | Deliverables | Status |
 | --- | ---: | --- |
-| `CDS-001` | desktop + mobile | accepted / integrated / validated |
-| `CDS-002` | desktop | accepted / integrated / validated |
+| `CDS-001` | desktop + mobile | integrated / awaiting human review |
+| `CDS-002` | desktop | integrated / awaiting human review |
 | `CDS-003` | none | HOLD - review later |
-| `CDS-004` | desktop | accepted / integrated / validated |
-| `CDS-005` | desktop | accepted / integrated / validated |
-| `CDS-006` | desktop | accepted / integrated / validated |
-| `CDS-007` | desktop | accepted / integrated / validated |
-| `CDS-008` | desktop | accepted / integrated / validated |
-| `CDS-009` | desktop + mobile | accepted / integrated / validated |
-| `CDS-010` | desktop + mobile | accepted / integrated / validated |
-| `CDS-011` | desktop | accepted / integrated / validated |
-| `CDS-012` | desktop | accepted / integrated / validated |
-| `CDS-013` | desktop | accepted / integrated / validated |
-| `CDS-014` | desktop + mobile | accepted / integrated / validated |
+| `CDS-004` | desktop | integrated / awaiting human review |
+| `CDS-005` | desktop | integrated / awaiting human review |
+| `CDS-006` | desktop | integrated / awaiting human review |
+| `CDS-007` | desktop | integrated / awaiting human review |
+| `CDS-008` | desktop | integrated / awaiting human review |
+| `CDS-009` | desktop + mobile | integrated / awaiting human review |
+| `CDS-010` | desktop + mobile | integrated / awaiting human review |
+| `CDS-011` | desktop | integrated / awaiting human review |
+| `CDS-012` | desktop | integrated / awaiting human review |
+| `CDS-013` | desktop | integrated / awaiting human review |
+| `CDS-014` | desktop + mobile | integrated / awaiting human review |
 | `CDS-015`-`CDS-024` | none | HOLD - release covers / album artwork |
-| `CDS-025` | desktop + mobile | accepted / integrated / validated |
+| `CDS-025` | desktop + mobile | integrated / awaiting human review |
 | `CDS-026`-`CDS-033` | none | HOLD - Visual Archive cards pending YouTube decision |
-| `CDS-034` | desktop + mobile | accepted / integrated / validated |
-| `CDS-035` | desktop + mobile | accepted / integrated / validated |
-| `CDS-036` | desktop | accepted / integrated / validated |
-| `CDS-037` | desktop | accepted / integrated / validated |
-| `CDS-038` | desktop | accepted / integrated / validated |
-| `CDS-039` | desktop + mobile | accepted / integrated / validated |
-| `CDS-040` | desktop + mobile | accepted / integrated / validated |
+| `CDS-034` | desktop + mobile | integrated / awaiting human review |
+| `CDS-035` | desktop + mobile | integrated / awaiting human review |
+| `CDS-036` | desktop | integrated / awaiting human review |
+| `CDS-037` | desktop | integrated / awaiting human review |
+| `CDS-038` | desktop | integrated / awaiting human review |
+| `CDS-039` | desktop + mobile | integrated / awaiting human review |
+| `CDS-040` | desktop + mobile | integrated / awaiting human review |
 | `CDS-041-D` | none | unresolved - master was not present; desktop keeps existing `hero-callizto.jpeg` fallback |
-| `CDS-041-M` | mobile | accepted / integrated / validated |
-| `CDS-042` | desktop + mobile | accepted / integrated / validated |
-| `CDS-043` | desktop + mobile | accepted / integrated / validated |
-| `CDS-044` | desktop + mobile | accepted / integrated / validated |
+| `CDS-041-M` | mobile | integrated / awaiting human review |
+| `CDS-042` | desktop + mobile | integrated / awaiting human review |
+| `CDS-043` | desktop + mobile | integrated / awaiting human review |
+| `CDS-044` | desktop + mobile | integrated / awaiting human review |
 
 ### Derivative and Integration Summary
 
 - 37 optimized WebP files created from the accepted PNG masters.
-- Dedicated mobile compositions are used at the `680px` breakpoint; desktop images are not cropped into mobile substitutes when a `-M` master exists.
+- Dedicated mobile compositions are used at the `800px` breakpoint; desktop images are not cropped into mobile substitutes when a `-M` master exists.
 - Homepage gateways, homepage portraits, homepage Forge feature, band profiles, Forge profiles, page heroes, I.A.M.R.E.A.L., and contact imagery are connected to their intended components.
-- Desktop QA passed at `1440 x 900`.
-- Mobile QA passed at `390 x 844`.
-- Band and Forge portrait crops passed at both viewport sizes.
+- Responsive crop audit completed at `1920x1080`, `1600x900`, `1366x768`, `1024x768`, `768x1024`, `720x900`, `480x900`, and `390x844`.
+- Corrected crops remain explicitly awaiting human review.
+- Band and Forge portrait crops were corrected independently; no shared global portrait crop was used.
 - I.A.M.R.E.A.L. mobile title sizing was adjusted to prevent overflow over the new mobile hero.
-- Browser console QA completed with no warnings or errors.
+- Local browser rendering completed without broken image paths observed.
 - No album, song catalog, player, or Visual Archive card work was performed.
 
 ## Acceptance Rules

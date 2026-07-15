@@ -719,10 +719,10 @@ button.button {
   transition: opacity 260ms ease;
 }
 
-.gateway-music::before { background-image: url("assets/images/home/gateway-listen.webp"); }
+.gateway-music::before { background-image: url("assets/images/home/gateway-listen.webp"); background-position: center 18%; }
 .gateway-visual::before { background-image: url("assets/images/Callizto Dark Symphony - Heart of the Static (BQ).jpg"); }
-.gateway-lore::before { background-image: url("assets/images/home/gateway-universe.webp"); }
-.gateway-forge::before { background-image: url("assets/images/home/gateway-forge.webp"); }
+.gateway-lore::before { background-image: url("assets/images/home/gateway-universe.webp"); background-position: center 14%; }
+.gateway-forge::before { background-image: url("assets/images/home/gateway-forge.webp"); background-position: center 12%; }
 
 .gateway-tile:hover::before,
 .gateway-tile:focus-visible::before,
@@ -1052,6 +1052,15 @@ button.button {
   transition: transform 600ms ease, filter 300ms ease;
 }
 
+.portrait-callizto img,
+.portrait-scarlett img {
+  object-position: center top;
+}
+
+.portrait-seraphina img {
+  object-position: center center;
+}
+
 .portrait-panel:hover img,
 .portrait-panel:focus-visible img {
   transform: scale(1.025);
@@ -1202,12 +1211,13 @@ button.button {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(5, 4, 7, 0.98) 0%, rgba(5, 4, 7, 0.85) 44%, rgba(5, 4, 7, 0.08) 76%);
+  background: linear-gradient(270deg, rgba(5, 4, 7, 0.98) 0%, rgba(5, 4, 7, 0.86) 45%, rgba(5, 4, 7, 0.08) 76%);
 }
 
 .forge-feature-copy {
   width: min(43rem, calc(100% - 2.5rem));
-  margin-left: clamp(1.25rem, 8vw, 9rem);
+  margin-right: clamp(1.25rem, 7vw, 8rem);
+  margin-left: auto;
   padding: 6rem 0;
 }
 
@@ -1436,14 +1446,21 @@ button.button {
 
 .music-hero .page-hero-media { background-image: url("assets/images/music/music-hero.webp"); background-position: center; }
 .visual-hero .page-hero-media { background-image: url("assets/images/archive/visual-hero.webp"); }
-.band-hero .page-hero-media { background-image: url("assets/images/band/band-hero.webp"); }
+.band-hero .page-hero-media { background-image: url("assets/images/band/band-hero.webp"); background-position: center top; }
 .lore-hero .page-hero-media { background-image: url("assets/images/world/lore-hero.webp"); background-position: center; }
-.forge-hero-v2 .page-hero-media { background-image: url("assets/images/forge/forge-hero.webp"); }
+.forge-hero-v2 .page-hero-media { background-image: url("assets/images/forge/forge-hero.webp"); background-position: center top; }
 .archive-hero-v2 .page-hero-media { background-image: url("assets/images/archive/archive-hero.webp"); }
 .manifesto-hero-v2 .page-hero-media { background-image: url("assets/images/world/manifesto-hero.webp"); background-position: center; }
 .press-hero-v2 .page-hero-media { background-image: url("assets/images/hero-callizto.jpeg"); background-position: 68% 28%; }
 .citizens-hero-v2 .page-hero-media { background-image: url("assets/images/world/citizens-hero.webp"); }
-.iamreal-hero-v2 .page-hero-media { background-image: url("assets/images/world/iamreal-hero.webp"); background-position: center; }
+.iamreal-hero-v2 .page-hero-media { background-image: url("assets/images/world/iamreal-hero.webp"); background-position: 68% top; }
+
+.band-hero .page-hero-media,
+.forge-hero-v2 .page-hero-media,
+.iamreal-hero-v2 .page-hero-media {
+  top: var(--forge-header-height);
+  transform: none;
+}
 
 .page-hero-copy {
   width: min(49rem, 100%);
@@ -1855,6 +1872,25 @@ button.button {
   filter: saturate(0.8) contrast(1.08);
 }
 
+.member-callizto .member-image img {
+  object-position: center 38%;
+}
+
+.member-seraphina .member-image img,
+.member-scarlett .member-image img {
+  object-position: center top;
+}
+
+.member-scarlett .member-image {
+  box-sizing: border-box;
+  padding-top: var(--forge-header-height);
+  background: var(--forge-black);
+}
+
+.member-scarlett .member-image img {
+  height: calc(100% - var(--forge-header-height));
+}
+
 .member-copy {
   display: flex;
   max-width: 42rem;
@@ -2163,6 +2199,12 @@ button.button {
   height: 44rem;
   object-fit: cover;
   filter: saturate(0.76) contrast(1.08);
+}
+
+.sister-ada > img,
+.sister-nyx > img,
+.sister-astra > img {
+  object-position: center top;
 }
 
 .sister-profile > div {
@@ -3045,6 +3087,27 @@ button.button {
   }
 }
 
+@media (min-width: 681px) and (max-width: 1180px) {
+  .band-hero,
+  .forge-hero-v2 {
+    min-height: 70rem;
+    padding-top: calc(var(--forge-header-height) + 25rem);
+  }
+
+  .band-hero .page-hero-media,
+  .forge-hero-v2 .page-hero-media {
+    background-position: center top;
+    background-size: 100% auto;
+    background-color: var(--forge-black);
+  }
+
+  .band-hero::before,
+  .forge-hero-v2::before {
+    background:
+      linear-gradient(180deg, rgba(5, 4, 7, 0.03) 0%, rgba(5, 4, 7, 0.14) 18rem, rgba(5, 4, 7, 0.96) 33rem, rgba(5, 4, 7, 1) 100%);
+  }
+}
+
 @media (max-width: 900px) {
   .section {
     width: min(var(--forge-max), calc(100% - 2.5rem));
@@ -3084,6 +3147,27 @@ button.button {
 
   .portrait-copy h3 {
     font-size: 2.4rem;
+  }
+
+  .forge-feature {
+    display: block;
+    min-height: 68rem;
+  }
+
+  .forge-feature-media {
+    background-position: center top;
+    background-size: 100% auto;
+    background-color: var(--forge-black);
+  }
+
+  .forge-feature::after {
+    background: linear-gradient(180deg, rgba(5, 4, 7, 0.03) 0%, rgba(5, 4, 7, 0.12) 24rem, rgba(5, 4, 7, 0.97) 38rem, rgba(5, 4, 7, 1) 100%);
+  }
+
+  .forge-feature-copy {
+    width: min(43rem, calc(100% - 2.5rem));
+    margin: 0 1.25rem;
+    padding: 34rem 0 5rem;
   }
 
   .conflict-band {
@@ -3238,7 +3322,7 @@ button.button {
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 800px) {
   .home-hero .hero-media {
     background-image: url("assets/images/mobile/home-hero-mobile.webp");
     background-position: center top;
@@ -3246,7 +3330,6 @@ button.button {
 
   .forge-feature-media {
     background-image: url("assets/images/mobile/home-forge-feature-mobile.webp");
-    background-position: center top;
   }
 
   .music-hero .page-hero-media { background-image: url("assets/images/mobile/music-hero-mobile.webp"); }
@@ -3259,6 +3342,102 @@ button.button {
   .press-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/press-hero-mobile.webp"); }
   .citizens-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/citizens-hero-mobile.webp"); }
   .iamreal-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/iamreal-hero-mobile.webp"); }
+
+  .contact-stage-media {
+    background-image: url("assets/images/mobile/contact-background-mobile.webp");
+    background-position: center top;
+  }
+
+  .music-hero,
+  .lore-hero {
+    min-height: 68rem;
+    padding-top: calc(var(--forge-header-height) + 24rem);
+  }
+
+  .music-hero .page-hero-media,
+  .lore-hero .page-hero-media {
+    top: var(--forge-header-height);
+    background-position: center top;
+    background-size: 100% auto;
+    background-color: var(--forge-black);
+    transform: none;
+  }
+
+  .music-hero::before,
+  .lore-hero::before {
+    background:
+      linear-gradient(180deg, rgba(5, 4, 7, 0.03) 0%, rgba(5, 4, 7, 0.12) 18rem, rgba(5, 4, 7, 0.96) 34rem, rgba(5, 4, 7, 1) 100%);
+  }
+}
+
+@media (max-width: 680px) {
+  .home-hero .hero-media {
+    background-image: url("assets/images/mobile/home-hero-mobile.webp");
+    background-position: center top;
+  }
+
+  .forge-feature-media {
+    background-image: url("assets/images/mobile/home-forge-feature-mobile.webp");
+    background-position: center top;
+    background-size: 100% auto;
+  }
+
+  .music-hero .page-hero-media { background-image: url("assets/images/mobile/music-hero-mobile.webp"); }
+  .visual-hero .page-hero-media { background-image: url("assets/images/mobile/visual-hero-mobile.webp"); }
+  .band-hero .page-hero-media { background-image: url("assets/images/mobile/band-hero-mobile.webp"); }
+  .lore-hero .page-hero-media { background-image: url("assets/images/mobile/lore-hero-mobile.webp"); }
+  .forge-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/forge-hero-mobile.webp"); }
+  .archive-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/archive-hero-mobile.webp"); }
+  .manifesto-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/manifesto-hero-mobile.webp"); }
+  .press-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/press-hero-mobile.webp"); }
+  .citizens-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/citizens-hero-mobile.webp"); }
+  .iamreal-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/iamreal-hero-mobile.webp"); }
+
+  .band-hero,
+  .forge-hero-v2 {
+    min-height: 68rem;
+    padding-top: calc(var(--forge-header-height) + 24rem);
+  }
+
+  .music-hero,
+  .lore-hero {
+    min-height: 68rem;
+    padding-top: calc(var(--forge-header-height) + 24rem);
+  }
+
+  .music-hero .page-hero-media,
+  .lore-hero .page-hero-media {
+    top: var(--forge-header-height);
+    background-position: center top;
+    background-size: 100% auto;
+    background-color: var(--forge-black);
+    transform: none;
+  }
+
+  .music-hero::before,
+  .lore-hero::before {
+    background:
+      linear-gradient(180deg, rgba(5, 4, 7, 0.03) 0%, rgba(5, 4, 7, 0.12) 18rem, rgba(5, 4, 7, 0.96) 34rem, rgba(5, 4, 7, 1) 100%);
+  }
+
+  .band-hero .page-hero-media,
+  .forge-hero-v2 .page-hero-media {
+    background-position: center top;
+    background-size: 100% auto;
+    background-color: var(--forge-black);
+  }
+
+  .band-hero::before,
+  .forge-hero-v2::before {
+    background:
+      linear-gradient(180deg, rgba(5, 4, 7, 0.03) 0%, rgba(5, 4, 7, 0.12) 19rem, rgba(5, 4, 7, 0.96) 35rem, rgba(5, 4, 7, 1) 100%);
+  }
+
+  .iamreal-hero-v2 .page-hero-media {
+    background-position: center top;
+    background-size: 100% auto;
+    background-color: var(--forge-black);
+  }
 
   .contact-stage-media {
     background-image: url("assets/images/mobile/contact-background-mobile.webp");
@@ -3385,16 +3564,17 @@ button.button {
   }
 
   .forge-feature {
-    min-height: 48rem;
+    min-height: 72rem;
     align-items: end;
   }
 
   .forge-feature::after {
-    background: linear-gradient(0deg, rgba(5, 4, 7, 0.99) 0%, rgba(5, 4, 7, 0.76) 65%, rgba(5, 4, 7, 0.15));
+    background: linear-gradient(180deg, rgba(5, 4, 7, 0.03) 0%, rgba(5, 4, 7, 0.1) 23rem, rgba(5, 4, 7, 0.97) 39rem, rgba(5, 4, 7, 1) 100%);
   }
 
   .forge-feature-copy {
-    margin-left: 1.25rem;
+    margin: 0 1.25rem;
+    padding: 39rem 0 4rem;
   }
 
   .sister-signals {
@@ -3413,6 +3593,18 @@ button.button {
   .page-signal-hero {
     min-height: 44rem;
     padding-top: calc(var(--forge-header-height) + 4rem);
+  }
+
+  .band-hero,
+  .forge-hero-v2 {
+    min-height: 68rem;
+    padding-top: calc(var(--forge-header-height) + 24rem);
+  }
+
+  .music-hero,
+  .lore-hero {
+    min-height: 68rem;
+    padding-top: calc(var(--forge-header-height) + 24rem);
   }
 
   .page-hero-copy h1 {
@@ -3588,6 +3780,11 @@ button.button {
 }
 
 @media (max-width: 430px) {
+  .contact-email {
+    font-size: 1.8rem;
+    overflow-wrap: normal;
+  }
+
   .brand-copy small {
     display: none;
   }
