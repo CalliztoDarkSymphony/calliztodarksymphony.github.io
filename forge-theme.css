@@ -551,7 +551,7 @@ button.button {
 }
 
 .home-hero .hero-media {
-  background-image: url("assets/images/hero-cds.jpg");
+  background-image: url("assets/images/home/home-hero.webp");
 }
 
 .signal-hero::before {
@@ -719,10 +719,10 @@ button.button {
   transition: opacity 260ms ease;
 }
 
-.gateway-music::before { background-image: url("assets/images/Callizto Dark Symphony - Crimson Legacy (2026 Version).jpg"); }
+.gateway-music::before { background-image: url("assets/images/home/gateway-listen.webp"); }
 .gateway-visual::before { background-image: url("assets/images/Callizto Dark Symphony - Heart of the Static (BQ).jpg"); }
-.gateway-lore::before { background-image: url("assets/images/hero-cds.jpg"); }
-.gateway-forge::before { background-image: url("assets/images/hero-sisters-of-the-forge.jpg"); }
+.gateway-lore::before { background-image: url("assets/images/home/gateway-universe.webp"); }
+.gateway-forge::before { background-image: url("assets/images/home/gateway-forge.webp"); }
 
 .gateway-tile:hover::before,
 .gateway-tile:focus-visible::before,
@@ -1193,7 +1193,7 @@ button.button {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url("assets/images/hero-sisters-of-the-forge.jpg") center / cover no-repeat;
+  background: url("assets/images/home/home-forge-feature.webp") center / cover no-repeat;
   filter: saturate(0.68) contrast(1.08);
 }
 
@@ -1434,16 +1434,16 @@ button.button {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.music-hero .page-hero-media { background-image: url("assets/images/Callizto Dark Symphony - Crimson Legacy (2026 Version).jpg"); background-position: 67% 28%; }
-.visual-hero .page-hero-media { background-image: url("assets/images/Callizto Dark Symphony - Heart of the Static (BQ).jpg"); }
-.band-hero .page-hero-media { background-image: url("assets/images/hero-cds.jpg"); }
-.lore-hero .page-hero-media { background-image: url("assets/images/hero-cds.jpg"); background-position: 57% center; }
-.forge-hero-v2 .page-hero-media { background-image: url("assets/images/hero-sisters-of-the-forge.jpg"); }
-.archive-hero-v2 .page-hero-media { background-image: url("assets/images/hero-cds.jpg"); }
-.manifesto-hero-v2 .page-hero-media { background-image: url("assets/images/hero-cds.jpg"); background-position: 57% center; }
+.music-hero .page-hero-media { background-image: url("assets/images/music/music-hero.webp"); background-position: center; }
+.visual-hero .page-hero-media { background-image: url("assets/images/archive/visual-hero.webp"); }
+.band-hero .page-hero-media { background-image: url("assets/images/band/band-hero.webp"); }
+.lore-hero .page-hero-media { background-image: url("assets/images/world/lore-hero.webp"); background-position: center; }
+.forge-hero-v2 .page-hero-media { background-image: url("assets/images/forge/forge-hero.webp"); }
+.archive-hero-v2 .page-hero-media { background-image: url("assets/images/archive/archive-hero.webp"); }
+.manifesto-hero-v2 .page-hero-media { background-image: url("assets/images/world/manifesto-hero.webp"); background-position: center; }
 .press-hero-v2 .page-hero-media { background-image: url("assets/images/hero-callizto.jpeg"); background-position: 68% 28%; }
-.citizens-hero-v2 .page-hero-media { background-image: url("assets/images/hero-sisters-of-the-forge.jpg"); }
-.iamreal-hero-v2 .page-hero-media { background-image: url("assets/images/hero-nyx.jpg"); background-position: 68% 25%; }
+.citizens-hero-v2 .page-hero-media { background-image: url("assets/images/world/citizens-hero.webp"); }
+.iamreal-hero-v2 .page-hero-media { background-image: url("assets/images/world/iamreal-hero.webp"); background-position: center; }
 
 .page-hero-copy {
   width: min(49rem, 100%);
@@ -2602,7 +2602,7 @@ button.button {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url("assets/images/hero-cds.jpg") center / cover no-repeat;
+  background: url("assets/images/world/contact-background.webp") center / cover no-repeat;
   filter: saturate(0.55) contrast(1.1);
 }
 
@@ -3239,6 +3239,32 @@ button.button {
 }
 
 @media (max-width: 680px) {
+  .home-hero .hero-media {
+    background-image: url("assets/images/mobile/home-hero-mobile.webp");
+    background-position: center top;
+  }
+
+  .forge-feature-media {
+    background-image: url("assets/images/mobile/home-forge-feature-mobile.webp");
+    background-position: center top;
+  }
+
+  .music-hero .page-hero-media { background-image: url("assets/images/mobile/music-hero-mobile.webp"); }
+  .visual-hero .page-hero-media { background-image: url("assets/images/mobile/visual-hero-mobile.webp"); }
+  .band-hero .page-hero-media { background-image: url("assets/images/mobile/band-hero-mobile.webp"); }
+  .lore-hero .page-hero-media { background-image: url("assets/images/mobile/lore-hero-mobile.webp"); }
+  .forge-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/forge-hero-mobile.webp"); }
+  .archive-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/archive-hero-mobile.webp"); }
+  .manifesto-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/manifesto-hero-mobile.webp"); }
+  .press-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/press-hero-mobile.webp"); }
+  .citizens-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/citizens-hero-mobile.webp"); }
+  .iamreal-hero-v2 .page-hero-media { background-image: url("assets/images/mobile/iamreal-hero-mobile.webp"); }
+
+  .contact-stage-media {
+    background-image: url("assets/images/mobile/contact-background-mobile.webp");
+    background-position: center top;
+  }
+
   .brand {
     gap: 0.55rem;
     padding-left: 0.75rem;
@@ -3391,6 +3417,12 @@ button.button {
 
   .page-hero-copy h1 {
     font-size: 4rem;
+  }
+
+  .iamreal-hero-v2 .page-hero-copy h1 {
+    max-width: 100%;
+    font-size: 2.2rem;
+    white-space: nowrap;
   }
 
   .archive-count strong {

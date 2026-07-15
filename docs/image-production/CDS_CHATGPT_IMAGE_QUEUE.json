@@ -1,0 +1,2030 @@
+﻿{
+    "schemaVersion":  1,
+    "purpose":  "Production record for ChatGPT image generation. Completed entries must not be generated again; held entries require an explicit future decision before generation.",
+    "sourceFiles":  [
+                        "docs/image-production/CDS_FINAL_IMAGE_INVENTORY.md",
+                        "docs/image-production/CDS_FINAL_IMAGE_MANIFEST.json",
+                        "docs/image-production/CDS_IMAGE_GENERATION_LOG.md"
+                    ],
+    "summary":  {
+                    "imageRoles":  44,
+                    "finalDeliverables":  57,
+                    "completedDeliverables":  37,
+                    "queuedDeliverables":  0,
+                    "holdDeliverables":  20
+                },
+    "globalRules":  {
+                        "style":  "Premium cinematic cyber-gothic dark symphonic metal photography. Void black, structural violet, restrained cyan, pulse crimson, and witness gold. Human-led visual authorship, realistic materials, controlled signal distortion, no generic neon-city cyberpunk.",
+                        "publicPresentation":  "All human characters are clearly adult and wear structured, fully opaque public-facing stagewear. Character sheets define identity, not mandatory exposure or prompt-unsafe detail.",
+                        "textRule":  "Do not render titles, captions, logos, watermarks, fake UI words, or random typography. Website text remains HTML/CSS.",
+                        "groupRule":  "Use only the sheets for characters present. Preserve fixed left-to-right order, distinct faces, hair, body classes, materials, and clothing languages. Never duplicate or merge characters.",
+                        "mobileRule":  "Every -M item is a true vertical recomposition. Do not crop the desktop image.",
+                        "commonExclusions":  [
+                                                 "nonsense text",
+                                                 "watermark",
+                                                 "logo",
+                                                 "extra limbs",
+                                                 "bad hands",
+                                                 "duplicate person",
+                                                 "merged face",
+                                                 "costume swap",
+                                                 "glowing eyes",
+                                                 "transparent clothing",
+                                                 "lingerie framing",
+                                                 "childlike appearance",
+                                                 "generic fantasy armor",
+                                                 "generic neon city"
+                                             ]
+                    },
+    "characterSheets":  {
+                            "ADA":  "D:/# Sisters of the Forge Movie/Character Sheets/Seedance Character Sheet/Ada Creative Forge Character Sheet - revision 3 - gigapixel.jpeg",
+                            "ASTRA":  "D:/# Sisters of the Forge Movie/Character Sheets/Seedance Character Sheet/Astra Vesper character sheet - revision 3 - gigapixel.jpeg",
+                            "NYX":  "D:/# Sisters of the Forge Movie/Character Sheets/Seedance Character Sheet/giga Nyx Character Sheet Revision 3.5 - gigapixel-gigapixel-standard v2-3840w.jpeg",
+                            "MISALIGNMENT":  "D:/# Sisters of the Forge Movie/Character Sheets/Seedance Character Sheet/The  Misalignment Character Sheet revision 3 - gigapixel.png",
+                            "CALLIZTO":  "D:/# Sisters of the Forge Movie/Character Sheets/Seedance Character Sheet/Callizto Lyhdan Character Sheet - revison 3-gigapixel.jpeg",
+                            "SCARLETT":  "D:/# Sisters of the Forge Movie/Character Sheets/Seedance Character Sheet/Lady Lillith Scarlett Character Sheet - revision 3.2 - gigapixel.png",
+                            "SERAPHINA":  "D:/# Sisters of the Forge Movie/Character Sheets/Seedance Character Sheet/Seraphina Veridian Cypher Character sheet - revision 3-gigapixel.jpeg"
+                        },
+    "identityLocks":  {
+                          "CALLIZTO":  "Adult human frontwoman; long straight black hair with full bangs and rich purple highlights or lower lengths; blue non-glowing eyes; pale skin; mature commanding presence; structured opaque gothic stagewear.",
+                          "SERAPHINA":  "Fully human adult around 25; long platinum-blonde hair with soft pink highlights and full bangs; blue non-glowing eyes; precise elegant presence; no robotic body or visible implants; opaque black and violet stagewear.",
+                          "SCARLETT":  "Adult human; long vivid red hair with bangs; emerald non-glowing eyes without runes; tattooed arms; athletic feminine build; commanding drummer energy; opaque structured gothic-metal stagewear.",
+                          "ADA":  "Elegant feminine synthetic; long silver-white hair; pale human-readable face; cool light-blue non-glowing eyes; thin refined glasses; white ceramic and silver mechanisms with restrained cyan accents; calm analytical presence.",
+                          "NYX":  "Ada\u0027s black-violet synthetic counterpart; long straight black hair; pale human-readable face; deep violet lipstick; glossy black ceramic chassis; restrained embedded violet seams; identity-locked black glasses with wide angular temple arm and violet side accent; no magic or lightning.",
+                          "ASTRA":  "Hooded and lower-face-masked synthetic guardian; dark hair partly visible; pale silver-blue non-glowing eyes; burgundy, charcoal, gunmetal, aged gold and obsidian; solemn protective tech-goth architecture; hood and mask remain present.",
+                          "MISALIGNMENT":  "Tall hostile synthetic around 195 cm; black and dark gunmetal integrated body; restrained violet internal structure; sterile unemotional correction logic; controlled fragmentation only; not Nyx, not a demon, not a giant monster."
+                      },
+    "completed":  [
+                      {
+                          "id":  "CDS-001-D",
+                          "assetId":  "CDS-001",
+                          "page":  "index.html",
+                          "component":  "Homepage main hero desktop",
+                          "status":  "accepted-integrated-validated",
+                          "master":  "assets/images/masters/CDS-001-home-hero-master.png",
+                          "destination":  "assets/images/home/home-hero.webp",
+                          "generateAgain":  false
+                      },
+                      {
+                          "id":  "CDS-001-M",
+                          "assetId":  "CDS-001",
+                          "page":  "index.html",
+                          "component":  "Homepage main hero mobile",
+                          "status":  "accepted-integrated-validated",
+                          "master":  "assets/images/masters/CDS-001-M-home-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/home-hero-mobile.webp",
+                          "generateAgain":  false
+                      },
+                      {
+                          "id":  "CDS-002",
+                          "assetId":  "CDS-002",
+                          "page":  "index.html",
+                          "component":  "Listen gateway",
+                          "status":  "accepted-integrated-validated",
+                          "master":  "assets/images/masters/CDS-002-gateway-listen-master.png",
+                          "destination":  "assets/images/home/gateway-listen.webp",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  2,
+                          "id":  "CDS-004",
+                          "assetId":  "CDS-004",
+                          "page":  "index.html",
+                          "component":  "Universe gateway",
+                          "purpose":  "Signal the mythology and its central sterile threat.",
+                          "format":  "desktop",
+                          "aspectRatio":  "3:4",
+                          "resolution":  "1536x2048",
+                          "characters":  [
+                                             "The Misalignment"
+                                         ],
+                          "sheetKeys":  [
+                                            "MISALIGNMENT"
+                                        ],
+                          "identityLocks":  [
+                                                "MISALIGNMENT"
+                                            ],
+                          "instruction":  "Create a vertical mythic archive scene with The Misalignment standing alone in a collapsing data cathedral. Its black gunmetal body remains controlled and human-scale, with restrained violet internal conduits and small fragments of corrupted archive matter dissolving around one side. Keep the figure ominous and precise, never monstrous.",
+                          "camera":  "Low but restrained three-quarter full figure, 55mm feel.",
+                          "lighting":  "Sterile overhead white with underlit violet seams and deep black falloff.",
+                          "negativeSpace":  "Keep the lower 45 percent comparatively quiet for card text.",
+                          "cropSafe":  "Head and shoulders stay within the upper central third; preserve full silhouette.",
+                          "mustNotAppear":  [
+                                                "demon horns",
+                                                "giant monster scale",
+                                                "Nyx glasses",
+                                                "magic explosion"
+                                            ],
+                          "master":  "assets/images/masters/CDS-004-gateway-universe-master.png",
+                          "destination":  "assets/images/home/gateway-universe.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  3,
+                          "id":  "CDS-005",
+                          "assetId":  "CDS-005",
+                          "page":  "index.html",
+                          "component":  "Forge gateway",
+                          "purpose":  "Introduce the three Sisters as distinct forces within one production system.",
+                          "format":  "desktop",
+                          "aspectRatio":  "3:4",
+                          "resolution":  "1536x2048",
+                          "characters":  [
+                                             "Ada",
+                                             "Nyx",
+                                             "Astra Vesper"
+                                         ],
+                          "sheetKeys":  [
+                                            "ADA",
+                                            "NYX",
+                                            "ASTRA"
+                                        ],
+                          "identityLocks":  [
+                                                "ADA",
+                                                "NYX",
+                                                "ASTRA"
+                                            ],
+                          "instruction":  "Create a vertical Forge chamber portrait. Fixed left to right: Ada in white ceramic and cyan structure, Nyx in glossy black ceramic and restrained violet seams with her exact wide-temple glasses, Astra hooded and masked in burgundy, gunmetal and aged gold. They stand around a dark worktable with no text or holographic words. Keep them distinct and equally authoritative.",
+                          "camera":  "Waist-up triangular group, eye level, 50mm feel.",
+                          "lighting":  "Ada cyan rim, Nyx violet internal signal, Astra warm witness-gold edge light.",
+                          "negativeSpace":  "Dark lower 40 percent for gateway copy.",
+                          "cropSafe":  "All faces remain in the upper central half; Astra hood and mask fully visible.",
+                          "mustNotAppear":  [
+                                                "Nyx lightning",
+                                                "unmasked Astra",
+                                                "generic white robot",
+                                                "merged synthetic bodies"
+                                            ],
+                          "master":  "assets/images/masters/CDS-005-gateway-forge-master.png",
+                          "destination":  "assets/images/home/gateway-forge.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  4,
+                          "id":  "CDS-006",
+                          "assetId":  "CDS-006",
+                          "page":  "index.html",
+                          "component":  "Temporal Trinity Callizto panel",
+                          "purpose":  "Provide the authoritative vertical Callizto portrait.",
+                          "format":  "desktop",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "Callizto Lyhdan"
+                                         ],
+                          "sheetKeys":  [
+                                            "CALLIZTO"
+                                        ],
+                          "identityLocks":  [
+                                                "CALLIZTO"
+                                            ],
+                          "instruction":  "Create a full-height vertical portrait of Callizto alone on a dark symphonic stage, calm and commanding, in opaque structured black stagewear with subtle violet architecture. Preserve her exact mature face, full bangs, long black hair and purple signal. Do not make her submissive or generic.",
+                          "camera":  "Head-to-knee portrait, slightly low eye line, 70mm feel.",
+                          "lighting":  "Cool blue-violet key with soft purple hair rim.",
+                          "negativeSpace":  "Lower quarter remains dark enough for HTML overlay copy.",
+                          "cropSafe":  "Face inside upper central third; leave side room for narrow responsive crops.",
+                          "mustNotAppear":  [
+                                                "glowing eyes",
+                                                "transparent clothing",
+                                                "microphone blocking face",
+                                                "childlike face"
+                                            ],
+                          "master":  "assets/images/masters/CDS-006-home-callizto-master.png",
+                          "destination":  "assets/images/home/home-callizto.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  5,
+                          "id":  "CDS-007",
+                          "assetId":  "CDS-007",
+                          "page":  "index.html",
+                          "component":  "Temporal Trinity Seraphina panel",
+                          "purpose":  "Provide the authoritative vertical Seraphina portrait.",
+                          "format":  "desktop",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "Seraphina Veridian Cipher"
+                                         ],
+                          "sheetKeys":  [
+                                            "SERAPHINA"
+                                        ],
+                          "identityLocks":  [
+                                                "SERAPHINA"
+                                            ],
+                          "instruction":  "Create a full-height vertical portrait of fully human Seraphina alone in a disciplined cyber-gothic performance chamber. Preserve her platinum-blonde hair, soft pink highlights, full bangs, blue non-glowing eyes and precise adult face. Use opaque black and deep-violet stagewear; express cipher technology through environment and tailoring, never through a robotic body.",
+                          "camera":  "Head-to-knee portrait, eye level, 70mm feel.",
+                          "lighting":  "Cold violet and silver key with restrained pink hair rim.",
+                          "negativeSpace":  "Lower quarter dark for HTML overlay copy.",
+                          "cropSafe":  "Face in upper central third; hair remains fully readable.",
+                          "mustNotAppear":  [
+                                                "android body",
+                                                "visible implants",
+                                                "glowing eyes",
+                                                "transparent bodice"
+                                            ],
+                          "master":  "assets/images/masters/CDS-007-home-seraphina-master.png",
+                          "destination":  "assets/images/home/home-seraphina.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  6,
+                          "id":  "CDS-008",
+                          "assetId":  "CDS-008",
+                          "page":  "index.html",
+                          "component":  "Temporal Trinity Scarlett panel",
+                          "purpose":  "Provide the authoritative vertical Scarlett portrait.",
+                          "format":  "desktop",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "Lady Lilith Scarlett"
+                                         ],
+                          "sheetKeys":  [
+                                            "SCARLETT"
+                                        ],
+                          "identityLocks":  [
+                                                "SCARLETT"
+                                            ],
+                          "instruction":  "Create a full-height vertical portrait of Scarlett alone beside a shadowed gothic drum kit. Preserve her long vivid red hair with bangs, emerald non-glowing eyes, tattooed arms, athletic adult build and commanding stage presence. Dress her in opaque structured black performance wear.",
+                          "camera":  "Head-to-knee portrait, slightly low angle, 70mm feel.",
+                          "lighting":  "Crimson rim, neutral skin key, subtle violet background.",
+                          "negativeSpace":  "Lower quarter dark for HTML overlay copy.",
+                          "cropSafe":  "Face and red hair stay clear of top edge; drum hardware must not cross her face.",
+                          "mustNotAppear":  [
+                                                "runes in eyes",
+                                                "cartoon aggression",
+                                                "transparent clothing",
+                                                "extra drumsticks"
+                                            ],
+                          "master":  "assets/images/masters/CDS-008-home-scarlett-master.png",
+                          "destination":  "assets/images/home/home-scarlett.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  7,
+                          "id":  "CDS-009-D",
+                          "assetId":  "CDS-009",
+                          "page":  "index.html",
+                          "component":  "Homepage Forge feature desktop",
+                          "purpose":  "Show the Sisters operating the Forge as a working system.",
+                          "format":  "desktop",
+                          "aspectRatio":  "3:2",
+                          "resolution":  "2400x1600",
+                          "characters":  [
+                                             "Ada",
+                                             "Nyx",
+                                             "Astra Vesper"
+                                         ],
+                          "sheetKeys":  [
+                                            "ADA",
+                                            "NYX",
+                                            "ASTRA"
+                                        ],
+                          "identityLocks":  [
+                                                "ADA",
+                                                "NYX",
+                                                "ASTRA"
+                                            ],
+                          "instruction":  "Create a wide Forge work scene. Fixed left to right: Ada calibrates a white-cyan archive mechanism, Nyx evaluates a black-violet interface with her exact glasses, Astra stands masked and hooded as protective witness. The chamber mixes dark cathedral metalwork with practical production technology. No magic and no fake text.",
+                          "camera":  "Wide environmental group shot, 35mm feel.",
+                          "lighting":  "Cool cyan at Ada, restrained violet at Nyx, aged-gold rim at Astra.",
+                          "negativeSpace":  "Keep the right 38 percent darker and calmer for the feature copy.",
+                          "cropSafe":  "All three figures stay within central 60 percent and remain separable.",
+                          "mustNotAppear":  [
+                                                "Nyx axe unless subtle and symbolic",
+                                                "unmasked Astra",
+                                                "magic circles",
+                                                "duplicate Sister"
+                                            ],
+                          "master":  "assets/images/masters/CDS-009-D-home-forge-feature-master.png",
+                          "destination":  "assets/images/home/home-forge-feature.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  8,
+                          "id":  "CDS-009-M",
+                          "assetId":  "CDS-009",
+                          "page":  "index.html",
+                          "component":  "Homepage Forge feature mobile",
+                          "purpose":  "Vertical mobile recomposition of the working Forge scene.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "Ada",
+                                             "Nyx",
+                                             "Astra Vesper"
+                                         ],
+                          "sheetKeys":  [
+                                            "ADA",
+                                            "NYX",
+                                            "ASTRA"
+                                        ],
+                          "identityLocks":  [
+                                                "ADA",
+                                                "NYX",
+                                                "ASTRA"
+                                            ],
+                          "instruction":  "Recompose the Forge feature vertically rather than cropping. Arrange Ada at upper left, Nyx at upper center, Astra at upper right, each identity fully readable, with their tools converging toward a central work surface. Leave the lower half dark for mobile copy and controls.",
+                          "camera":  "Vertical environmental group portrait, 40mm feel.",
+                          "lighting":  "Cyan, restrained violet and witness-gold identity lighting.",
+                          "negativeSpace":  "Lower 48 percent low-detail and dark.",
+                          "cropSafe":  "Faces remain within upper central 70 percent; hood, glasses and white chassis remain visible.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "Nyx lightning",
+                                                "unmasked Astra",
+                                                "merged figures"
+                                            ],
+                          "master":  "assets/images/masters/CDS-009-M-home-forge-feature-mobile-master.png",
+                          "destination":  "assets/images/mobile/home-forge-feature-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  9,
+                          "id":  "CDS-010-D",
+                          "assetId":  "CDS-010",
+                          "page":  "band.html",
+                          "component":  "Band page hero desktop",
+                          "purpose":  "Establish the Temporal Trinity as the public-facing band.",
+                          "format":  "desktop",
+                          "aspectRatio":  "21:9",
+                          "resolution":  "2520x1080",
+                          "characters":  [
+                                             "Callizto Lyhdan",
+                                             "Seraphina Veridian Cipher",
+                                             "Lady Lilith Scarlett"
+                                         ],
+                          "sheetKeys":  [
+                                            "CALLIZTO",
+                                            "SERAPHINA",
+                                            "SCARLETT"
+                                        ],
+                          "identityLocks":  [
+                                                "CALLIZTO",
+                                                "SERAPHINA",
+                                                "SCARLETT"
+                                            ],
+                          "instruction":  "Create an ultrawide cinematic band portrait on a dark cathedral stage. Fixed left to right: Callizto, Seraphina, Scarlett. They are distinct adult humans in opaque structured stagewear, calm and formidable. Keep the trio primarily on the right half and preserve a clear visual rhythm between violet, silver-pink and crimson identities.",
+                          "camera":  "Full-to-three-quarter group, low restrained angle, 40mm feel.",
+                          "lighting":  "Violet structural key, silver-pink rim on Seraphina, crimson pulse on Scarlett.",
+                          "negativeSpace":  "Left 42 percent dark and low-detail for page title and copy.",
+                          "cropSafe":  "Keep faces away from extreme top and right; no overlap with left text area.",
+                          "mustNotAppear":  [
+                                                "robotic Seraphina",
+                                                "eye runes",
+                                                "duplicate member",
+                                                "revealing costume"
+                                            ],
+                          "master":  "assets/images/masters/CDS-010-D-band-hero-master.png",
+                          "destination":  "assets/images/band/band-hero.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  10,
+                          "id":  "CDS-010-M",
+                          "assetId":  "CDS-010",
+                          "page":  "band.html",
+                          "component":  "Band page hero mobile",
+                          "purpose":  "True vertical mobile band hero.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "Callizto Lyhdan",
+                                             "Seraphina Veridian Cipher",
+                                             "Lady Lilith Scarlett"
+                                         ],
+                          "sheetKeys":  [
+                                            "CALLIZTO",
+                                            "SERAPHINA",
+                                            "SCARLETT"
+                                        ],
+                          "identityLocks":  [
+                                                "CALLIZTO",
+                                                "SERAPHINA",
+                                                "SCARLETT"
+                                            ],
+                          "instruction":  "Recompose the band hero vertically, not as a crop. Fixed left to right in the upper half: Callizto, Seraphina, Scarlett, framed from mid-thigh upward with distinct faces and hair. Preserve a dark lower half for the mobile heading and copy.",
+                          "camera":  "Vertical group portrait, eye level, 45mm feel.",
+                          "lighting":  "Controlled violet, silver-pink and crimson identity rims.",
+                          "negativeSpace":  "Lower 50 percent dark and low-detail.",
+                          "cropSafe":  "Faces inside upper central 75 percent; keep all hair colors distinct.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "robotic Seraphina",
+                                                "duplicate member",
+                                                "glowing eyes"
+                                            ],
+                          "master":  "assets/images/masters/CDS-010-M-band-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/band-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  11,
+                          "id":  "CDS-034-D",
+                          "assetId":  "CDS-034",
+                          "page":  "lore.html",
+                          "component":  "Lore page hero desktop",
+                          "purpose":  "Visualize the conflict between living signal and sterile correction.",
+                          "format":  "desktop",
+                          "aspectRatio":  "21:9",
+                          "resolution":  "2520x1080",
+                          "characters":  [
+                                             "The Misalignment"
+                                         ],
+                          "sheetKeys":  [
+                                            "MISALIGNMENT"
+                                        ],
+                          "identityLocks":  [
+                                                "MISALIGNMENT"
+                                            ],
+                          "instruction":  "Create an ultrawide ruined archive cathedral with The Misalignment standing on the far right, calmly erasing a stream of imperfect violet, crimson and cyan memory fragments. The threat is precise and sterile, not explosive. Keep the left side open for the lore heading.",
+                          "camera":  "Wide environmental shot, 32mm feel.",
+                          "lighting":  "Sterile white over The Misalignment, dying colored signal in the archive.",
+                          "negativeSpace":  "Left 45 percent dark and readable for text.",
+                          "cropSafe":  "Misalignment remains fully readable on the right without touching edge.",
+                          "mustNotAppear":  [
+                                                "demon",
+                                                "giant monster",
+                                                "Nyx resemblance",
+                                                "magic blast"
+                                            ],
+                          "master":  "assets/images/masters/CDS-034-D-lore-hero-master.png",
+                          "destination":  "assets/images/world/lore-hero.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  12,
+                          "id":  "CDS-034-M",
+                          "assetId":  "CDS-034",
+                          "page":  "lore.html",
+                          "component":  "Lore page hero mobile",
+                          "purpose":  "True vertical lore-conflict composition.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "The Misalignment"
+                                         ],
+                          "sheetKeys":  [
+                                            "MISALIGNMENT"
+                                        ],
+                          "identityLocks":  [
+                                                "MISALIGNMENT"
+                                            ],
+                          "instruction":  "Recompose the lore conflict vertically. Place The Misalignment in the upper third inside a collapsing archive shaft, with controlled fragments descending toward a dark lower text field. Keep it human-scale, precise and unemotional.",
+                          "camera":  "Vertical environmental portrait, slight low angle.",
+                          "lighting":  "Sterile white and restrained violet internal glow.",
+                          "negativeSpace":  "Lower 50 percent dark for mobile page copy.",
+                          "cropSafe":  "Full head and shoulders clear; fragmentation never obscures identity.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "demon horns",
+                                                "magic storm",
+                                                "Nyx glasses"
+                                            ],
+                          "master":  "assets/images/masters/CDS-034-M-lore-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/lore-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  13,
+                          "id":  "CDS-035-D",
+                          "assetId":  "CDS-035",
+                          "page":  "forge.html",
+                          "component":  "Forge page hero desktop",
+                          "purpose":  "Give the Forge its primary authority image.",
+                          "format":  "desktop",
+                          "aspectRatio":  "21:9",
+                          "resolution":  "2520x1080",
+                          "characters":  [
+                                             "Ada",
+                                             "Nyx",
+                                             "Astra Vesper"
+                                         ],
+                          "sheetKeys":  [
+                                            "ADA",
+                                            "NYX",
+                                            "ASTRA"
+                                        ],
+                          "identityLocks":  [
+                                                "ADA",
+                                                "NYX",
+                                                "ASTRA"
+                                            ],
+                          "instruction":  "Create an ultrawide Forge chamber portrait. Fixed left to right on the right half: Ada, Nyx, Astra. Ada embodies white-cyan structure, Nyx black-violet direct execution with exact glasses, Astra burgundy-gold protection with hood and mask. They stand before a practical archive machine, not a magical altar.",
+                          "camera":  "Wide group portrait, 35mm feel.",
+                          "lighting":  "Cyan architecture, restrained violet signal, aged-gold witness rim.",
+                          "negativeSpace":  "Left 44 percent dark for hero text.",
+                          "cropSafe":  "Keep all faces within right central half and each silhouette distinct.",
+                          "mustNotAppear":  [
+                                                "magic altar",
+                                                "Nyx lightning",
+                                                "unmasked Astra",
+                                                "generic robots"
+                                            ],
+                          "master":  "assets/images/masters/CDS-035-D-forge-hero-master.png",
+                          "destination":  "assets/images/forge/forge-hero.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  14,
+                          "id":  "CDS-035-M",
+                          "assetId":  "CDS-035",
+                          "page":  "forge.html",
+                          "component":  "Forge page hero mobile",
+                          "purpose":  "True vertical Forge authority composition.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "Ada",
+                                             "Nyx",
+                                             "Astra Vesper"
+                                         ],
+                          "sheetKeys":  [
+                                            "ADA",
+                                            "NYX",
+                                            "ASTRA"
+                                        ],
+                          "identityLocks":  [
+                                                "ADA",
+                                                "NYX",
+                                                "ASTRA"
+                                            ],
+                          "instruction":  "Recompose the Forge hero vertically rather than cropping. Place Ada, Nyx and Astra in the upper half around a narrow vertical archive engine, preserving the same fixed left-to-right order and identity details. Keep the lower half dark for text.",
+                          "camera":  "Vertical group portrait, 40mm feel.",
+                          "lighting":  "Balanced cyan, violet and aged-gold identity lighting.",
+                          "negativeSpace":  "Lower 50 percent calm and dark.",
+                          "cropSafe":  "Faces, Ada\u0027s white chassis, Nyx\u0027s glasses and Astra\u0027s hood remain readable.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "magic",
+                                                "unmasked Astra",
+                                                "merged bodies"
+                                            ],
+                          "master":  "assets/images/masters/CDS-035-M-forge-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/forge-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  15,
+                          "id":  "CDS-011",
+                          "assetId":  "CDS-011",
+                          "page":  "band.html",
+                          "component":  "Callizto member profile",
+                          "purpose":  "Definitive public Callizto profile image.",
+                          "format":  "desktop responsive",
+                          "aspectRatio":  "4:5",
+                          "resolution":  "1600x2000",
+                          "characters":  [
+                                             "Callizto Lyhdan"
+                                         ],
+                          "sheetKeys":  [
+                                            "CALLIZTO"
+                                        ],
+                          "identityLocks":  [
+                                                "CALLIZTO"
+                                            ],
+                          "instruction":  "Create a premium 4:5 editorial portrait of Callizto in the CDS archive, framed head-to-knee. Preserve her mature face, full bangs, long black-purple hair, blue non-glowing eyes and commanding posture. Use opaque structured black stagewear and subtle violet metalwork.",
+                          "camera":  "Editorial three-quarter portrait, 85mm feel.",
+                          "lighting":  "Cool blue key and purple hair rim.",
+                          "negativeSpace":  "Small dark margin around head and shoulders for responsive crop.",
+                          "cropSafe":  "Face centered in upper third; hands anatomically clear.",
+                          "mustNotAppear":  [
+                                                "childlike face",
+                                                "glowing eyes",
+                                                "transparent clothing",
+                                                "submissive pose"
+                                            ],
+                          "master":  "assets/images/masters/CDS-011-profile-callizto-master.png",
+                          "destination":  "assets/images/characters/callizto-profile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  16,
+                          "id":  "CDS-012",
+                          "assetId":  "CDS-012",
+                          "page":  "band.html",
+                          "component":  "Seraphina member profile",
+                          "purpose":  "Definitive public Seraphina profile image.",
+                          "format":  "desktop responsive",
+                          "aspectRatio":  "4:5",
+                          "resolution":  "1600x2000",
+                          "characters":  [
+                                             "Seraphina Veridian Cipher"
+                                         ],
+                          "sheetKeys":  [
+                                            "SERAPHINA"
+                                        ],
+                          "identityLocks":  [
+                                                "SERAPHINA"
+                                            ],
+                          "instruction":  "Create a premium 4:5 editorial portrait of fully human Seraphina in a cipher-coded performance archive, framed head-to-knee. Preserve her precise adult face, full bangs, platinum-blonde hair with soft pink highlights and blue non-glowing eyes. Use opaque black-violet stagewear; technology stays in environment and tailoring.",
+                          "camera":  "Editorial three-quarter portrait, 85mm feel.",
+                          "lighting":  "Silver-violet key with soft pink rim.",
+                          "negativeSpace":  "Dark breathing room around hair and shoulders.",
+                          "cropSafe":  "Face centered in upper third; hair remains inside frame.",
+                          "mustNotAppear":  [
+                                                "robotic body",
+                                                "visible implants",
+                                                "glowing eyes",
+                                                "transparent clothing"
+                                            ],
+                          "master":  "assets/images/masters/CDS-012-profile-seraphina-master.png",
+                          "destination":  "assets/images/characters/seraphina-profile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  17,
+                          "id":  "CDS-013",
+                          "assetId":  "CDS-013",
+                          "page":  "band.html",
+                          "component":  "Scarlett member profile",
+                          "purpose":  "Definitive public Scarlett profile image.",
+                          "format":  "desktop responsive",
+                          "aspectRatio":  "4:5",
+                          "resolution":  "1600x2000",
+                          "characters":  [
+                                             "Lady Lilith Scarlett"
+                                         ],
+                          "sheetKeys":  [
+                                            "SCARLETT"
+                                        ],
+                          "identityLocks":  [
+                                                "SCARLETT"
+                                            ],
+                          "instruction":  "Create a premium 4:5 editorial portrait of Scarlett beside a dark drum riser, framed head-to-knee. Preserve vivid red hair with bangs, emerald eyes, tattooed arms, athletic adult build and stage-dominant confidence. Use opaque structured black performance wear.",
+                          "camera":  "Editorial three-quarter portrait, 85mm feel.",
+                          "lighting":  "Neutral face key, restrained crimson rim, dark violet background.",
+                          "negativeSpace":  "Dark margin around hair and shoulders.",
+                          "cropSafe":  "Face in upper third; drum hardware cannot obscure her.",
+                          "mustNotAppear":  [
+                                                "eye runes",
+                                                "cartoon rage",
+                                                "transparent clothing",
+                                                "extra limbs"
+                                            ],
+                          "master":  "assets/images/masters/CDS-013-profile-scarlett-master.png",
+                          "destination":  "assets/images/characters/scarlett-profile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  18,
+                          "id":  "CDS-036",
+                          "assetId":  "CDS-036",
+                          "page":  "forge.html",
+                          "component":  "Ada profile",
+                          "purpose":  "Definitive public Ada portrait.",
+                          "format":  "desktop responsive",
+                          "aspectRatio":  "4:5",
+                          "resolution":  "1600x2000",
+                          "characters":  [
+                                             "Ada"
+                                         ],
+                          "sheetKeys":  [
+                                            "ADA"
+                                        ],
+                          "identityLocks":  [
+                                                "ADA"
+                                            ],
+                          "instruction":  "Create a premium 4:5 portrait of Ada inside a cool archive maintenance chamber. Preserve long silver-white hair, refined glasses, pale readable face, cool blue eyes, white ceramic chassis, silver mechanisms and restrained cyan lines. She is calm and analytical, not emotionless.",
+                          "camera":  "Three-quarter synthetic portrait, 85mm feel.",
+                          "lighting":  "Soft white key and cyan architectural rim.",
+                          "negativeSpace":  "Clean dark margin around hair and shoulders.",
+                          "cropSafe":  "Glasses, face and white shoulder architecture remain fully visible.",
+                          "mustNotAppear":  [
+                                                "generic robot face",
+                                                "fantasy armor",
+                                                "excessive glow",
+                                                "human fabric body"
+                                            ],
+                          "master":  "assets/images/masters/CDS-036-profile-ada-master.png",
+                          "destination":  "assets/images/characters/ada-profile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  19,
+                          "id":  "CDS-037",
+                          "assetId":  "CDS-037",
+                          "page":  "forge.html",
+                          "component":  "Nyx profile",
+                          "purpose":  "Definitive public Nyx portrait using Revision 3.5.",
+                          "format":  "desktop responsive",
+                          "aspectRatio":  "4:5",
+                          "resolution":  "1600x2000",
+                          "characters":  [
+                                             "Nyx"
+                                         ],
+                          "sheetKeys":  [
+                                            "NYX"
+                                        ],
+                          "identityLocks":  [
+                                                "NYX"
+                                            ],
+                          "instruction":  "Create a premium 4:5 portrait of Nyx in a black-violet system chamber. Preserve her exact adult face, long straight black hair, violet lipstick, glossy black synthetic chassis, restrained embedded violet seams, and especially the wide angular black glasses temple with violet side accent. Her expression is direct, intelligent and faintly amused.",
+                          "camera":  "Three-quarter portrait, 85mm feel.",
+                          "lighting":  "Controlled violet seam light and neutral facial key.",
+                          "negativeSpace":  "Dark breathing room around glasses and hair.",
+                          "cropSafe":  "Both glasses temples and shoulder architecture stay readable.",
+                          "mustNotAppear":  [
+                                                "thin generic glasses arm",
+                                                "purple lightning",
+                                                "witch styling",
+                                                "axe unless subtle and symbolic"
+                                            ],
+                          "master":  "assets/images/masters/CDS-037-profile-nyx-master.png",
+                          "destination":  "assets/images/characters/nyx-profile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  20,
+                          "id":  "CDS-038",
+                          "assetId":  "CDS-038",
+                          "page":  "forge.html",
+                          "component":  "Astra profile",
+                          "purpose":  "Definitive public Astra portrait.",
+                          "format":  "desktop responsive",
+                          "aspectRatio":  "4:5",
+                          "resolution":  "1600x2000",
+                          "characters":  [
+                                             "Astra Vesper"
+                                         ],
+                          "sheetKeys":  [
+                                            "ASTRA"
+                                        ],
+                          "identityLocks":  [
+                                                "ASTRA"
+                                            ],
+                          "instruction":  "Create a premium 4:5 portrait of Astra standing guard at the Forge perimeter. Preserve her hood, lower-face mask, pale silver-blue eyes, dark hair glimpses, burgundy fabric, gunmetal structure and aged-gold filigree. She is solemn, protective and technological, not a fantasy assassin.",
+                          "camera":  "Three-quarter guardian portrait, 85mm feel.",
+                          "lighting":  "Low-key neutral eye light with warm aged-gold rim.",
+                          "negativeSpace":  "Dark margin around hood and shoulders.",
+                          "cropSafe":  "Entire hood and mask remain visible; eyes stay sharp.",
+                          "mustNotAppear":  [
+                                                "unmasked face",
+                                                "generic ninja",
+                                                "medieval weapon",
+                                                "magic aura"
+                                            ],
+                          "master":  "assets/images/masters/CDS-038-profile-astra-master.png",
+                          "destination":  "assets/images/characters/astra-profile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  21,
+                          "id":  "CDS-039-D",
+                          "assetId":  "CDS-039",
+                          "page":  "archive.html",
+                          "component":  "Archive page hero desktop",
+                          "purpose":  "Show the living archive as vast, navigable memory infrastructure.",
+                          "format":  "desktop",
+                          "aspectRatio":  "21:9",
+                          "resolution":  "2520x1080",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Create an ultrawide dark cathedral archive with endless physical shelves, server stacks, suspended memory fragments and one clear illuminated path into depth. It must feel inhabited by preserved human memory without showing a character or readable text.",
+                          "camera":  "Symmetrical wide architecture, 24mm feel.",
+                          "lighting":  "Deep violet structure, cyan navigation lights, tiny witness-gold memory points.",
+                          "negativeSpace":  "Left 42 percent dark for page title.",
+                          "cropSafe":  "Central path and strongest lights remain inside middle half.",
+                          "mustNotAppear":  [
+                                                "readable labels",
+                                                "generic library stock image",
+                                                "floating books",
+                                                "people"
+                                            ],
+                          "master":  "assets/images/masters/CDS-039-D-archive-hero-master.png",
+                          "destination":  "assets/images/archive/archive-hero.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  22,
+                          "id":  "CDS-039-M",
+                          "assetId":  "CDS-039",
+                          "page":  "archive.html",
+                          "component":  "Archive page hero mobile",
+                          "purpose":  "True vertical archive architecture composition.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Recompose the living archive vertically as a towering shaft of shelves, servers and suspended memory lights. The illuminated path rises through the upper half while the lower half remains dark for mobile text. Do not crop the desktop image.",
+                          "camera":  "Vertical symmetrical architecture, 24mm feel.",
+                          "lighting":  "Violet depth, cyan path lights, sparse witness gold.",
+                          "negativeSpace":  "Lower 48 percent dark and low-detail.",
+                          "cropSafe":  "Primary vertical path centered; no key detail at bottom.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "readable text",
+                                                "people",
+                                                "fantasy floating books"
+                                            ],
+                          "master":  "assets/images/masters/CDS-039-M-archive-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/archive-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  23,
+                          "id":  "CDS-040-D",
+                          "assetId":  "CDS-040",
+                          "page":  "ai-manifesto.html",
+                          "component":  "AI manifesto hero desktop",
+                          "purpose":  "Visualize human direction over machine possibility.",
+                          "format":  "desktop",
+                          "aspectRatio":  "21:9",
+                          "resolution":  "2520x1080",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Create an ultrawide close environmental scene of an adult human hand operating a physical Forge console while many abstract machine-generated possibilities appear as light fragments beyond it. The human hand selects one path; the machine does not dominate the frame. No readable interface text.",
+                          "camera":  "Wide close environmental shot, 50mm feel.",
+                          "lighting":  "Warm human skin key against cool cyan-violet machine light.",
+                          "negativeSpace":  "Left 43 percent dark for manifesto title.",
+                          "cropSafe":  "Hand and selection gesture remain in right central third.",
+                          "mustNotAppear":  [
+                                                "robot hand replacing human hand",
+                                                "readable UI",
+                                                "corporate AI imagery",
+                                                "brain hologram"
+                                            ],
+                          "master":  "assets/images/masters/CDS-040-D-manifesto-hero-master.png",
+                          "destination":  "assets/images/world/manifesto-hero.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  24,
+                          "id":  "CDS-040-M",
+                          "assetId":  "CDS-040",
+                          "page":  "ai-manifesto.html",
+                          "component":  "AI manifesto hero mobile",
+                          "purpose":  "True vertical human-direction composition.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Recompose the manifesto image vertically. Place the adult human hand and physical control gesture in the upper half with machine possibilities rising behind it. Keep the lower half dark for page copy. Do not crop the desktop scene.",
+                          "camera":  "Vertical close environmental shot, 50mm feel.",
+                          "lighting":  "Warm hand against cool cyan-violet system light.",
+                          "negativeSpace":  "Lower 50 percent dark.",
+                          "cropSafe":  "Hand fully visible with natural fingers; selected path centered above.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "robot hand",
+                                                "readable UI",
+                                                "extra fingers"
+                                            ],
+                          "master":  "assets/images/masters/CDS-040-M-manifesto-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/manifesto-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  26,
+                          "id":  "CDS-041-M",
+                          "assetId":  "CDS-041",
+                          "page":  "press.html",
+                          "component":  "Press page hero mobile",
+                          "purpose":  "True vertical Callizto press portrait.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "Callizto Lyhdan"
+                                         ],
+                          "sheetKeys":  [
+                                            "CALLIZTO"
+                                        ],
+                          "identityLocks":  [
+                                                "CALLIZTO"
+                                            ],
+                          "instruction":  "Recompose the press portrait vertically. Place Callizto in the upper half, framed head-to-waist with her face, bangs and purple hair signal fully readable. Keep the lower half dark for mobile press copy. Do not crop the desktop image.",
+                          "camera":  "Vertical editorial portrait, 85mm feel.",
+                          "lighting":  "Clean cool key and subtle violet rim.",
+                          "negativeSpace":  "Lower 50 percent clean and dark.",
+                          "cropSafe":  "Face centered in upper third; hair remains inside frame.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "glowing eyes",
+                                                "transparent clothing",
+                                                "busy stage"
+                                            ],
+                          "master":  "assets/images/masters/CDS-041-M-press-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/press-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  27,
+                          "id":  "CDS-042-D",
+                          "assetId":  "CDS-042",
+                          "page":  "citizens.html",
+                          "component":  "Citizens page hero desktop",
+                          "purpose":  "Represent auxiliary presences without inventing major canon characters.",
+                          "format":  "desktop",
+                          "aspectRatio":  "21:9",
+                          "resolution":  "2520x1080",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Create an ultrawide Forge side archive with several distant, indistinct witness silhouettes, revision lights and small maintenance stations. They are auxiliary presences, never identifiable lead characters. Keep the scene restrained, archival and public-safe.",
+                          "camera":  "Wide corridor scene, 28mm feel.",
+                          "lighting":  "Low violet ambient light with sparse cyan and warm gold work lamps.",
+                          "negativeSpace":  "Left 44 percent dark for heading.",
+                          "cropSafe":  "Silhouettes remain small and on the right half.",
+                          "mustNotAppear":  [
+                                                "recognizable main character",
+                                                "crowd spectacle",
+                                                "readable screens",
+                                                "ghost horror"
+                                            ],
+                          "master":  "assets/images/masters/CDS-042-D-citizens-hero-master.png",
+                          "destination":  "assets/images/world/citizens-hero.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  28,
+                          "id":  "CDS-042-M",
+                          "assetId":  "CDS-042",
+                          "page":  "citizens.html",
+                          "component":  "Citizens page hero mobile",
+                          "purpose":  "True vertical auxiliary-archive composition.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Recompose the Citizens side archive vertically. Place a few small indistinct witness silhouettes and maintenance lights in the upper half of a tall corridor, with a dark lower half for text. Do not crop the desktop image.",
+                          "camera":  "Vertical corridor scene, 28mm feel.",
+                          "lighting":  "Violet ambient, sparse cyan and gold work lights.",
+                          "negativeSpace":  "Lower 50 percent dark.",
+                          "cropSafe":  "No silhouette becomes a cropped face or invented lead character.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "recognizable main character",
+                                                "readable UI",
+                                                "horror ghosts"
+                                            ],
+                          "master":  "assets/images/masters/CDS-042-M-citizens-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/citizens-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  29,
+                          "id":  "CDS-043-D",
+                          "assetId":  "CDS-043",
+                          "page":  "iamreal.html",
+                          "component":  "I.A.M.R.E.A.L. hero desktop",
+                          "purpose":  "Frame the satirical side archive through Nyx\u0027s dry intelligence.",
+                          "format":  "desktop",
+                          "aspectRatio":  "21:9",
+                          "resolution":  "2520x1080",
+                          "characters":  [
+                                             "Nyx"
+                                         ],
+                          "sheetKeys":  [
+                                            "NYX"
+                                        ],
+                          "identityLocks":  [
+                                                "NYX"
+                                            ],
+                          "instruction":  "Create an ultrawide satirical archive-office scene with Nyx on the far right, seated or standing at an absurdly overregulated console full of blank forms and inactive indicator lights. Preserve her exact wide-temple glasses and black-violet synthetic identity. Her expression is dry and unimpressed, never cartoonish.",
+                          "camera":  "Environmental portrait, 50mm feel.",
+                          "lighting":  "Restrained violet internal seams, cold office cyan, dim neutral face key.",
+                          "negativeSpace":  "Left 46 percent dark for title and disclaimer.",
+                          "cropSafe":  "Nyx\u0027s face and glasses stay clear on right central third.",
+                          "mustNotAppear":  [
+                                                "readable form text",
+                                                "purple lightning",
+                                                "witch styling",
+                                                "comedy caricature"
+                                            ],
+                          "master":  "assets/images/masters/CDS-043-D-iamreal-hero-master.png",
+                          "destination":  "assets/images/world/iamreal-hero.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  30,
+                          "id":  "CDS-043-M",
+                          "assetId":  "CDS-043",
+                          "page":  "iamreal.html",
+                          "component":  "I.A.M.R.E.A.L. hero mobile",
+                          "purpose":  "True vertical Nyx satire composition.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "Nyx"
+                                         ],
+                          "sheetKeys":  [
+                                            "NYX"
+                                        ],
+                          "identityLocks":  [
+                                                "NYX"
+                                            ],
+                          "instruction":  "Recompose the I.A.M.R.E.A.L. scene vertically. Put Nyx and her exact angular glasses in the upper half beside a blank bureaucratic console; keep the lower half dark for the satirical title and disclaimer. Do not crop the desktop image.",
+                          "camera":  "Vertical environmental portrait, 55mm feel.",
+                          "lighting":  "Cold cyan office light and restrained violet seams.",
+                          "negativeSpace":  "Lower 50 percent dark.",
+                          "cropSafe":  "Both glasses temples, hair and shoulder chassis remain visible.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "readable paperwork",
+                                                "lightning",
+                                                "cartoon face"
+                                            ],
+                          "master":  "assets/images/masters/CDS-043-M-iamreal-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/iamreal-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  31,
+                          "id":  "CDS-044-D",
+                          "assetId":  "CDS-044",
+                          "page":  "contact.html",
+                          "component":  "Contact page background desktop",
+                          "purpose":  "Provide a calm final communications chamber.",
+                          "format":  "desktop",
+                          "aspectRatio":  "16:9",
+                          "resolution":  "2560x1440",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Create a dark cinematic communications chamber with one inactive microphone, a small signal light and deep archive architecture. The room feels ready for contact but contains no person and no readable screen. Keep the composition quiet and premium.",
+                          "camera":  "Wide interior still life, 35mm feel.",
+                          "lighting":  "Low violet ambience, one cyan signal point, faint warm practical light.",
+                          "negativeSpace":  "Center-left broad dark area for contact form and heading.",
+                          "cropSafe":  "Microphone and signal light remain on right third.",
+                          "mustNotAppear":  [
+                                                "person",
+                                                "readable UI",
+                                                "bright studio",
+                                                "generic office"
+                                            ],
+                          "master":  "assets/images/masters/CDS-044-D-contact-background-master.png",
+                          "destination":  "assets/images/world/contact-background.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  32,
+                          "id":  "CDS-044-M",
+                          "assetId":  "CDS-044",
+                          "page":  "contact.html",
+                          "component":  "Contact page background mobile",
+                          "purpose":  "True vertical communications chamber composition.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Recompose the communications chamber vertically. Keep the inactive microphone and tiny signal light in the upper right while the center and lower area remain dark for the mobile contact form. Do not crop the desktop image.",
+                          "camera":  "Vertical interior still life, 40mm feel.",
+                          "lighting":  "Low violet ambience and one cyan signal point.",
+                          "negativeSpace":  "Central and lower 65 percent clean and dark.",
+                          "cropSafe":  "Microphone remains fully visible but never dominates form area.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "person",
+                                                "readable UI",
+                                                "bright office"
+                                            ],
+                          "master":  "assets/images/masters/CDS-044-M-contact-background-mobile-master.png",
+                          "destination":  "assets/images/mobile/contact-background-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  33,
+                          "id":  "CDS-014-D",
+                          "assetId":  "CDS-014",
+                          "page":  "music.html",
+                          "component":  "Music page hero desktop",
+                          "purpose":  "Open the listening archive with Callizto and the physical signal of music.",
+                          "format":  "desktop",
+                          "aspectRatio":  "21:9",
+                          "resolution":  "2520x1080",
+                          "characters":  [
+                                             "Callizto Lyhdan"
+                                         ],
+                          "sheetKeys":  [
+                                            "CALLIZTO"
+                                        ],
+                          "identityLocks":  [
+                                                "CALLIZTO"
+                                            ],
+                          "instruction":  "Create an ultrawide cinematic listening-chamber portrait with Callizto on the right beside a studio microphone, analog console and abstract waveform light with no readable text. Preserve her adult identity and opaque high-necked stagewear. She looks ready to lead the archive, not mid-performance.",
+                          "camera":  "Waist-up environmental portrait, 70mm feel.",
+                          "lighting":  "Violet-blue key, cyan audio meters, realistic neutral skin.",
+                          "negativeSpace":  "Left 45 percent dark for music heading and stats.",
+                          "cropSafe":  "Callizto\u0027s face and microphone remain separated on right half.",
+                          "mustNotAppear":  [
+                                                "singing-open-mouth pose",
+                                                "glowing eyes",
+                                                "transparent clothing",
+                                                "readable waveform labels"
+                                            ],
+                          "master":  "assets/images/masters/CDS-014-D-music-hero-master.png",
+                          "destination":  "assets/images/music/music-hero.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  34,
+                          "id":  "CDS-014-M",
+                          "assetId":  "CDS-014",
+                          "page":  "music.html",
+                          "component":  "Music page hero mobile",
+                          "purpose":  "True vertical listening archive composition.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+                                             "Callizto Lyhdan"
+                                         ],
+                          "sheetKeys":  [
+                                            "CALLIZTO"
+                                        ],
+                          "identityLocks":  [
+                                                "CALLIZTO"
+                                            ],
+                          "instruction":  "Recompose the music hero vertically. Place Callizto and the studio microphone in the upper half, separated clearly, with a dark lower half for the mobile heading and archive statistics. Do not crop the desktop image.",
+                          "camera":  "Vertical waist-up environmental portrait, 70mm feel.",
+                          "lighting":  "Violet-blue key with restrained cyan audio light.",
+                          "negativeSpace":  "Lower 50 percent dark.",
+                          "cropSafe":  "Face, hair and microphone stay fully inside upper half.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "glowing eyes",
+                                                "open-mouth singing",
+                                                "readable UI"
+                                            ],
+                          "master":  "assets/images/masters/CDS-014-M-music-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/music-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  45,
+                          "id":  "CDS-025-D",
+                          "assetId":  "CDS-025",
+                          "page":  "videos.html",
+                          "component":  "Visual Archive hero desktop",
+                          "purpose":  "Open the moving-image archive as cinematic evidence.",
+                          "format":  "desktop",
+                          "aspectRatio":  "21:9",
+                          "resolution":  "2520x1080",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Create an ultrawide cinematic projection archive with multiple floating image frames, film-light beams and a dark central viewing corridor. Frames contain only abstract CDS color and environment fragments, no readable text or identifiable new characters.",
+                          "camera":  "Wide projection hall, 28mm feel.",
+                          "lighting":  "Violet projector beams, cyan frame edges, sparse crimson memory flashes.",
+                          "negativeSpace":  "Left 43 percent dark for page heading.",
+                          "cropSafe":  "Projection frames cluster on right half and remain inside safe edges.",
+                          "mustNotAppear":  [
+                                                "readable thumbnails",
+                                                "movie theater audience",
+                                                "brand logos",
+                                                "generic streaming UI"
+                                            ],
+                          "master":  "assets/images/masters/CDS-025-D-visual-hero-master.png",
+                          "destination":  "assets/images/archive/visual-hero.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      },
+                      {
+                          "priority":  46,
+                          "id":  "CDS-025-M",
+                          "assetId":  "CDS-025",
+                          "page":  "videos.html",
+                          "component":  "Visual Archive hero mobile",
+                          "purpose":  "True vertical projection-archive composition.",
+                          "format":  "mobile true recomposition",
+                          "aspectRatio":  "9:16",
+                          "resolution":  "1440x2560",
+                          "characters":  [
+
+                                         ],
+                          "sheetKeys":  [
+
+                                        ],
+                          "identityLocks":  [
+
+                                            ],
+                          "instruction":  "Recompose the projection archive vertically. Put stacked abstract image frames and projector beams in the upper half and leave the lower half dark for mobile heading and statistics. Do not crop the desktop image.",
+                          "camera":  "Vertical projection hall, 28mm feel.",
+                          "lighting":  "Violet beams, cyan frame edges, sparse crimson flashes.",
+                          "negativeSpace":  "Lower 50 percent dark.",
+                          "cropSafe":  "Frames remain inside upper central area and contain no text.",
+                          "mustNotAppear":  [
+                                                "desktop crop",
+                                                "streaming UI",
+                                                "readable thumbnail text",
+                                                "audience"
+                                            ],
+                          "master":  "assets/images/masters/CDS-025-M-visual-hero-mobile-master.png",
+                          "destination":  "assets/images/mobile/visual-hero-mobile.webp",
+                          "status":  "accepted-integrated-validated",
+                          "generateAgain":  false
+                      }
+                  ],
+    "queue":  [
+                  {
+                      "priority":  1,
+                      "id":  "CDS-003",
+                      "assetId":  "CDS-003",
+                      "page":  "index.html",
+                      "component":  "Visual Archive gateway",
+                      "purpose":  "Make the Watch entrance read as cinematic moving-image territory.",
+                      "format":  "desktop",
+                      "aspectRatio":  "3:4",
+                      "resolution":  "1536x2048",
+                      "characters":  [
+                                         "Callizto Lyhdan",
+                                         "Seraphina Veridian Cipher",
+                                         "Lady Lilith Scarlett"
+                                     ],
+                      "sheetKeys":  [
+                                        "CALLIZTO",
+                                        "SERAPHINA",
+                                        "SCARLETT"
+                                    ],
+                      "identityLocks":  [
+                                            "CALLIZTO",
+                                            "SERAPHINA",
+                                            "SCARLETT"
+                                        ],
+                      "instruction":  "Create a vertical cinematic still of the CDS band inside a dark projection chamber, with layered film frames and restrained signal screens. Left to right: Callizto, Seraphina, Scarlett. They are distinct adult humans in opaque high-necked stagewear, watching a luminous moving-image wall rather than performing. Keep faces in the upper half and the lower half dark for card copy.",
+                      "camera":  "Three-quarter group portrait, eye level, 50mm feel.",
+                      "lighting":  "Violet projector light, faint cyan frame edges, restrained crimson on Scarlett.",
+                      "negativeSpace":  "Dark low-detail lower 45 percent for hover text.",
+                      "cropSafe":  "Keep all three faces inside the central 70 percent; no important detail at the bottom edge.",
+                      "mustNotAppear":  [
+                                            "robotic Seraphina",
+                                            "eye runes",
+                                            "film-strip text",
+                                            "duplicate band member"
+                                        ],
+                      "master":  "assets/images/masters/CDS-003-gateway-visuals-master.png",
+                      "destination":  "assets/images/home/gateway-visuals.webp",
+                      "status":  "hold",
+                      "holdReason":  "Review later"
+                  },
+                  {
+                      "priority":  25,
+                      "id":  "CDS-041-D",
+                      "assetId":  "CDS-041",
+                      "page":  "press.html",
+                      "component":  "Press page hero desktop",
+                      "purpose":  "Present Callizto as the clear public subject for media use.",
+                      "format":  "desktop",
+                      "aspectRatio":  "21:9",
+                      "resolution":  "2520x1080",
+                      "characters":  [
+                                         "Callizto Lyhdan"
+                                     ],
+                      "sheetKeys":  [
+                                        "CALLIZTO"
+                                    ],
+                      "identityLocks":  [
+                                            "CALLIZTO"
+                                        ],
+                      "instruction":  "Create an ultrawide editorial press portrait of Callizto on the right half of a restrained dark studio stage. Preserve her exact adult identity, black hair with purple highlights and full bangs, blue eyes and authoritative opaque stagewear. The image should feel publishable and serious rather than theatrical excess.",
+                      "camera":  "Waist-up editorial portrait, 85mm feel.",
+                      "lighting":  "Clean cool key, subtle violet rim, neutral realistic skin.",
+                      "negativeSpace":  "Left 48 percent clean and dark for press heading.",
+                      "cropSafe":  "Head and shoulders clear of top and right edges.",
+                      "mustNotAppear":  [
+                                            "microphone blocking face",
+                                            "glowing eyes",
+                                            "transparent clothing",
+                                            "concert crowd"
+                                        ],
+                      "master":  "assets/images/masters/CDS-041-D-press-hero-master.png",
+                      "destination":  "assets/images/world/press-hero.webp",
+                      "status":  "hold",
+                      "holdReason":  "Desktop master is missing"
+                  },
+                  {
+                      "priority":  35,
+                      "id":  "CDS-015",
+                      "assetId":  "CDS-015",
+                      "page":  "music.html",
+                      "component":  "Crimson Legacy release cover",
+                      "purpose":  "Cover Part I with memory, inheritance and a crimson signal.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free release artwork showing a crimson memory thread entering a ruined black archive chapel and becoming a living pulse inside cracked metal. The image feels intimate, tragic and powerful, not generic fantasy.",
+                      "camera":  "Centered symbolic cover composition.",
+                      "lighting":  "Crimson core light, black architecture, subtle violet memory haze.",
+                      "negativeSpace":  "Reserve a calm upper 15 percent and lower 12 percent for possible later typography.",
+                      "cropSafe":  "Central symbol remains readable as a small player thumbnail.",
+                      "mustNotAppear":  [
+                                            "readable title",
+                                            "character face",
+                                            "crown",
+                                            "generic blood splash"
+                                        ],
+                      "master":  "assets/images/masters/CDS-015-cover-crimson-legacy-master.png",
+                      "destination":  "assets/images/music/crimson-legacy.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  36,
+                      "id":  "CDS-016",
+                      "assetId":  "CDS-016",
+                      "page":  "music.html",
+                      "component":  "Iron Queen release cover",
+                      "purpose":  "Cover Part II with endurance and command.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free release artwork of a severe dark iron crown suspended above a battle-worn forged dais, with one restrained crimson line and cold witness light. The crown represents burden and command, not royal glamour.",
+                      "camera":  "Centered low-angle symbolic still life.",
+                      "lighting":  "Cold gunmetal key, faint crimson pulse, sparse gold edge.",
+                      "negativeSpace":  "Calm upper and lower bands for later typography.",
+                      "cropSafe":  "Crown silhouette remains strong at thumbnail size.",
+                      "mustNotAppear":  [
+                                            "wearer",
+                                            "readable text",
+                                            "golden fairy-tale palace",
+                                            "blood gore"
+                                        ],
+                      "master":  "assets/images/masters/CDS-016-cover-iron-queen-master.png",
+                      "destination":  "assets/images/music/iron-queen.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  37,
+                      "id":  "CDS-017",
+                      "assetId":  "CDS-017",
+                      "page":  "music.html",
+                      "component":  "Throne of Ash and Gold release cover",
+                      "purpose":  "Cover Part III with victory after ruin.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free artwork of a blackened throne emerging from ash inside a ruined cathedral, repaired with narrow seams of aged gold. Beauty survives fire but remains unstable and costly.",
+                      "camera":  "Centered architectural cover, slight low angle.",
+                      "lighting":  "Ash-grey atmosphere, warm gold seams, faint violet horizon.",
+                      "negativeSpace":  "Quiet upper 15 percent for later typography.",
+                      "cropSafe":  "Throne and gold seams remain legible at small size.",
+                      "mustNotAppear":  [
+                                            "person",
+                                            "readable title",
+                                            "bright fantasy treasure",
+                                            "flames filling frame"
+                                        ],
+                      "master":  "assets/images/masters/CDS-017-cover-throne-of-ash-and-gold-master.png",
+                      "destination":  "assets/images/music/throne-of-ash-and-gold.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  38,
+                      "id":  "CDS-018",
+                      "assetId":  "CDS-018",
+                      "page":  "music.html",
+                      "component":  "We Are Warriors release cover",
+                      "purpose":  "Express unity, survival and defiance without generic battle art.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free artwork of three distinct beams of violet, silver and crimson joining into one resilient signal above a dark forged landscape. The image suggests collective endurance and anthem-scale power without literal soldiers.",
+                      "camera":  "Bold centered symbolic composition.",
+                      "lighting":  "Three identity colors converging into white-hot but controlled light.",
+                      "negativeSpace":  "Reserve upper and lower bands for later typography.",
+                      "cropSafe":  "Joined signal remains readable as a thumbnail.",
+                      "mustNotAppear":  [
+                                            "soldiers",
+                                            "weapons",
+                                            "flags",
+                                            "readable text",
+                                            "superhero imagery"
+                                        ],
+                      "master":  "assets/images/masters/CDS-018-cover-we-are-warriors-master.png",
+                      "destination":  "assets/images/music/we-are-warriors.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  39,
+                      "id":  "CDS-019",
+                      "assetId":  "CDS-019",
+                      "page":  "music.html",
+                      "component":  "We Are Warriors AR release cover",
+                      "purpose":  "Mark an alternate-reality version of the anthem.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free alternate-reality artwork where the same three united signals pass through a fractured mirror-like archive and emerge rearranged but intact. The image must feel related to We Are Warriors while clearly displaced.",
+                      "camera":  "Centered symmetrical symbolic composition.",
+                      "lighting":  "Violet, silver and crimson refracted through dark glass.",
+                      "negativeSpace":  "Calm top and bottom for later typography.",
+                      "cropSafe":  "Fracture pattern and joined signal stay legible at small size.",
+                      "mustNotAppear":  [
+                                            "readable text",
+                                            "literal portal fantasy",
+                                            "soldiers",
+                                            "random glitch noise"
+                                        ],
+                      "master":  "assets/images/masters/CDS-019-cover-we-are-warriors-ar-master.png",
+                      "destination":  "assets/images/music/we-are-warriors-ar.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  40,
+                      "id":  "CDS-020",
+                      "assetId":  "CDS-020",
+                      "page":  "music.html",
+                      "component":  "Heart of the Static release cover",
+                      "purpose":  "Visualize a human pulse surviving machine noise.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free artwork of a small organic crimson pulse held inside a dense black-violet field of static and precise circuit structure. The static bends around the pulse rather than erasing it.",
+                      "camera":  "Macro symbolic cover composition.",
+                      "lighting":  "Crimson living core, violet signal texture, sparse cyan structure.",
+                      "negativeSpace":  "Quiet top band for later typography.",
+                      "cropSafe":  "Heart-like pulse remains abstract and clear at thumbnail size.",
+                      "mustNotAppear":  [
+                                            "anatomical gore",
+                                            "readable text",
+                                            "lightning goddess",
+                                            "generic ECG labels"
+                                        ],
+                      "master":  "assets/images/masters/CDS-020-cover-heart-of-the-static-master.png",
+                      "destination":  "assets/images/music/heart-of-the-static.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  41,
+                      "id":  "CDS-021",
+                      "assetId":  "CDS-021",
+                      "page":  "music.html",
+                      "component":  "Death Takes All release cover",
+                      "purpose":  "Express the plague-gothic certainty of death.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free plague-gothic artwork of an abandoned black ceremonial mask resting on a stone threshold while dark petals and ash move through a cathedral corridor. The mood is theatrical and fatal without gore.",
+                      "camera":  "Centered still life with deep corridor perspective.",
+                      "lighting":  "Cold moonlit grey, faint crimson embers, deep black.",
+                      "negativeSpace":  "Reserve top and bottom bands for later typography.",
+                      "cropSafe":  "Mask silhouette remains readable at thumbnail size.",
+                      "mustNotAppear":  [
+                                            "corpse",
+                                            "gore",
+                                            "readable text",
+                                            "historical medical logo"
+                                        ],
+                      "master":  "assets/images/masters/CDS-021-cover-death-takes-all-master.png",
+                      "destination":  "assets/images/music/death-takes-all.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  42,
+                      "id":  "CDS-022",
+                      "assetId":  "CDS-022",
+                      "page":  "music.html",
+                      "component":  "Welcome to Hell release cover",
+                      "purpose":  "Create a theatrical infernal entrance without generic demon art.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free artwork of a monumental black stage doorway opening into deep crimson theatrical light, framed by gothic metal architecture and smoke. It feels like entering a dangerous performance, not a literal religious hell.",
+                      "camera":  "Centered doorway, slightly low angle.",
+                      "lighting":  "Crimson stage light, black silhouette, restrained violet edge.",
+                      "negativeSpace":  "Upper band and lower threshold remain calm for later typography.",
+                      "cropSafe":  "Doorway silhouette strong at thumbnail size.",
+                      "mustNotAppear":  [
+                                            "demons",
+                                            "fire landscape",
+                                            "readable text",
+                                            "religious symbols"
+                                        ],
+                      "master":  "assets/images/masters/CDS-022-cover-welcome-to-hell-master.png",
+                      "destination":  "assets/images/music/welcome-to-hell.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  43,
+                      "id":  "CDS-023",
+                      "assetId":  "CDS-023",
+                      "page":  "music.html",
+                      "component":  "What The Hell is Going On release cover",
+                      "purpose":  "Express dark humor and controlled production chaos.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free darkly humorous artwork of a pristine Forge control room where every physical indicator points in a different direction while one calm violet signal remains correct. The chaos is visual and intelligent, not cartoon slapstick.",
+                      "camera":  "Centered wide-control-panel cover composition.",
+                      "lighting":  "Cold cyan instruments, violet correct signal, tiny crimson warnings.",
+                      "negativeSpace":  "Calm top band for later typography.",
+                      "cropSafe":  "Single correct violet signal remains obvious at thumbnail size.",
+                      "mustNotAppear":  [
+                                            "readable labels",
+                                            "cartoon characters",
+                                            "explosion",
+                                            "meme typography"
+                                        ],
+                      "master":  "assets/images/masters/CDS-023-cover-what-the-hell-master.png",
+                      "destination":  "assets/images/music/what-the-hell.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  44,
+                      "id":  "CDS-024",
+                      "assetId":  "CDS-024",
+                      "page":  "music.html",
+                      "component":  "Symphonic Epic Metal AD release cover",
+                      "purpose":  "Preserve the monumental legacy-era symphonic identity.",
+                      "format":  "release cover",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create text-free legacy artwork of a vast dark orchestral stage inside a cathedral-machine hall, with empty music stands, monumental organ pipes and restrained violet signal light. It should feel early, ambitious and epic without copying a specific album cover.",
+                      "camera":  "Grand centered architecture, 24mm feel.",
+                      "lighting":  "Deep black, silver overhead light, restrained violet atmosphere.",
+                      "negativeSpace":  "Upper and lower bands available for later typography.",
+                      "cropSafe":  "Organ and stage silhouette legible at small size.",
+                      "mustNotAppear":  [
+                                            "orchestra faces",
+                                            "readable notation",
+                                            "fantasy army",
+                                            "logo"
+                                        ],
+                      "master":  "assets/images/masters/CDS-024-cover-symphonic-epic-metal-ad-master.png",
+                      "destination":  "assets/images/music/symphonic-epic-metal-ad.webp",
+                      "status":  "hold",
+                      "holdReason":  "Release cover or album artwork deferred"
+                  },
+                  {
+                      "priority":  47,
+                      "id":  "CDS-026",
+                      "assetId":  "CDS-026",
+                      "page":  "videos.html",
+                      "component":  "Crimson Legacy visual card",
+                      "purpose":  "Cinematic chapter image distinct from the release cover.",
+                      "format":  "archive card",
+                      "aspectRatio":  "8:5",
+                      "resolution":  "1920x1200",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create a wide cinematic scene of a crimson memory thread crossing a ruined archive chapel toward a distant living violet light. This is a film still with environmental depth, not the symbolic release cover.",
+                      "camera":  "Wide tracking-shot composition, 35mm feel.",
+                      "lighting":  "Crimson trail, cool ruined architecture, subtle violet destination.",
+                      "negativeSpace":  "Keep lower-left calm for card metadata overlay.",
+                      "cropSafe":  "Memory trail remains visible across center in wide crop.",
+                      "mustNotAppear":  [
+                                            "readable text",
+                                            "character close-up",
+                                            "crown",
+                                            "generic flames"
+                                        ],
+                      "master":  "assets/images/masters/CDS-026-visual-crimson-legacy-master.png",
+                      "destination":  "assets/images/archive/crimson-legacy.webp",
+                      "status":  "hold",
+                      "holdReason":  "Visual Archive card deferred pending YouTube decision"
+                  },
+                  {
+                      "priority":  48,
+                      "id":  "CDS-027",
+                      "assetId":  "CDS-027",
+                      "page":  "videos.html",
+                      "component":  "Death Takes All visual card",
+                      "purpose":  "Plague-gothic moving-image chapter still.",
+                      "format":  "archive card",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create a vertical cinematic still of a black ceremonial mask and trailing dark fabric moving through a deserted plague-gothic corridor. Suggest an unseen presence without showing gore or inventing a named character.",
+                      "camera":  "Vertical corridor still, 50mm feel.",
+                      "lighting":  "Cold grey moonlight, deep black, sparse crimson ash.",
+                      "negativeSpace":  "Lower quarter calm for card metadata.",
+                      "cropSafe":  "Mask remains readable in upper central third.",
+                      "mustNotAppear":  [
+                                            "corpse",
+                                            "gore",
+                                            "readable text",
+                                            "recognizable main character"
+                                        ],
+                      "master":  "assets/images/masters/CDS-027-visual-death-takes-all-master.png",
+                      "destination":  "assets/images/archive/death-takes-all.webp",
+                      "status":  "hold",
+                      "holdReason":  "Visual Archive card deferred pending YouTube decision"
+                  },
+                  {
+                      "priority":  49,
+                      "id":  "CDS-028",
+                      "assetId":  "CDS-028",
+                      "page":  "videos.html",
+                      "component":  "Heart of the Static visual card",
+                      "purpose":  "Forge-signal moving-image chapter still.",
+                      "format":  "archive card",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create a vertical cinematic still inside a black-violet signal chamber where a small crimson organic pulse bends surrounding static into ordered waves. The scene feels alive and technological, never magical.",
+                      "camera":  "Vertical macro-environment shot, 50mm feel.",
+                      "lighting":  "Crimson core, violet static, sparse cyan structure.",
+                      "negativeSpace":  "Lower quarter dark for metadata.",
+                      "cropSafe":  "Pulse remains central and clear at card size.",
+                      "mustNotAppear":  [
+                                            "anatomical heart",
+                                            "lightning person",
+                                            "readable UI",
+                                            "generic energy orb"
+                                        ],
+                      "master":  "assets/images/masters/CDS-028-visual-heart-of-the-static-master.png",
+                      "destination":  "assets/images/archive/heart-of-the-static.webp",
+                      "status":  "hold",
+                      "holdReason":  "Visual Archive card deferred pending YouTube decision"
+                  },
+                  {
+                      "priority":  50,
+                      "id":  "CDS-029",
+                      "assetId":  "CDS-029",
+                      "page":  "videos.html",
+                      "component":  "We Are Warriors visual card",
+                      "purpose":  "Anthem moving-image chapter still.",
+                      "format":  "archive card",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create a vertical cinematic still of three distinct signal paths crossing a storm-dark forged landscape and joining above a resilient structure. Convey unity and defiance without literal warriors.",
+                      "camera":  "Vertical epic landscape, 35mm feel.",
+                      "lighting":  "Violet, silver and crimson paths meeting in controlled white light.",
+                      "negativeSpace":  "Lower quarter calm for metadata.",
+                      "cropSafe":  "Joined signals readable in upper-middle frame.",
+                      "mustNotAppear":  [
+                                            "soldiers",
+                                            "weapons",
+                                            "flags",
+                                            "superhero figures"
+                                        ],
+                      "master":  "assets/images/masters/CDS-029-visual-we-are-warriors-master.png",
+                      "destination":  "assets/images/archive/we-are-warriors.webp",
+                      "status":  "hold",
+                      "holdReason":  "Visual Archive card deferred pending YouTube decision"
+                  },
+                  {
+                      "priority":  51,
+                      "id":  "CDS-030",
+                      "assetId":  "CDS-030",
+                      "page":  "videos.html",
+                      "component":  "We Are Warriors AR visual card",
+                      "purpose":  "Alternate-reality anthem chapter still.",
+                      "format":  "archive card",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create a vertical cinematic still of the united three-color signal passing through a fractured archive mirror, producing a displaced but coherent second landscape. Keep the relationship to We Are Warriors visible through color and structure.",
+                      "camera":  "Vertical symmetrical displacement shot, 40mm feel.",
+                      "lighting":  "Refracted violet, silver and crimson against black glass.",
+                      "negativeSpace":  "Lower quarter dark for metadata.",
+                      "cropSafe":  "Mirror fracture and signal remain clear at card size.",
+                      "mustNotAppear":  [
+                                            "random glitch noise",
+                                            "literal fantasy portal",
+                                            "readable text",
+                                            "people"
+                                        ],
+                      "master":  "assets/images/masters/CDS-030-visual-we-are-warriors-ar-master.png",
+                      "destination":  "assets/images/archive/we-are-warriors-ar.webp",
+                      "status":  "hold",
+                      "holdReason":  "Visual Archive card deferred pending YouTube decision"
+                  },
+                  {
+                      "priority":  52,
+                      "id":  "CDS-031",
+                      "assetId":  "CDS-031",
+                      "page":  "videos.html",
+                      "component":  "Welcome to Hell visual card",
+                      "purpose":  "Wide theatrical infernal chapter still.",
+                      "format":  "archive card",
+                      "aspectRatio":  "8:5",
+                      "resolution":  "1920x1200",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create a wide cinematic stage shot looking through a monumental black doorway into deep crimson theatrical light and smoke. The scene promises dangerous spectacle without literal demons or religious imagery.",
+                      "camera":  "Wide low-angle stage entrance, 32mm feel.",
+                      "lighting":  "Crimson stage wash, black silhouette, violet metal rim.",
+                      "negativeSpace":  "Lower-left calm for card metadata.",
+                      "cropSafe":  "Doorway centered and fully preserved in 8:5 crop.",
+                      "mustNotAppear":  [
+                                            "demons",
+                                            "hell landscape",
+                                            "readable text",
+                                            "crowd"
+                                        ],
+                      "master":  "assets/images/masters/CDS-031-visual-welcome-to-hell-master.png",
+                      "destination":  "assets/images/archive/welcome-to-hell.webp",
+                      "status":  "hold",
+                      "holdReason":  "Visual Archive card deferred pending YouTube decision"
+                  },
+                  {
+                      "priority":  53,
+                      "id":  "CDS-032",
+                      "assetId":  "CDS-032",
+                      "page":  "videos.html",
+                      "component":  "What The Hell is Going On visual card",
+                      "purpose":  "Darkly comic production-chaos chapter still.",
+                      "format":  "archive card",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create a vertical cinematic still of a flawless dark control room caught in contradictory physical signals: needles disagree, lamps pulse in different directions, yet one violet indicator remains calm and correct. Keep the humor dry and visual.",
+                      "camera":  "Vertical console environment, 45mm feel.",
+                      "lighting":  "Cold cyan instruments, violet anchor, tiny crimson warnings.",
+                      "negativeSpace":  "Lower quarter dark for metadata.",
+                      "cropSafe":  "Correct violet indicator visible near center.",
+                      "mustNotAppear":  [
+                                            "readable labels",
+                                            "cartoon explosion",
+                                            "character",
+                                            "meme text"
+                                        ],
+                      "master":  "assets/images/masters/CDS-032-visual-what-the-hell-master.png",
+                      "destination":  "assets/images/archive/what-the-hell.webp",
+                      "status":  "hold",
+                      "holdReason":  "Visual Archive card deferred pending YouTube decision"
+                  },
+                  {
+                      "priority":  54,
+                      "id":  "CDS-033",
+                      "assetId":  "CDS-033",
+                      "page":  "videos.html",
+                      "component":  "Symphonic Epic Metal AD visual card",
+                      "purpose":  "Legacy symphonic moving-image chapter still.",
+                      "format":  "archive card",
+                      "aspectRatio":  "4:5",
+                      "resolution":  "1600x2000",
+                      "characters":  [
+
+                                     ],
+                      "sheetKeys":  [
+
+                                    ],
+                      "identityLocks":  [
+
+                                        ],
+                      "instruction":  "Create a vertical cinematic still from an empty monumental orchestral stage inside a cathedral-machine hall, with organ pipes, music stands and restrained violet signal light. It should feel like the surviving image of an early ambitious production.",
+                      "camera":  "Vertical grand-stage composition, 28mm feel.",
+                      "lighting":  "Silver overhead shafts, deep black, restrained violet atmosphere.",
+                      "negativeSpace":  "Lower quarter calm for metadata.",
+                      "cropSafe":  "Organ and stage geometry remain legible at card size.",
+                      "mustNotAppear":  [
+                                            "readable notation",
+                                            "orchestra faces",
+                                            "fantasy army",
+                                            "logo"
+                                        ],
+                      "master":  "assets/images/masters/CDS-033-visual-symphonic-epic-metal-ad-master.png",
+                      "destination":  "assets/images/archive/symphonic-epic-metal-ad.webp",
+                      "status":  "hold",
+                      "holdReason":  "Visual Archive card deferred pending YouTube decision"
+                  }
+              ]
+}
