@@ -1476,6 +1476,16 @@ button.button {
 }
 
 @media (min-width: 1181px) {
+  .band-hero .page-hero-media {
+    background-position: left top;
+    background-size: 86% auto;
+    transform: translateX(30vw);
+  }
+
+  .band-hero .page-hero-copy {
+    width: min(42rem, 100%);
+  }
+
   .forge-hero-v2 .page-hero-media {
     background-position: left top;
     background-size: 95% auto;
