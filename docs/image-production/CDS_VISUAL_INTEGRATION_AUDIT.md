@@ -89,6 +89,18 @@ Status wording in this document records layout inspection only. It does not repr
 
 ## Final Review State
 
+### 2026-07-16 Color and Responsive Addendum
+
+- All 37 integrated WebP deliverables now carry an embedded sRGB profile and were rebuilt from their canonical masters.
+- `.page-hero-media` now uses `saturate(0.96) contrast(1.02)`; the previous global desaturation no longer compounds the color-profile error.
+- `.sister-profile > img` now uses `saturate(0.96) contrast(1.02)` and `.contact-stage-media` uses `saturate(0.9) contrast(1.03)`.
+- `.forge-hero-v2 .page-hero-media` uses independent desktop positioning at widths above `1180px`: `background-size:95% auto` and `transform:translateX(26vw)`.
+- `.music-hero .page-hero-media` is top-anchored below the fixed header.
+- At `800px` and below, every `.page-signal-hero .page-hero-media` uses its dedicated mobile source with `background-size:100% auto` and `background-position:center top`.
+- The Forge `.transparency-band` no longer expands the document beyond the mobile viewport; its heading and children are constrained to `max-width:100%`.
+- Cyan metadata remains plain text. Cyan content links now have larger targets, larger type, and visible underlines so their interactive role is not ambiguous.
+- Corrected renderings remain awaiting human review after deployment.
+
 - `corrected-awaiting-human-review`: 28 deliverables
 - `acceptable-awaiting-human-review`: 9 deliverables
 - `master-review-required`: none

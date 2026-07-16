@@ -59,8 +59,18 @@ Integration pass completed for the approved non-album assets present in `assets/
 - `CDS-011`, `CDS-012`, and `CDS-013` are approved canonical 4:5 band profiles.
 - `CDS-007` and `CDS-012` remain the approved visual-distance anchors for their respective trios.
 - Layout and derivatives must preserve these source ratios. All six assets remain integrated and awaiting human review after responsive verification.
-- Active homepage derivatives (`CDS-001`, `CDS-002`, `CDS-004` through `CDS-009`) and band profiles (`CDS-011` through `CDS-013`) were regenerated with an embedded sRGB ICC profile. ProPhoto masters were explicitly transformed to sRGB before resize and WebP encoding; profile-free approved replacements were treated as sRGB.
+- All 37 integrated WebP deliverables were regenerated with an embedded sRGB ICC profile. ProPhoto masters were explicitly transformed to sRGB before resize and WebP encoding; profile-free approved replacements were treated as sRGB.
 - Homepage hero framing is width-driven and top-anchored below the fixed header. This prevents Windows display scaling or browser zoom from changing `cover` crop behavior around the three faces.
+
+## Site-wide Color and Responsive Correction - 2026-07-16
+
+- Rebuilt every integrated desktop and mobile WebP from its canonical PNG master. This corrects the previous ProPhoto-to-untagged-WebP conversion error that made imagery dark, muted, and washed out in browsers.
+- Rebuilt `CDS-002` from the Architect's approved replacement master with corrected Callizto skin tone. The replacement master is untagged and is intentionally treated as sRGB.
+- `gateway-listen.jpg`, `home-hero.jpg`, and `home-hero-mobile.jpg` were compared with the active derivatives. They are untagged working copies and are not referenced by the website; the canonical PNG masters remain the source of the published WebP files.
+- All dedicated vertical page heroes now use the same mobile rule at `800px` and below: canonical `-M` source, width-driven `100% auto` sizing, top anchoring below the fixed header, and a reserved image zone before page copy.
+- The Forge desktop hero uses independent positioning so Ada is moved out from behind the main copy while Ada, Astra, and Nyx remain visible.
+- The Music desktop hero begins beneath the fixed navigation and anchors to the top of the source so Callizto's full head and bangs remain visible.
+- The Universe motif strip (`Frost`, `Ash`, `Static`, `Iron`, `Pulse`) is intentionally typographic and does not represent missing image assets.
 
 ### Derivative and Integration Summary
 
