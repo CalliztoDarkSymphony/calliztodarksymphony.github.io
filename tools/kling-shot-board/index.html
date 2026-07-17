@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#08070b">
+  <title>Kling Shot Board</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to shot board</a>
+
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-identity">
+        <p class="app-mark">CDS PRODUCTION TOOL</p>
+        <h1>Kling Shot Board</h1>
+        <p id="pack-meta" class="pack-meta">Loading scene pack...</p>
+      </div>
+      <div class="header-actions" aria-label="Data controls">
+        <button id="open-import" class="button secondary" type="button">Import scene pack</button>
+        <button id="export-progress" class="button secondary" type="button">Export progress</button>
+        <button id="import-progress" class="button secondary" type="button">Import progress</button>
+        <button id="reset-progress" class="button danger" type="button">Reset progress</button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="dashboard" aria-labelledby="progress-title">
+        <div class="progress-panel">
+          <div>
+            <p class="section-label" id="progress-title">Production progress</p>
+            <strong id="progress-text">0 / 0 scenes completed</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+        </div>
+
+        <div class="filter-panel" aria-label="Filter scenes by status">
+          <button class="filter-button is-active" type="button" data-filter="Pending" aria-pressed="true">Pending <span id="count-pending">0</span></button>
+          <button class="filter-button" type="button" data-filter="Retry" aria-pressed="false">Retry <span id="count-retry">0</span></button>
+          <button class="filter-button" type="button" data-filter="Completed" aria-pressed="false">Completed <span id="count-completed">0</span></button>
+          <button class="filter-button" type="button" data-filter="All" aria-pressed="false">All <span id="count-all">0</span></button>
+        </div>
+      </section>
+
+      <details class="kling-rules">
+        <summary>Kling Custom Multi-Shot rules</summary>
+        <ul>
+          <li>Maximum six shots per scene.</li>
+          <li>Maximum total duration fifteen seconds.</li>
+          <li>Every shot prompt must stand alone and contain everything needed for that shot.</li>
+          <li>Never assume one shot remembers the previous shot.</li>
+          <li>Keep element assignments, speaker, camera side, and eyeline visible while generating.</li>
+          <li>Dialogue shots with more than two visible characters require review.</li>
+        </ul>
+      </details>
+
+      <div id="app-message" class="app-message" role="status" aria-live="polite">Loading scene-pack.json...</div>
+
+      <section id="workspace" class="workspace" hidden>
+        <aside class="scene-rail" aria-labelledby="scene-queue-title">
+          <div class="rail-heading">
+            <div>
+              <p class="section-label">Scene navigation</p>
+              <h2 id="scene-queue-title">Scene queue</h2>
+            </div>
+            <span id="filtered-count" class="count-badge">0</span>
+          </div>
+          <div id="scene-list" class="scene-list"></div>
+          <p id="empty-filter" class="empty-state" hidden>No scenes match this filter.</p>
+        </aside>
+
+        <section class="scene-workspace" aria-live="polite">
+          <div class="scene-nav-controls">
+            <button id="previous-scene" class="button nav-button" type="button">Previous scene</button>
+            <p id="scene-position">Scene 0 of 0</p>
+            <button id="next-scene" class="button nav-button" type="button">Next scene</button>
+          </div>
+
+          <article id="scene-view" class="scene-view">
+            <header class="scene-header">
+              <div class="scene-title-block">
+                <p id="scene-id" class="section-label">Scene</p>
+                <h2 id="scene-title">No scene selected</h2>
+                <p id="scene-purpose" class="scene-purpose"></p>
+              </div>
+              <label class="status-control scene-status-control">
+                <span>Scene status</span>
+                <select id="scene-status"></select>
+              </label>
+            </header>
+
+            <section id="next-offer" class="next-offer" hidden>
+              <div>
+                <strong>Scene completed</strong>
+                <p id="next-offer-text">The next pending scene is ready.</p>
+              </div>
+              <button id="open-next-pending" class="button primary" type="button">Open next pending</button>
+            </section>
+
+            <section id="scene-warnings-panel" class="warning-panel" hidden aria-labelledby="scene-warnings-title">
+              <h3 id="scene-warnings-title">Scene checks</h3>
+              <ul id="scene-warnings"></ul>
+            </section>
+
+            <section class="scene-summary-grid">
+              <div class="summary-card">
+                <p class="section-label">Scene notes</p>
+                <p id="scene-notes">No scene notes supplied.</p>
+              </div>
+              <div class="summary-card duration-card">
+                <p class="section-label">Total duration</p>
+                <strong id="total-duration">0 seconds</strong>
+                <span>Maximum 15 seconds</span>
+              </div>
+            </section>
+
+            <details class="global-notes-panel">
+              <summary>Project notes</summary>
+              <p id="global-notes">No global notes supplied.</p>
+            </details>
+
+            <section class="elements-panel" aria-labelledby="elements-title">
+              <div class="section-heading-row">
+                <div>
+                  <p class="section-label">Kling element assignments</p>
+                  <h3 id="elements-title">Element map</h3>
+                </div>
+                <button id="copy-element-map" class="button secondary" type="button">Copy element map</button>
+              </div>
+              <div id="element-list" class="element-list"></div>
+            </section>
+
+            <section class="shots-panel" aria-labelledby="shots-title">
+              <div class="section-heading-row">
+                <div>
+                  <p class="section-label">Custom Multi-Shot</p>
+                  <h3 id="shots-title">Shots</h3>
+                </div>
+                <button id="copy-full-scene" class="button secondary" type="button">Copy full scene</button>
+              </div>
+              <div id="shot-tabs" class="shot-tabs" role="tablist" aria-label="Scene shots"></div>
+              <div id="shot-view" class="shot-view"></div>
+            </section>
+          </article>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="import-dialog" class="import-dialog" aria-labelledby="import-title">
+    <form method="dialog" class="dialog-header">
+      <div>
+        <p class="section-label">Scene pack loader</p>
+        <h2 id="import-title">Import JSON</h2>
+      </div>
+      <button class="icon-button" value="cancel" aria-label="Close import dialog">Close</button>
+    </form>
+
+    <div class="dialog-body">
+      <section>
+        <h3>Choose a local JSON file</h3>
+        <label class="file-button button primary" for="scene-pack-file">Select scene pack</label>
+        <input id="scene-pack-file" type="file" accept="application/json,.json">
+      </section>
+
+      <div class="dialog-divider"><span>or</span></div>
+
+      <section>
+        <label for="paste-json"><strong>Paste scene pack JSON</strong></label>
+        <textarea id="paste-json" rows="12" spellcheck="false" placeholder="Paste the complete scene pack JSON here"></textarea>
+        <button id="import-pasted-json" class="button primary full-width" type="button">Import pasted JSON</button>
+      </section>
+
+      <button id="load-default-pack" class="button secondary full-width" type="button">Load default scene-pack.json</button>
+      <p id="import-error" class="form-error" role="alert" hidden></p>
+    </div>
+  </dialog>
+
+  <input id="progress-file" type="file" accept="application/json,.json" hidden>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

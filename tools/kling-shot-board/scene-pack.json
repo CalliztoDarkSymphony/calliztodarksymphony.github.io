@@ -1,0 +1,161 @@
+{
+  "projectTitle": "Kling Shot Board Sample Pack",
+  "packVersion": "placeholder-1.0",
+  "placeholderData": true,
+  "globalNotes": "PLACEHOLDER DATA ONLY. These fictional scenes exist only to test the production board. They are not Sisters of the Forge dialogue, story, or canon.",
+  "scenes": [
+    {
+      "id": "PLACEHOLDER-SCENE-01",
+      "sceneTitle": "Placeholder Corridor Exchange",
+      "purpose": "Test element assignments, dialogue metadata, shot navigation, copying, and filename tracking.",
+      "status": "Pending",
+      "notes": "Use only as interface test data. Replace this scene when a real production pack is imported.",
+      "elements": [
+        {
+          "elementSlot": "Element 1",
+          "characterObjectName": "Placeholder Character A",
+          "usageInstruction": "Use as the speaking character. Neutral fictional wardrobe and no resemblance to a CDS character."
+        },
+        {
+          "elementSlot": "Element 2",
+          "characterObjectName": "Placeholder Character B",
+          "usageInstruction": "Use as the silent listener. Neutral fictional wardrobe and no resemblance to a CDS character."
+        },
+        {
+          "elementSlot": "Element 3",
+          "characterObjectName": "Placeholder Corridor",
+          "usageInstruction": "Use as a simple dark corridor environment with restrained violet practical lights."
+        }
+      ],
+      "shots": [
+        {
+          "shotNumber": 1,
+          "durationSeconds": 4,
+          "shotTitle": "Corridor establishing shot",
+          "speaker": "None",
+          "visibleCharacters": [
+            "Placeholder Character A"
+          ],
+          "cameraSide": "Camera remains on the corridor left side.",
+          "eyeline": "Placeholder Character A looks toward frame right.",
+          "elementSlots": [
+            "Element 1",
+            "Element 3"
+          ],
+          "standalonePrompt": "A completely fictional placeholder character called Placeholder Character A stands alone in a dark neutral corridor. Medium-wide eye-level shot from the corridor left side. The character looks toward frame right. Use a slow controlled push-in, neutral dark wardrobe, and soft violet practical light. There is no dialogue. Do not show CDS canon characters, text, subtitles, or logos.",
+          "notes": "Placeholder shot for testing copy behavior and camera metadata.",
+          "expectedResult": "A stable establishing shot with one clearly visible fictional character.",
+          "retryPrompt": "A completely fictional placeholder character called Placeholder Character A stands alone in a dark neutral corridor. Locked medium-wide eye-level camera from the corridor left side. The character remains fully visible and looks toward frame right. Use only a subtle controlled push-in. Neutral dark wardrobe, soft violet practical light, no dialogue, no CDS canon characters, no text, subtitles, or logos.",
+          "generationFilename": "placeholder-scene-01-shot-01.mp4"
+        },
+        {
+          "shotNumber": 2,
+          "durationSeconds": 5,
+          "shotTitle": "Placeholder line delivery",
+          "speaker": "Placeholder Character A",
+          "visibleCharacters": [
+            "Placeholder Character A",
+            "Placeholder Character B"
+          ],
+          "cameraSide": "Camera stays on the same corridor left side and does not cross the axis.",
+          "eyeline": "Character A looks frame right toward Character B. Character B looks frame left toward Character A.",
+          "elementSlots": [
+            "Element 1",
+            "Element 2",
+            "Element 3"
+          ],
+          "standalonePrompt": "Two completely fictional placeholder characters stand in a dark neutral corridor. Placeholder Character A is on the left and Placeholder Character B is on the right. Character A is the only speaker and says, 'This is placeholder dialogue for interface testing.' Character B remains silent. Use an eye-level medium two-shot from the corridor left side without crossing the axis. Character A looks frame right and Character B looks frame left. Soft violet practical lighting. Do not show CDS canon characters, text, subtitles, or logos.",
+          "notes": "Tests explicit speaker, two visible characters, fixed screen positions, and eyelines.",
+          "expectedResult": "A readable two-shot with one speaker and stable left-to-right placement.",
+          "retryPrompt": "Two completely fictional placeholder characters stand in a dark neutral corridor. Placeholder Character A remains on the left and Placeholder Character B remains on the right for the entire shot. Character A alone says, 'This is placeholder dialogue for interface testing.' Character B stays silent. Locked eye-level medium two-shot from the corridor left side, no axis crossing. Character A looks frame right and Character B looks frame left. Soft violet practical lighting, no CDS canon characters, no text, subtitles, or logos.",
+          "generationFilename": "placeholder-scene-01-shot-02.mp4"
+        },
+        {
+          "shotNumber": 3,
+          "durationSeconds": 4,
+          "shotTitle": "Silent reaction",
+          "speaker": "None",
+          "visibleCharacters": [
+            "Placeholder Character B"
+          ],
+          "cameraSide": "Camera remains on the corridor left side.",
+          "eyeline": "Placeholder Character B looks slightly frame left toward the off-screen speaker position.",
+          "elementSlots": [
+            "Element 2",
+            "Element 3"
+          ],
+          "standalonePrompt": "A completely fictional placeholder character called Placeholder Character B stands in a dark neutral corridor and gives a quiet, thoughtful reaction without speaking. Use a steady eye-level medium close-up from the corridor left side. Character B looks slightly frame left toward an off-screen speaker position. Soft violet practical lighting, minimal movement, no CDS canon characters, no text, subtitles, or logos.",
+          "notes": "Tests a silent single-character reaction shot.",
+          "expectedResult": "A restrained silent reaction with a stable eyeline.",
+          "retryPrompt": "A completely fictional placeholder character called Placeholder Character B stands in a dark neutral corridor. Locked eye-level medium close-up from the corridor left side. Character B remains silent and looks slightly frame left toward the off-screen speaker position. Keep facial movement subtle and identity stable. Soft violet practical lighting, no CDS canon characters, no text, subtitles, or logos.",
+          "generationFilename": "placeholder-scene-01-shot-03.mp4"
+        }
+      ]
+    },
+    {
+      "id": "PLACEHOLDER-SCENE-02",
+      "sceneTitle": "Placeholder Object Inspection",
+      "purpose": "Test an object-focused scene, scene status workflow, progress persistence, and a second navigation target.",
+      "status": "Pending",
+      "notes": "This object and all actions are fictional placeholder material only.",
+      "elements": [
+        {
+          "elementSlot": "Element 1",
+          "characterObjectName": "Placeholder Mechanical Object",
+          "usageInstruction": "Use as the only featured object. It is a simple invented metal device with no symbols or branding."
+        },
+        {
+          "elementSlot": "Element 2",
+          "characterObjectName": "Placeholder Gloved Hand",
+          "usageInstruction": "Use only for the hand entering frame. Do not show a face or identify a character."
+        },
+        {
+          "elementSlot": "Element 3",
+          "characterObjectName": "Placeholder Work Surface",
+          "usageInstruction": "Use as a matte black tabletop under neutral studio lighting."
+        }
+      ],
+      "shots": [
+        {
+          "shotNumber": 1,
+          "durationSeconds": 5,
+          "shotTitle": "Object reveal",
+          "speaker": "None",
+          "visibleCharacters": [],
+          "cameraSide": "Camera is centered directly above the work surface.",
+          "eyeline": "Not applicable. No face is visible.",
+          "elementSlots": [
+            "Element 1",
+            "Element 3"
+          ],
+          "standalonePrompt": "A completely fictional unbranded mechanical object rests at the center of a matte black work surface. Use a locked overhead close shot with the object fully visible and centered. A narrow cyan edge light reveals the metal shape while the background remains neutral and uncluttered. No people, dialogue, CDS symbols, text, labels, or logos.",
+          "notes": "Tests a shot with no visible characters.",
+          "expectedResult": "A clean object reveal with the entire device readable.",
+          "retryPrompt": "A completely fictional unbranded mechanical object rests alone at the exact center of a matte black work surface. Locked overhead close shot, entire object inside frame, no camera movement. Narrow cyan edge light, neutral uncluttered background, no people, dialogue, CDS symbols, text, labels, or logos.",
+          "generationFilename": "placeholder-scene-02-shot-01.mp4"
+        },
+        {
+          "shotNumber": 2,
+          "durationSeconds": 5,
+          "shotTitle": "Inspection gesture",
+          "speaker": "None",
+          "visibleCharacters": [
+            "Placeholder Gloved Hand"
+          ],
+          "cameraSide": "Camera stays centered above the work surface.",
+          "eyeline": "Not applicable. No face is visible.",
+          "elementSlots": [
+            "Element 1",
+            "Element 2",
+            "Element 3"
+          ],
+          "standalonePrompt": "A completely fictional unbranded mechanical object rests at the center of a matte black work surface. A single fictional gloved hand enters slowly from the bottom of frame, points once at the object, and stops without touching it. Use a locked overhead close shot with the entire object and hand visible. Narrow cyan edge light, no face, dialogue, CDS symbols, text, labels, or logos.",
+          "notes": "Tests object and partial-character element assignments.",
+          "expectedResult": "A clear controlled pointing gesture with no extra hands or objects.",
+          "retryPrompt": "A completely fictional unbranded mechanical object rests at the center of a matte black work surface. Exactly one fictional gloved hand enters from the bottom of frame, points once at the object, and becomes still without touching it. Locked overhead close shot. Keep the entire object and the single hand visible. Narrow cyan edge light, no face, dialogue, CDS symbols, text, labels, logos, or additional hands.",
+          "generationFilename": "placeholder-scene-02-shot-02.mp4"
+        }
+      ]
+    }
+  ]
+}
